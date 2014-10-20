@@ -1,5 +1,4 @@
 #RSHELL
-**---**
 
 Licensing Information: READ LICENSE
 ---
