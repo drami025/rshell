@@ -121,6 +121,7 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it){
             return -1;
         }
     }
+    delete[] args;
     return 0;
 }
 
