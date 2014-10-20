@@ -45,7 +45,7 @@ int main(){
 
 void readCommands(string str){
 
-    char_separator<char> sep("\" ", ";");
+    char_separator<char> sep("\" ", ";#|&");
 
     Tok tokens(str, sep);
     stringstream ss;
@@ -62,15 +62,15 @@ void readCommands(string str){
             it++;
             if(it == tokens.end()) break;
         }
-        else if(*it ==  "&&"){
-           if(conjunct(n, ss, it) == -1){
+        else if(*it ==  "&"){
+            if(conjunct(n, ss, it) == -1){
                 skipCommand(it, tokens);
             }
             n = 0;
             if(it == tokens.end()) break;
             it++;
         }
-        else if(*it == "||"){
+        else if(*it == "|"){
             if(conjunct(n, ss, it) != -1){
                 skipCommand(it, tokens);
             }
@@ -78,10 +78,12 @@ void readCommands(string str){
             if(it == tokens.end()) break;
             it++;
         }
-        
-        ss << *it;
-        ss << " ";
-        n++;
+
+        if(*it != "&" && *it != "|"){
+            ss << *it;
+            ss << " ";
+            n++;
+        }
     }
 
     if(n > 0){
@@ -97,7 +99,6 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it){
         return -2;
     }
     else if(n == 0 && *it == "#") return 0; 
-
     char** args = new char*[n + 1];
 
     splitString(args, ss, n);
