@@ -77,3 +77,5 @@ $ bin/rshell
 
 Bugs & Fixes
 ---
+
+* Typing in more than one connector with no command (i.e, typing just ``;;``  and hitting ``enter``)  will only give you the proper error for one connector. 
