@@ -69,6 +69,7 @@ void readCommands(string str){
             n = 0;
             if(it == tokens.end()) break;
             it++;
+            if(it == tokens.end()) break;
         }
         else if(*it == "|"){
             if(conjunct(n, ss, it) != -1){
