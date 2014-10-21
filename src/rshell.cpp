@@ -72,9 +72,13 @@ void readCommands(string str){
             if(it == tokens.end()) break;
         }
         else if(*it == "|"){
-            if(conjunct(n, ss, it) != -1){
-                skipCommand(it, tokens);
-            }
+            Tok::iterator copy = it;
+            copy++;
+            if(copy != tokens.end() && *copy == "|"){
+                if(conjunct(n, ss, it) != -1){
+                    skipCommand(it, tokens);
+                }
+            }    
             n = 0;
             if(it == tokens.end()) break;
             it++;

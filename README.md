@@ -79,3 +79,8 @@ Bugs & Fixes
 ---
 
 * Typing in more than one connector with no command (i.e, typing just ``;;``  and hitting ``enter``)  will only give you the proper error for one connector. 
+* Programs do not run in the background.
+* Typing in ``$ ls && && && ls`` will actually run ``ls`` twice, as opposed to just returning an error.
+* Typing in a command and then a connector like ``&&`` or ``||`` will actually cause the command before the connector to execute, as opposed to waiting till a second command to inputted. 
+* Typing in ``ls | echo test`` does not cause piping as of now.
+* Typing in something like ``ls &&& ls`` will actually run the commands while still giving an error for an unexpected token, as opposed to just returning an error in a normal BASH shell.
