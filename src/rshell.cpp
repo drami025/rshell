@@ -76,6 +76,12 @@ void readCommands(string str){
         else if(*it == "|"){
             Tok::iterator copy = it;
             copy++;
+// Remove this part once we deal with piping            
+            if(copy != tokens.end() && *copy != "|") {
+                conjunct(0, ss, it);
+                skipCommand(it, tokens);
+            }
+//======
             if(copy != tokens.end() && *copy == "|"){
                 if(conjunct(n, ss, it) != -1){
                     skipCommand(it, tokens);
@@ -110,7 +116,7 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it){
 
     if(n == 0 && *it != "#"){
         cerr << "Bash: syntax error near unexpected token \'" << *it << "\'" << endl;
-        return -2;
+        return -1;
     }
     else if(n == 0 && *it == "#") return 0; 
     char** args = new char*[n + 1];

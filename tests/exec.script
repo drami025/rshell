@@ -1,0 +1,98 @@
+Script started on Tue 21 Oct 2014 07:57:27 PM PDT
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw0/testsdaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw0/tests$ ../bin/rshell
+
+daniel@daniel-Aspire-V5-471P$ # I left a  n extra sa pace above ^ and     when you frist    irst start this r  shell and and e    extra space below after yy ou exit the rshell so    to diff    different         separate my rshell from the normal bash shell. This also happend s to test when ther w my rshell deals with comments
+daniel@daniel-Aspire-V5-471P$ touch hello ; touch there ;touch wonderful; touch world; # th     Thi    This e tests whe   whether       whether       wh  the use of the con   ";" connector and    , which should work regardless of it position in the command line.                                  line 
+daniel@daniel-Aspire-V5-471P$ ls && rm wonderful&&ls # This tests the "&&" connector, which should work regardless of it  s position on the command line. In this example, all three commands should run.
+example  ex.cpp  exec.script  hello  there  wonderful  world
+example  ex.cpp  exec.script  hello  there  world
+daniel@daniel-Aspire-V5-471P$ echo "this is true" || echo "this is c false" # This tests the fu  functionality of the "||" connector, . In this case, the first command should fu  run                            only the fu irst cc ommand should run
+this is true
+daniel@daniel-Aspire-V5-471P$ pwd||pwe d # This teest   sts whether                    The "||" connector should work, regardless of i the space ing bete ween connector and commands.
+/home/daniel/Documents/Programming/cs100/hw0/tests
+daniel@daniel-Aspire-V5-471P$ ls -a -l # The  ests the use of flags in the command line
+total 16
+drwxrwxr-x 2 daniel daniel 4096 Oct 21 20:02 .
+drwxrwxr-x 6 daniel daniel 4096 Oct 21 19:55 ..
+-rw-rw-r-- 1 daniel daniel   22 Oct 21 15:42 example
+-rw-rw-r-- 1 daniel daniel  116 Oct 21 19:19 ex.cpp
+-rw-rw-r-- 1 daniel daniel    0 Oct 21 19:57 exec.script
+-rw-rw-r-- 1 daniel daniel    0 Oct 21 20:01 hello
+-rw-rw-r-- 1 daniel daniel    0 Oct 21 20:01 there
+-rw-rw-r-- 1 daniel daniel    0 Oct 21 20:01 world
+daniel@daniel-Aspire-V5-471P$ ls -a -a -a -a -a -a a -a -a -a -a -a -a -a -a -a-  -a -a -a -a -a -l -l -l # Tests w if rshell will run,    with repeti            , regarde less of the lenght of     th of the command. In this case, typing -a mu  and -l flags multiple times should be equivalent to just la s -a -l        : "l  s -a -l"
+total 16
+drwxrwxr-x 2 daniel daniel 4096 Oct 21 20:02 .
+drwxrwxr-x 6 daniel daniel 4096 Oct 21 19:55 ..
+-rw-rw-r-- 1 daniel daniel   22 Oct 21 15:42 example
+-rw-rw-r-- 1 daniel daniel  116 Oct 21 19:19 ex.cpp
+-rw-rw-r-- 1 daniel daniel    0 Oct 21 19:57 exec.script
+-rw-rw-r-- 1 daniel daniel    0 Oct 21 20:01 hello
+-rw-rw-r-- 1 daniel daniel    0 Oct 21 20:01 there
+-rw-rw-r-- 1 daniel daniel    0 Oct 21 20:01 world
+daniel@daniel-Aspire-V5-471P$ hi ||               ||                                           || echo he  "hello" # this      This tests as nother feath ure of the "||" feature, wh herein the first command fas ils,    and the second part such ces eds and runs
+hi: No such file or directory
+hello
+daniel@daniel-Aspire-V5-471P$ hi || hi # another aspect of the "||" connecti or. This should execute errors for mo  both commands.
+hi: No such file or directory
+hi: No such file or directory
+daniel@daniel-Aspire-V5-471P$ echo hello ||  && bye # Tests another sa  aspect of the "&&" connen ctor. This should execute the first command and execute and error        error ff or the second.
+hello
+bye: No such file or directory
+daniel@daniel-Aspire-V5-471P$ hi; echo helo lo; # th  This tests a feature of the ";" connector, where in   in the first command shold  uld output an error,  and the second should run.
+hi: No such file or directory
+hello
+daniel@daniel-Aspire-V5-471P$ nothing && echo happens # This      Using     Because this command line used s the "&&" connector,    and the first conn  mmand e outputs and error, this      no    the second command shouldn't run.
+nothing: No such file or directory
+daniel@daniel-Aspire-V5-471P$ echo hello || bye # Because this command line uses the "||" connector and the first command scu  ucceeds in executing, the secon d  d command should not output and error.
+hello
+daniel@daniel-Aspire-V5-471P$ echo hello && echo "world" # this    This deals with commands        qua otation mak                        tests whether quotation makr  rks affect the echo command, which it should not.
+hello
+world
+daniel@daniel-Aspire-V5-471P$ echo e hello && echo world || echo goodbye # This tests connec      chaining t different connectors in    on a command line. In this f case, the first two commands should run.
+hello
+world
+daniel@daniel-Aspire-V5-471P$ ls -a && echo good; rm there || rm hello; ls # Another test with multiple conne              more chaing ing. First     First two conne   ma m        three c   e commn                 o Only command that should not run is "rm hello".
+.  ..  example	ex.cpp	exec.script  hello  there  world
+good
+example  ex.cpp  exec.script  hello  world
+daniel@daniel-Aspire-V5-471P$ ls; whatsup; echo "this sh       This should run" # This comm       ese sets          is set of command                  e he first and last command should ru, n, regardless of the fact the second command returns andd   error.
+example  ex.cpp  exec.script  hello  world
+whatsup: No such file or directory
+This should run
+daniel@daniel-Aspire-V5-471P$ mkdir junk; touch junk/fileinjunk;  ; ls junk && rm -rf junk # More      Mo  More chaning    ing ing. Also tests "mkdir" commands, whet    creating files in different directories, viewing files in different co  directories and removing this directory.
+fileinjunk
+daniel@daniel-Aspire-V5-471P$ ru  pwd # cch   Checking d current directory
+/home/daniel/Documents/Programming/cs100/hw0/tests
+daniel@daniel-Aspire-V5-471P$ run   ../vin   bin/rshell # should run rshell within rshell
+
+daniel@daniel-Aspire-V5-471P$ 3 #  This is a an  my rshell with  in myrshell. Success.
+daniel@daniel-Aspire-V5-471P$ ls # Just to verify this rshell      nested rshell word ks.
+example  ex.cpp  exec.script  hello  world
+daniel@daniel-Aspire-V5-471P$ ex  echo goodbye && exit #Ch   This checks wi hether e exit command works with c connectors and other commands. a 
+goodbye
+
+daniel@daniel-Aspire-V5-471P$ # ^Notice extra space be  after r myrshell e         rshell exits?   ? Hoe pe this is aet sthei tically pleasing.
+daniel@daniel-Aspire-V5-471P$ cd /    cd ../bin # This should not run li  properly since we have not in mplemented this df  feature.
+cd: No such file or directory
+daniel@daniel-Aspire-V5-471P$ g++ ex.cpp -o a.out # This checks whether g++ works  , as well as all its flags.
+daniel@daniel-Aspire-V5-471P$ ls # check to see it a.out was created
+a.out  example	ex.cpp	exec.script  hello  world
+daniel@daniel-Aspire-V5-471P$ rm a.out #   
+daniel@daniel-Aspire-V5-471P$ ls
+example  ex.cpp  exec.script  hello  world
+daniel@daniel-Aspire-V5-471P$ echo test && #ru   Using the c "&&" without a second argument should prompt for another command. Rshell does not implemeen  nt this feature.
+test
+daniel@daniel-Aspire-V5-471P$ && ls # This should not run the second command. Error is a litttl   tt le            , however, is   incorrect. This is a bug in Rshell.
+Bash: syntax error near unexpected token '&'
+daniel@daniel-Aspire-V5-471P$ echo test > example # Won't run properly, since we have not imple   lemented redirector  ion.
+test > example
+daniel@daniel-Aspire-V5-471P$ exit # exits Rshell
+
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw0/testsdaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw0/tests$ # [KEnd of all rhs[K[Kshell's test cases[1@e[1@x[1@i[1@t[1@ 
+exit
+
+Script done on Tue 21 Oct 2014 08:32:35 PM PDT
+
+
+** NOTE: Several bugs are also listed in README but not called here as to avoid redundancy **
