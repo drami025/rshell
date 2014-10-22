@@ -25,10 +25,20 @@ int main(){
     cout << endl;
     string str = "";
     struct passwd *pass;
+    
     pass = getpwuid(getuid());
+    if(pass == NULL){
+        perror("getpwuid()");
+    }
+
     char* usrname = pass->pw_name;
     char hostname[128];
+    
     int success = gethostname(hostname, sizeof hostname);
+    if(success == -1){
+        perror("gethostname()");
+    }
+    
     string userinfo = "";
     string username = "";
 
