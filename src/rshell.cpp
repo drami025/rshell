@@ -1,4 +1,5 @@
 #include<iostream>
+#include<pwd.h>
 #include<sstream>
 #include<stdio.h>
 #include<boost/tokenizer.hpp>
@@ -22,14 +23,18 @@ void splitString(char** args, stringstream& ss, int n);
 int main(){
     
     cout << endl;
-    string str;
-    string usrname = getlogin();
+    string str = "";
+    struct passwd *pass;
+    pass = getpwuid(getuid());
+    char* usrname = pass->pw_name;
     char hostname[128];
     int success = gethostname(hostname, sizeof hostname);
     string userinfo = "";
+    string username = "";
 
-    if(usrname != "\0" && success == 0){
-        userinfo = usrname + "@" + hostname;
+    if(usrname != NULL && success == 0){
+        username = usrname;
+        userinfo = username + "@" + hostname;
     }
 
     bool notExited = true;
@@ -52,11 +57,8 @@ void readCommands(string str){
     int n = 0;
 
     for(Tok::iterator it = tokens.begin(); it != tokens.end(); it++){
-        if(*it == "#"){
-            conjunct(n, ss, it);
-            return;
-        }
-        else if(*it == ";"){
+        
+        if(*it == ";"){
             conjunct(n, ss, it);
             n = 0;
             it++;
@@ -84,6 +86,11 @@ void readCommands(string str){
             it++;
         }
 
+        if(*it == "#"){
+            conjunct(n, ss, it);
+            return;
+        }
+
         if(*it != "&" && *it != "|"){
             ss << *it;
             ss << " ";
@@ -99,6 +106,8 @@ void readCommands(string str){
 
 int conjunct(int n, stringstream& ss, const Tok::iterator &it){
     
+    int status;
+
     if(n == 0 && *it != "#"){
         cerr << "Bash: syntax error near unexpected token \'" << *it << "\'" << endl;
         return -2;
@@ -117,13 +126,20 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it){
     else if(pid == 0){
         if(-1 == execvp((const char*) args[0], (char* const*) args)){
             perror(args[0]);
-            exit(1);
+            exit(3);
         }
     }
     else if(pid > 0){
-        if(-1 == wait(0)){
+        if(-1 == wait(&status)){
             perror("There was an error with wait().");
             return -1;
+        }
+
+        if(WIFEXITED(status)){
+            if(WEXITSTATUS(status) == 3){
+                delete[] args;
+                return -1;
+            }
         }
     }
     delete[] args;

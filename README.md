@@ -84,3 +84,4 @@ Bugs & Fixes
 * Typing in a command and then a connector like ``&&`` or ``||`` will actually cause the command before the connector to execute, as opposed to waiting till a second command to inputted. 
 * Typing in ``ls | echo test`` does not cause piping as of now.
 * Typing in something like ``ls &&& ls`` will actually run the commands while still giving an error for an unexpected token, as opposed to just returning an error in a normal BASH shell.
+* Quote features do not function as they are suppose to. For example, if you type in ``echo "hello        world"`` you would receive ``hello       world`` on a normal BASH shell. On this shell, you will see ``hello world``.
