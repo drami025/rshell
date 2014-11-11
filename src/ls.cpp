@@ -1,0 +1,265 @@
+#include <sys/types.h>
+#include <grp.h>
+#include <pwd.h>
+#include <time.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <dirent.h>
+#include <errno.h>
+#include <string.h>
+#include <iostream>
+#include <stdio.h>
+#include <cstdlib>
+#include <iomanip>
+#include <vector>
+#include <sstream>
+#include <set>
+
+using namespace std;
+
+struct classComp{
+    bool operator()(char* a, char* b){
+        int compare = strcmp(a, b);
+
+        return compare <= 0;
+    }
+};
+
+void readDirectories(const vector<string>& directories, const string& allFlags, int numOfDir);
+void outputLS(char* dirName, const string& flags);
+void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL);
+
+int main(int argc, char** argv)
+{
+    //Size I'll make vector after tranversing command line arguments
+    int numOfDir = 0; stringstream dir;
+    int numOfFlags = 0; stringstream flags;
+
+    //Traversing command line here and populate stream for directories and flags
+    for(unsigned i = 1; i < argc; i++){
+        if(argv[i][0] != '-'){
+            numOfDir++;
+            dir << argv[i] << " ";
+        }
+        else{
+            flags << argv[i];
+        }
+    }
+
+    //Populate vector for directories
+    vector<string> directories(numOfDir);
+    for(unsigned i = 0; i < numOfDir; i++){
+        dir >> directories.at(i);
+    }
+
+    //Populate string for flags
+    string allFlags;
+    flags >> allFlags;  
+
+    readDirectories(directories, allFlags, numOfDir);
+
+    return 0;
+}
+
+//function to read directories
+void readDirectories(const vector<string>& directories, const string& flags, int numOfDir){
+
+    bool moreDir = numOfDir > 1;
+
+    if(numOfDir == 0){
+        char* dirName;
+        dirName = (char*) ".";
+        outputLS(dirName, flags);
+    }
+
+    //Loop through all directories inputted. Only once if no arguments.
+    for(unsigned i = 0; numOfDir > 0; numOfDir--, i++){
+        char* dirName;
+
+        //If less than one, then current directory. Else, passed in directory.
+
+        //Prints name of directory if multiple directories.
+        if(moreDir){
+            cout << directories.at(i) << ": " << endl;
+        }
+        dirName = (char*) directories.at(i).c_str();
+
+
+        outputLS(dirName, flags);
+
+
+        if(numOfDir > 1) cout << endl;        
+    }
+}
+
+//function to begin displaying all files in directory
+void outputLS(char* dirName, const string& flags){
+    //Opens directory name in "dirName"
+    DIR *dirp = opendir(dirName);
+    if(dirp == NULL){
+        perror("opendir()");
+        exit(-1);
+    }
+
+    bool hasA = false, hasL = false, hasR = false;
+
+    for(int i = 0; i < flags.size(); i++){
+        if(flags.at(i) == 'a') hasA = true;
+
+        if(flags.at(i) == 'l') hasL = true;
+
+        if(flags.at(i) == 'R') hasR = true;
+    }
+
+    //Reads contents of directory, saving contents and info into "dirent" struct
+    dirent *direntp;
+    multiset<char*, classComp> sortedFiles;
+    int maxFileSize = 0;
+    long numOfChars = 0;
+    int compareSize = 0;
+
+    //Branches to handle different flags.
+    if(!hasR){
+        while ((direntp = readdir(dirp))){
+            if(direntp == NULL){
+                perror("readdir");
+                exit(-1);
+            }
+            if(!hasA && (direntp->d_name[0] != '.')){
+                sortedFiles.insert(direntp->d_name); // use stat here to find attributes of file
+            }
+            else if(hasA){
+                sortedFiles.insert(direntp->d_name);
+            }
+
+            compareSize = strlen(direntp->d_name);
+
+            if(maxFileSize < compareSize)
+                maxFileSize = compareSize;
+
+            numOfChars += (compareSize + 1);    
+        }    
+
+        displayFiles(sortedFiles, hasL);
+    }
+
+
+    cout << endl;
+
+    if(closedir(dirp) == -1){
+        perror("closedir()");
+    }
+}
+
+void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL){
+
+    if(!hasL){
+        struct stat buf;
+
+        for(multiset<char*, classComp>::iterator it = sortedFiles.begin(); it != sortedFiles.end(); it++){
+
+            //Output for no or -a flag options with color
+            if(stat(*it, &buf) == -1){
+                perror("stat()");
+                exit(-1);
+            }
+
+            if((*it)[0] == '.'){
+                cout << "\033[2;47;33m";
+            }
+
+            if(S_ISDIR(buf.st_mode)){
+                cout << "\033[1;34m";
+            }
+
+            cout << *it << "\033[0m" << '\t' <<  flush;
+        }
+    }
+    else{
+        struct stat buf;
+
+        for(multiset<char*, classComp>::iterator it = sortedFiles.begin(); it != sortedFiles.end(); it++){
+            if(stat(*it, &buf) == -1){
+                perror("stat():");
+                exit(-1);
+            }
+
+            //checks whether directory or file
+            if(S_ISREG(buf.st_mode))
+                cout << '-';
+            else if(S_ISDIR(buf.st_mode))
+                cout << 'd';
+
+            //this will check for permissions for user
+
+            (buf.st_mode & S_IRWXU & S_IRUSR) ? cout << 'r' : cout << '-';
+            (buf.st_mode & S_IRWXU & S_IWUSR) ? cout << 'w' : cout << '-';
+            (buf.st_mode & S_IRWXU & S_IXUSR) ? cout << 'x' : cout << '-';
+
+            //this will check for permissions for groups
+
+            (buf.st_mode & S_IRWXG & S_IRGRP) ? cout << 'r' : cout << '-';
+            (buf.st_mode & S_IRWXG & S_IWGRP) ? cout << 'w' : cout << '-';
+            (buf.st_mode & S_IRWXG & S_IXGRP) ? cout << 'x' : cout << '-';
+
+            //this will check for permissions for all others
+
+            (buf.st_mode & S_IRWXO & S_IROTH) ? cout << 'r' : cout << '-';
+            (buf.st_mode & S_IRWXO & S_IWOTH) ? cout << 'w' : cout << '-';
+            (buf.st_mode & S_IRWXO & S_IXOTH) ? cout << 'x' : cout << '-';
+
+            //Used to get user name from user id
+            struct passwd *pass;
+
+            pass = getpwuid(buf.st_uid);
+            if(pass == NULL){
+                perror("getpwuid");
+                exit(-1);
+            }
+
+            char* usr = pass->pw_name;
+
+            //Used to get group name from group id
+            struct group *gpass;
+
+            gpass = getgrgid(buf.st_gid);
+            if(gpass == NULL){
+                perror("getgrgid");
+            }
+
+            char* grp = gpass->gr_name;
+
+            //Used to get time format from time_t
+            struct tm myTime;
+
+            if(localtime_r(&buf.st_mtime, &myTime) == NULL){
+                perror("localtime_r");
+                exit(-1);
+            }
+
+            char month[5];
+            char day[3];
+            char time[6];
+
+            if(strftime(month, sizeof(month), "%b", &myTime) == 0 || strftime(day, sizeof(day), "%d", &myTime) == 0 || strftime(time, sizeof(time), "%R", &myTime) == 0){
+                perror("strftime");
+                exit(-1);
+            }
+
+
+            //Output for -l flag with color
+
+            cout << right <<  ' ' << buf.st_nlink << ' ' << usr << ' ' << grp << ' ' << setw (6) << buf.st_size << ' ' << month << ' ' << day << ' ' << time << ' ';
+            if(S_ISDIR(buf.st_mode)){
+                cout << "\033[1;34m";
+            }
+
+            if((*it)[0] == '.'){
+                cout << "\033[2;47;33m";
+            }
+
+            cout << *it << "\033[0m" << endl;
+
+        }
+    }
+}
