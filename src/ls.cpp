@@ -204,7 +204,10 @@ void outputLS(char* dirName, const string& flags, char* orig, bool moreDir){
         if(maxFileSize < compareSize)
             maxFileSize = compareSize;
 
-        numOfChars += (compareSize + 1);    
+        if(numOfChars <= 81)
+            numOfChars += (compareSize + 1);
+        else
+            numOfChars = 82;
     }    
 
     if(hasR){
