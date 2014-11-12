@@ -1,0 +1,541 @@
+Script started on Tue 11 Nov 2014 10:44:39 PM PST
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls #this tests basica[K functionality of ls
+LICENSE[0m  Makefile[0m  Makefile~[0m  README.md[0m  [1;34mbin[0m  [1;34msrc[0m  [1;34mtests[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -[K-a #this tests --[Ka flag
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [2;47;33m[1;34m.git[0m  LICENSE[0m  Makefile[0m  Makefile~[0m  README.md[0m  [1;34mbin[0m  [1;34msrc[0m  [1;34mtests[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -l #tests -l flag
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -l #[KLICENSE #tests -l flag on file
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -R #recursive flag
+.:
+LICENSE[0m  Makefile[0m  Makefile~[0m  README.md[0m  [1;34mbin[0m  [1;34msrc[0m  [1;34mtests[0m  
+
+./bin:
+[1;32mls[0m  [1;32mrshell[0m  
+
+./src:
+Timer.h[0m  a[0m  c[0m  [1;32mcp[0m  cp.cpp[0m  [1;32mls[0m  ls.cpp[0m  [1;34mother[0m  rshell.cpp[0m  [1;34mtest[0m  [1;34mtest2[0m  
+
+./src/test2:
+a[0m  [1;32ma.out[0m  b[0m  c.cpp[0m  
+
+./src/test:
+a[0m  [1;32ma.out[0m  b[0m  [1;32mc[0m  c.cpp[0m  test.cpp[0m  [1;34mtest2[0m  
+
+./src/test/test2:
+something.cpp[0m  
+
+./src/other:
+something.cpp[0m  
+
+./tests:
+exec.script[0m  ls.script[0m  
+
+./.git:
+COMMIT_EDITMSG  [0mORIG_HEAD  [0mconfig       [0m[1;32m[1;34mhooks  [0m[1;32m[1;34minfo  [0m[1;32m[1;34mobjects      [0m
+HEAD            [0m[1;32m[1;34mbranches   [0mdescription  [0mindex  [0m[1;32m[1;34mlogs  [0mpacked-refs  [0m
+
+./.git/branches:
+
+
+./.git/refs:
+[1;34mheads[0m  [1;34mremotes[0m  [1;34mtags[0m  
+
+./.git/refs/tags:
+
+
+./.git/refs/remotes:
+[1;34morigin[0m  
+
+./.git/refs/remotes/origin:
+HEAD[0m  ls[0m  master[0m  
+
+./.git/refs/heads:
+ls[0m  master[0m  
+
+./.git/info:
+exclude[0m  
+
+./.git/logs:
+HEAD[0m  [1;34mrefs[0m  
+
+./.git/logs/refs:
+[1;34mheads[0m  [1;34mremotes[0m  
+
+./.git/logs/refs/remotes:
+[1;34morigin[0m  
+
+./.git/logs/refs/remotes/origin:
+HEAD[0m  ls[0m  master[0m  
+
+./.git/logs/refs/heads:
+ls[0m  master[0m  
+
+./.git/objects:
+[1;32m[1;34m01  [0m[1;32m[1;34m05  [0m[1;32m[1;34m08  [0m[1;32m[1;34m0d  [0m[1;32m[1;34m15  [0m[1;32m[1;34m17  [0m[1;32m[1;34m1f  [0m[1;32m[1;34m27  [0m[1;32m[1;34m2c  [0m[1;32m[1;34m35  [0m[1;32m[1;34m39  [0m[1;32m[1;34m45  [0m[1;32m[1;34m4b  [0m[1;32m[1;34m50  [0m[1;32m[1;34m56  [0m[1;32m[1;34m5f  [0m[1;32m[1;34m62  [0m[1;32m[1;34m71  [0m[1;32m[1;34m7f  [0m[1;32m[1;34m81  [0m[1;32m[1;34m8a  [0m[1;32m[1;34m94  [0m[1;32m[1;34m96  [0m[1;32m[1;34m98  [0m[1;32m[1;34ma0  [0m[1;32m[1;34mab  [0m[1;32m[1;34mb2  [0m[1;32m[1;34mba  [0m[1;32m[1;34mbd  [0m[1;32m[1;34mc4  [0m[1;32m[1;34md0  [0m[1;32m[1;34mda  [0m[1;32m[1;34mdd  [0m[1;32m[1;34me6  [0m[1;32m[1;34mf0  [0m[1;32m[1;34mf9  [0m[1;32m[1;34minfo  [0m
+[1;32m[1;34m03  [0m[1;32m[1;34m06  [0m[1;32m[1;34m0c  [0m[1;32m[1;34m12  [0m[1;32m[1;34m16  [0m[1;32m[1;34m1a  [0m[1;32m[1;34m26  [0m[1;32m[1;34m2b  [0m[1;32m[1;34m31  [0m[1;32m[1;34m38  [0m[1;32m[1;34m43  [0m[1;32m[1;34m47  [0m[1;32m[1;34m4c  [0m[1;32m[1;34m54  [0m[1;32m[1;34m5a  [0m[1;32m[1;34m60  [0m[1;32m[1;34m66  [0m[1;32m[1;34m73  [0m[1;32m[1;34m80  [0m[1;32m[1;34m84  [0m[1;32m[1;34m8f  [0m[1;32m[1;34m95  [0m[1;32m[1;34m97  [0m[1;32m[1;34m9c  [0m[1;32m[1;34ma7  [0m[1;32m[1;34mae  [0m[1;32m[1;34mb9  [0m[1;32m[1;34mbc  [0m[1;32m[1;34mbe  [0m[1;32m[1;34mc6  [0m[1;32m[1;34md7  [0m[1;32m[1;34mdc  [0m[1;32m[1;34me0  [0m[1;32m[1;34mef  [0m[1;32m[1;34mf4  [0m[1;32m[1;34mfc  [0m[1;32m[1;34mpack  [0m
+
+./.git/objects/dd:
+b60152a7bf63f66ab1e803ca2f65623cc5ab31[0m  
+
+./.git/objects/05:
+eef9cb20af704afc25bbfe25c705a016655acd[0m  
+
+./.git/objects/95:
+73ad3b2244b26a650152a844cde94aa7d124ae[0m  
+
+./.git/objects/54:
+96ab841d9f961e3a5fe6d5005c13102e177fed[0m  
+
+./.git/objects/f9:
+3e3a1a1525fb5b91020da86e44810c87a2d7bc[0m  
+
+./.git/objects/info:
+
+
+./.git/objects/c4:
+9c588f0f9d5ce2d892538ae07916301e62e7c7[0m  
+
+./.git/objects/27:
+d05841258076ec1132e9703523e638ceba9ac5[0m  
+
+./.git/objects/15:
+37427dc4551eb631f5a785925a562d6aa0f6fe[0m  
+
+./.git/objects/9c:
+dac5cef9c45013dde2cc4e2e4f87b4382d11cf[0m  
+
+./.git/objects/8a:
+21de5d189ca89d48d1927cb37743455c27744b[0m  
+
+./.git/objects/bd:
+ef30b73e352880b1dd9526a356432441b40952[0m  
+
+./.git/objects/d7:
+8a87c84c6fd4e0a6532187367c1918cdbf2994[0m  
+
+./.git/objects/56:
+c7d0d9ea9790e337b45a92e0d9c24ab96c05b0[0m  
+
+./.git/objects/98:
+eeaefe5dfa77d960f4ed678bf263ed4412b0b1[0m  
+
+./.git/objects/45:
+6c9aeef85b4a3dff3a76e659fe8d4e52f5d3d2[0m  
+
+./.git/objects/2b:
+d56bf10f3f54fdbaa7e99db755bb5ec78b7592[0m  
+
+./.git/objects/4b:
+70c466cac67797cbeafdcf74ee40c7728f77d0[0m  
+
+./.git/objects/03:
+5aa70b7d11f892bf9699f05d876539b0a7d3b6[0m  
+
+./.git/objects/2c:
+a1022cb8d3b6acf076a0591624ce3a70cc73f9[0m  
+
+./.git/objects/a0:
+42ec8b2db8c72022514ae5249d3ca1cd5723ca[0m  
+
+./.git/objects/12:
+dc00c88a34e7a82d9ee668ed81d8a4aa44e8a0  [0mfbe8db428338b2855f3a3ec3bbc4bc7c71d826  [0m
+
+./.git/objects/0d:
+2e63dcfff6582f95b478220ff972ad8f0803ad[0m  
+
+./.git/objects/b2:
+7e53c1b3ac50de8b5fdf76661e39236475843c[0m  
+
+./.git/objects/17:
+1b0fcf64142b88b911a4909910b8db9a7c0014[0m  
+
+./.git/objects/bc:
+b3c4a1ce94361d9c2cff4a27f8620774a16244[0m  
+
+./.git/objects/5a:
+4bb3d5532d4c3fa1d60c465931b08047d4364b[0m  
+
+./.git/objects/ab:
+db90ae35a3ce49a358f8bcb4b1e5d4a09fd50b[0m  
+
+./.git/objects/84:
+55844aa83d515e1d2bedda2efd4feb0aca20bd[0m  
+
+./.git/objects/26:
+deb08d3d18413572f7dd1c8348dd84af9ae113[0m  
+
+./.git/objects/ba:
+53f51c069156fda81309f1cdea8e860c85641b[0m  
+
+./.git/objects/50:
+9293c23fa51b471fb7c72df11e65830fcae06e  [0mb63e8b2db675ded60976cb7f3c7168a9384ed1  [0m
+
+./.git/objects/62:
+876078d34f6bf853af0170c0c314f50d892a7c[0m  
+
+./.git/objects/dc:
+42d265136d836be9e1f12c6a26f35188a3ba43[0m  
+
+./.git/objects/pack:
+
+
+./.git/objects/81:
+9bfd09ba6d3ab29ce893fcca5cac7ce9f9abe7[0m  
+
+./.git/objects/80:
+09a0256c56474b7a8ecc9a507f7602051587ef[0m  
+
+./.git/objects/43:
+a7d9e763f1f93b350f7fc56cfb8216357a9013[0m  
+
+./.git/objects/b9:
+e6281694ed166c81d90bee816ee1d780abc195[0m  
+
+./.git/objects/66:
+35b77d47050ddd7ecf8f0be893f77b19a4bafe[0m  
+
+./.git/objects/1a:
+e317bbc517f6a2346cc95f4f476735b07169f7[0m  
+
+./.git/objects/e6:
+9de29bb2d1d6434b8b29ae775ad8c2e48c5391[0m  
+
+./.git/objects/4c:
+0e9e32a9befed5e78e5c64e345ce36ac7bd0b3  [0m5f47c2042f57d3f9ddd8f031a2b31f151d989e  [0m
+
+./.git/objects/1f:
+7b9b5e0f987da60d3720c4e0c9ca67e086a98b[0m  
+
+./.git/objects/be:
+07715602cec2e6a989d90fabbb8f09daf12772[0m  
+
+./.git/objects/8f:
+a827c5ce57fb0d1434a3438cf4919a6bd2036a[0m  
+
+./.git/objects/97:
+b1e52d7286dc6daef3521ef028243bdba04969[0m  
+
+./.git/objects/5f:
+8ec6da76a8ce3d772c68bda1f0341b1f417166  [0m8f4e5cbe31963cf9eaa75a9040e2f24120cd43  [0m
+
+./.git/objects/35:
+e5a55656fa562ae9a167d57e2727ba9b3acfd8[0m  
+
+./.git/objects/fc:
+f8abfacc1960f959b2ba4e21b5f05a0a435f8c[0m  
+
+./.git/objects/7f:
+91f01d1f838b1c30b7f13372ce4f829b0b4959[0m  
+
+./.git/objects/39:
+fd87b50bb29c74f5de4d2bac36d3d3a9934b50[0m  
+
+./.git/objects/0c:
+23772a559160e11634e83dabc868a16248d964[0m  
+
+./.git/objects/c6:
+4f63ecadcbe591dba242f8daaf37731584b80e[0m  
+
+./.git/objects/94:
+b694de1faa465c4286853d5cde910eb7fdd2bf  [0mff146a3bc2a02525ae16da403e2d5af25bc2db  [0m
+
+./.git/objects/f0:
+5af273ba36fe5176e5eaab349661a56b3d27a0  [0ma70e1bdefa83a950eb248b6f5cdc6dfa1e87a9  [0m
+
+./.git/objects/a7:
+1bf1211a2974afb539ae8c6b26fdedf53e77b1[0m  
+
+./.git/objects/16:
+91d044d3f4471ee642e9cf0b5aa4f8d50c9c02[0m  
+
+./.git/objects/71:
+f7d25789545a62e153043773138099f118bf0b[0m  
+
+./.git/objects/e0:
+0756a8a4faa0c8dde6d8afd7559833af4ad808  [0m3dbad1d53aa487be161613bd1d1a7ad9c0c62a  [0med8f35cb457f3c64b323b25b55883b2c8bf250  [0m
+
+./.git/objects/08:
+a830bff0e1caa6d56cf125c99e8f50b99ac64c[0m  
+
+./.git/objects/47:
+2e6e17efd0716eb8ce3a3fbce8d108d418a148[0m  
+
+./.git/objects/96:
+55235129259d34b4f5407508b1961c057ec6e2[0m  
+
+./.git/objects/01:
+760be15943af6221513b7e3fe6ca8e55a6250b[0m  
+
+./.git/objects/d0:
+c3a0865d80fa10528e9c82b22ecef8f79a283b[0m  
+
+./.git/objects/06:
+1841f4bfd1e1916c974cc2d49ad03d17c96ab6[0m  
+
+./.git/objects/f4:
+fcb81d5913dd8a10ca46d9232df5723f214772[0m  
+
+./.git/objects/73:
+0438ed4d1be44388652f615073615976a28a16[0m  
+
+./.git/objects/da:
+76ffa8d846b7b859ddcf18acd743df289936f5  [0md7f650e3add190eedd038bcb4069a5b45fe88f  [0m
+
+./.git/objects/60:
+f28d482d80a03cc0e6fb502762908d24316b8c[0m  
+
+./.git/objects/ae:
+9a6366a1adf2c47bf0f4056097be7f3caefb19[0m  
+
+./.git/objects/ef:
+09c8b9c0766e744453840815eb93449440c2bb[0m  
+
+./.git/objects/38:
+1f47c5f25085203535d3c27e569300d9fa34f5[0m  
+
+./.git/objects/31:
+0fb50f20cc482ad9721af538c3620a977490bb[0m  
+
+./.git/hooks:
+[1;32mapplypatch-msg.sample  [0m[1;32mpost-update.sample     [0m[1;32mpre-commit.sample  [0m[1;32mpre-rebase.sample          [0m
+[1;32mcommit-msg.sample      [0m[1;32mpre-applypatch.sample  [0m[1;32mpre-push.sample    [0m[1;32mprepare-commit-msg.sample  [0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ ls[K[Kbin/ls tests #tests ls on a directly[K[Kory
+exec.script[0m  ls.script[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -al #com[K[K[K[K[K[K 0[K-l #o[Kcombination of flags
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m.[0m
+drwxrwxr-x 4 daniel daniel   4096 Oct 30 01:21 [1;34m[2;47;33m..[0m
+drwxrwxr-x 8 daniel daniel   4096 Nov 11 22:40 [1;34m[2;47;33m.git[0m
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -a -l #combination of flags[1@\[1@\[1P[1P[1P[1P[C[1@-[1@l[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C inn di[K[K[K[K different order
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m.[0m
+drwxrwxr-x 4 daniel daniel   4096 Oct 30 01:21 [1;34m[2;47;33m..[0m
+drwxrwxr-x 8 daniel daniel   4096 Nov 11 22:40 [1;34m[2;47;33m.git[0m
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -l -a  #combination of flags in different order[C[1@-[1@l[1@ [C[1@-[1@l[1@ [C[1@-[1@l[1@ [C[1@-[1@ [1@a[1P[1P[1@a[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C multiple times
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m.[0m
+drwxrwxr-x 4 daniel daniel   4096 Oct 30 01:21 [1;34m[2;47;33m..[0m
+drwxrwxr-x 8 daniel daniel   4096 Nov 11 22:40 [1;34m[2;47;33m.git[0m
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls tests[K[K[K[K[Ksrc -R #recursion on a diree[K[K[Kfere[K[K[Kferent directory
+src:
+Timer.h[0m  a[0m  c[0m  [1;32mcp[0m  cp.cpp[0m  [1;32mls[0m  ls.cpp[0m  [1;34mother[0m  rshell.cpp[0m  [1;34mtest[0m  [1;34mtest2[0m  
+
+src/test2:
+a[0m  [1;32ma.out[0m  b[0m  c.cpp[0m  
+
+src/test:
+a[0m  [1;32ma.out[0m  b[0m  [1;32mc[0m  c.cpp[0m  test.cpp[0m  [1;34mtest2[0m  
+
+src/test/test2:
+something.cpp[0m  
+
+src/other:
+something.cpp[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -al $[K#dirr[K[Kfferent flags o[Ktogether
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m.[0m
+drwxrwxr-x 4 daniel daniel   4096 Oct 30 01:21 [1;34m[2;47;33m..[0m
+drwxrwxr-x 8 daniel daniel   4096 Nov 11 22:40 [1;34m[2;47;33m.git[0m
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -la #regardless of positioin t[K[K[K[K[K[K[Ki[Ktion together
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m.[0m
+drwxrwxr-x 4 daniel daniel   4096 Oct 30 01:21 [1;34m[2;47;33m..[0m
+drwxrwxr-x 8 daniel daniel   4096 Nov 11 22:40 [1;34m[2;47;33m.git[0m
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -[Ksrc -Rla #now combingin[K[K[King all t[K3 together
+src:
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m.[0m
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel   2699 Nov 11 22:07 Timer.h[0m
+-rw-rw-r-- 1 daniel daniel     12 Nov 11 22:07 a[0m
+------x--- 1 daniel daniel   8192 Nov 11 22:07 c[0m
+-rwxrwxr-x 1 daniel daniel  58816 Nov 11 22:10 cp[0m
+-rw-rw-r-- 1 daniel daniel   4431 Nov 11 22:14 cp.cpp[0m
+-rwxrwxr-x 1 daniel daniel 250614 Nov 11 22:39 ls[0m
+-rw-rw-r-- 1 daniel daniel  11983 Nov 11 22:39 ls.cpp[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 07 16:01 [1;34mother[0m
+-rw-rw-r-- 1 daniel daniel   4153 Nov 09 18:23 rshell.cpp[0m
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34mtest[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 18:58 [1;34mtest2[0m
+
+src/test2:
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 18:58 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 17:04 a[0m
+-rwxrwxr-x 1 daniel daniel  25702 Nov 11 18:57 a.out[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 17:04 b[0m
+-rw-rw-r-- 1 daniel daniel    196 Nov 11 18:58 c.cpp[0m
+
+src/test:
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:54 a[0m
+-rwxrwxr-x 1 daniel daniel  24020 Nov 09 19:55 a.out[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:54 b[0m
+-rwxrwxr-x 1 daniel daniel   9122 Nov 11 18:10 c[0m
+-rw-rw-r-- 1 daniel daniel    150 Nov 11 18:10 c.cpp[0m
+-rw-rw-r-- 1 daniel daniel    779 Nov 11 12:39 test.cpp[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 14:57 [1;34mtest2[0m
+
+src/test/test2:
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 14:57 [1;34m[2;47;33m.[0m
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 14:57 something.cpp[0m
+
+src/other:
+drwxrwxr-x 2 daniel daniel   4096 Nov 07 16:01 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:01 something.cpp[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin -lr[KRa src #placing flags f[Kbefore file or directory
+No command 'bin' found, did you mean:
+ Command 'bing' from package 'bing' (universe)
+ Command 'ben' from package 'ben' (universe)
+ Command 'bino' from package 'bino' (universe)
+ Command 'bins' from package 'bins' (universe)
+ Command 'tin' from package 'tin' (universe)
+ Command 'win' from package 'wily' (universe)
+ Command 'bio' from package 'barry-util' (universe)
+ Command 'din' from package 'din' (universe)
+ Command 'bip' from package 'bip' (universe)
+bin: command not found
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin -lRa src #placing flags before file or directory[C[C[C[1@/[1@l[1@s[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C #o[Kfor t[K[Kgot to g[Kput ls after bin[K[K[K'bin'
+src:
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m.[0m
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel   2699 Nov 11 22:07 Timer.h[0m
+-rw-rw-r-- 1 daniel daniel     12 Nov 11 22:07 a[0m
+------x--- 1 daniel daniel   8192 Nov 11 22:07 c[0m
+-rwxrwxr-x 1 daniel daniel  58816 Nov 11 22:10 cp[0m
+-rw-rw-r-- 1 daniel daniel   4431 Nov 11 22:14 cp.cpp[0m
+-rwxrwxr-x 1 daniel daniel 250614 Nov 11 22:39 ls[0m
+-rw-rw-r-- 1 daniel daniel  11983 Nov 11 22:39 ls.cpp[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 07 16:01 [1;34mother[0m
+-rw-rw-r-- 1 daniel daniel   4153 Nov 09 18:23 rshell.cpp[0m
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34mtest[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 18:58 [1;34mtest2[0m
+
+src/test2:
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 18:58 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 17:04 a[0m
+-rwxrwxr-x 1 daniel daniel  25702 Nov 11 18:57 a.out[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 17:04 b[0m
+-rw-rw-r-- 1 daniel daniel    196 Nov 11 18:58 c.cpp[0m
+
+src/test:
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:54 a[0m
+-rwxrwxr-x 1 daniel daniel  24020 Nov 09 19:55 a.out[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:54 b[0m
+-rwxrwxr-x 1 daniel daniel   9122 Nov 11 18:10 c[0m
+-rw-rw-r-- 1 daniel daniel    150 Nov 11 18:10 c.cpp[0m
+-rw-rw-r-- 1 daniel daniel    779 Nov 11 12:39 test.cpp[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 14:57 [1;34mtest2[0m
+
+src/test/test2:
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 14:57 [1;34m[2;47;33m.[0m
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 14:57 something.cpp[0m
+
+src/other:
+drwxrwxr-x 2 daniel daniel   4096 Nov 07 16:01 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:01 something.cpp[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ ls[K[Kbin/ls ~/Dc[Kc[Kocuments #showing the format f [K[Kof directories with large files[K[K[K[K[K[K[K[K[K[K[Ka lot of if[K[Kfiles
+;            [0m[1;32mb                                    [0m[1;32ml.out           [0mstring.cpp        [0m
+[1;32m[1;34mNursingTest  [0mcitiCompletionReport4464913 (1).pdf  [0mlastString.cpp  [0mstringstream.cpp  [0m
+[1;32m[1;34mProgramming  [0m[1;32mcompile.sh                           [0moctober6.txt    [0m[1;32mt                 [0m
+[1;32ma.out        [0m[1;32m[1;34mfirefox                              [0moctober6.txt~   [0m[1;32m[1;34mt3e               [0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls ~/Documents #showing the format of directories with a lot of files[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kagain with flags[1@-[1@a[1@ [1@-[1@l[1@ [1P[1P[1P
+[1;32m[1;34m.            [0m[1;32m[1;34mProgramming                          [0m[1;32mcompile.sh      [0moctober6.txt      [0m[1;32mt         [0m
+[1;32m[1;34m..           [0m[1;32ma.out                                [0m[1;32m[1;34mfirefox         [0moctober6.txt~     [0m[1;32m[1;34mt3e       [0m
+;            [0m[1;32mb                                    [0m[1;32ml.out           [0mstring.cpp        [0m[1;32mtest      [0m
+[1;32m[1;34mNursingTest  [0mcitiCompletionReport4464913 (1).pdf  [0mlastString.cpp  [0mstringstream.cpp  [0mtest.cpp  [0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -a ~/Documents #again with flags[C[1@-[1@l[1@ 
+drwxr-xr-x 6 daniel daniel   4096 Oct 30 01:05 [1;34m[2;47;33m.[0m
+drwxr-xr-x 41 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel    573 Oct 18 00:19 ;[0m
+drwxrwxr-x 12 daniel daniel   4096 Oct 24 18:59 [1;34mNursingTest[0m
+drwxrwxr-x 8 daniel daniel   4096 Oct 14 20:49 [1;34mProgramming[0m
+-rwxrwxr-x 1 daniel daniel  31736 Oct 19 00:36 a.out[0m
+-rwxrwxr-x 1 daniel daniel  32186 Oct 19 15:55 b[0m
+-rw-r----- 1 daniel daniel 109367 Oct 16 02:24 citiCompletionReport4464913 (1).pdf[0m
+-rwxrw-r-- 1 daniel daniel     63 Oct 17 23:45 compile.sh[0m
+drwxr-xr-x 8 daniel daniel   4096 Sep 10 19:08 [1;34mfirefox[0m
+-rwxrwxr-x 1 daniel daniel  14363 Oct 18 13:41 l.out[0m
+-rw-rw-r-- 1 daniel daniel    287 Oct 18 13:40 lastString.cpp[0m
+-rw-rw-r-- 1 daniel daniel    552 Oct 20 16:46 october6.txt[0m
+-rw-rw-r-- 1 daniel daniel    498 Oct 06 16:20 october6.txt~[0m
+-rw-rw-r-- 1 daniel daniel   2730 Oct 19 16:02 string.cpp[0m
+-rw-rw-r-- 1 daniel daniel    617 Oct 18 13:35 stringstream.cpp[0m
+-rwxrwxr-x 1 daniel daniel   9093 Oct 18 03:43 t[0m
+drwxrwxr-x 10 daniel daniel   4096 Sep 02 16:33 [1;34mt3e[0m
+-rwxrwxr-x 1 daniel daniel  26222 Oct 18 04:32 test[0m
+-rw-rw-r-- 1 daniel daniel    811 Oct 18 14:30 test.cpp[0m
+-rwxrwxr-x 1 daniel daniel   9093 Oct 18 02:09 tests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -a -R ~/Documents #again with flagsl[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CR[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kbin/ls src tests #ls into mulbi[K[Ktiple directories
+src:
+Timer.h[0m  a[0m  c[0m  [1;32mcp[0m  cp.cpp[0m  [1;32mls[0m  ls.cpp[0m  [1;34mother[0m  rshell.cpp[0m  [1;34mtest[0m  [1;34mtest2[0m  
+
+tests:
+exec.script[0m  ls.script[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls src tests #ls into multiple directories[C[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectoriesfdirectoriesidirectoriesldirectoriesedirectories directoriesadirectoriesndirectories[Cdirectories directories[C[C[C[1P[1P[1P[1@L[1@I[1@C[1@E[1@N[1@S[1@E
+LICENSE[0m
+
+tests:
+exec.script[0m  ls.script[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls LICENSE tests #ls into file and directories[1@-[1@l[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C with flags
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+
+tests:
+-rw-rw-r-- 1 daniel daniel   9118 Oct 30 01:19 exec.script[0m
+-rw-rw-r-- 1 daniel daniel 131072 Nov 11 22:50 ls.script[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls ![K~Co[K[Kd[KDocuments/Programming/cs100 #ls into a chainge[K[Ked directory
+~Documents/Programming/cs100: No such file or directory
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls ~Documents/Programming/cs100 #ls into a chained directory[1P[1P[1P[1P[1P[1@u[1@c[1@r[1P[1P[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[C[K[K[K[K[K[KSorry, pret[Kvious director [Ky do[K[Ki[Kdoesn't exisit[K[Kt anymore, tryn[King with a dir[Kfferent one[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmissed a '/' character[1@/
+[1;34mHCCD[0m  [1;34mHaskell[0m  [1;34mcs100[0m  [1;34mfirefox[0m  [1;34mjava[0m  [1;34mtests[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ l[Kbin/ls #end with tests
+LICENSE[0m  Makefile[0m  Makefile~[0m  README.md[0m  [1;34mbin[0m  [1;34msrc[0m  [1;34mtests[0m  
+
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ exit
+exit
+
+Script done on Tue 11 Nov 2014 10:55:41 PM PST

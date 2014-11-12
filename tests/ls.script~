@@ -1,0 +1,1364 @@
+Script started on Tue 11 Nov 2014 10:44:39 PM PST
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls #this tests basica[K functionality of ls
+LICENSE[0m  Makefile[0m  Makefile~[0m  README.md[0m  [1;34mbin[0m  [1;34msrc[0m  [1;34mtests[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -[K-a #this tests --[Ka flag
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [2;47;33m[1;34m.git[0m  LICENSE[0m  Makefile[0m  Makefile~[0m  README.md[0m  [1;34mbin[0m  [1;34msrc[0m  [1;34mtests[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -l #tests -l flag
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -l #[KLICENSE #tests -l flag on file
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -R #recursive flag
+.:
+LICENSE[0m  Makefile[0m  Makefile~[0m  README.md[0m  [1;34mbin[0m  [1;34msrc[0m  [1;34mtests[0m  
+
+./bin:
+[1;32mls[0m  [1;32mrshell[0m  
+
+./src:
+Timer.h[0m  a[0m  c[0m  [1;32mcp[0m  cp.cpp[0m  [1;32mls[0m  ls.cpp[0m  [1;34mother[0m  rshell.cpp[0m  [1;34mtest[0m  [1;34mtest2[0m  
+
+./src/test2:
+a[0m  [1;32ma.out[0m  b[0m  c.cpp[0m  
+
+./src/test:
+a[0m  [1;32ma.out[0m  b[0m  [1;32mc[0m  c.cpp[0m  test.cpp[0m  [1;34mtest2[0m  
+
+./src/test/test2:
+something.cpp[0m  
+
+./src/other:
+something.cpp[0m  
+
+./tests:
+exec.script[0m  ls.script[0m  
+
+./.git:
+COMMIT_EDITMSG  [0mORIG_HEAD  [0mconfig       [0m[1;32m[1;34mhooks  [0m[1;32m[1;34minfo  [0m[1;32m[1;34mobjects      [0m
+HEAD            [0m[1;32m[1;34mbranches   [0mdescription  [0mindex  [0m[1;32m[1;34mlogs  [0mpacked-refs  [0m
+
+./.git/branches:
+
+
+./.git/refs:
+[1;34mheads[0m  [1;34mremotes[0m  [1;34mtags[0m  
+
+./.git/refs/tags:
+
+
+./.git/refs/remotes:
+[1;34morigin[0m  
+
+./.git/refs/remotes/origin:
+HEAD[0m  ls[0m  master[0m  
+
+./.git/refs/heads:
+ls[0m  master[0m  
+
+./.git/info:
+exclude[0m  
+
+./.git/logs:
+HEAD[0m  [1;34mrefs[0m  
+
+./.git/logs/refs:
+[1;34mheads[0m  [1;34mremotes[0m  
+
+./.git/logs/refs/remotes:
+[1;34morigin[0m  
+
+./.git/logs/refs/remotes/origin:
+HEAD[0m  ls[0m  master[0m  
+
+./.git/logs/refs/heads:
+ls[0m  master[0m  
+
+./.git/objects:
+[1;32m[1;34m01  [0m[1;32m[1;34m05  [0m[1;32m[1;34m08  [0m[1;32m[1;34m0d  [0m[1;32m[1;34m15  [0m[1;32m[1;34m17  [0m[1;32m[1;34m1f  [0m[1;32m[1;34m27  [0m[1;32m[1;34m2c  [0m[1;32m[1;34m35  [0m[1;32m[1;34m39  [0m[1;32m[1;34m45  [0m[1;32m[1;34m4b  [0m[1;32m[1;34m50  [0m[1;32m[1;34m56  [0m[1;32m[1;34m5f  [0m[1;32m[1;34m62  [0m[1;32m[1;34m71  [0m[1;32m[1;34m7f  [0m[1;32m[1;34m81  [0m[1;32m[1;34m8a  [0m[1;32m[1;34m94  [0m[1;32m[1;34m96  [0m[1;32m[1;34m98  [0m[1;32m[1;34ma0  [0m[1;32m[1;34mab  [0m[1;32m[1;34mb2  [0m[1;32m[1;34mba  [0m[1;32m[1;34mbd  [0m[1;32m[1;34mc4  [0m[1;32m[1;34md0  [0m[1;32m[1;34mda  [0m[1;32m[1;34mdd  [0m[1;32m[1;34me6  [0m[1;32m[1;34mf0  [0m[1;32m[1;34mf9  [0m[1;32m[1;34minfo  [0m
+[1;32m[1;34m03  [0m[1;32m[1;34m06  [0m[1;32m[1;34m0c  [0m[1;32m[1;34m12  [0m[1;32m[1;34m16  [0m[1;32m[1;34m1a  [0m[1;32m[1;34m26  [0m[1;32m[1;34m2b  [0m[1;32m[1;34m31  [0m[1;32m[1;34m38  [0m[1;32m[1;34m43  [0m[1;32m[1;34m47  [0m[1;32m[1;34m4c  [0m[1;32m[1;34m54  [0m[1;32m[1;34m5a  [0m[1;32m[1;34m60  [0m[1;32m[1;34m66  [0m[1;32m[1;34m73  [0m[1;32m[1;34m80  [0m[1;32m[1;34m84  [0m[1;32m[1;34m8f  [0m[1;32m[1;34m95  [0m[1;32m[1;34m97  [0m[1;32m[1;34m9c  [0m[1;32m[1;34ma7  [0m[1;32m[1;34mae  [0m[1;32m[1;34mb9  [0m[1;32m[1;34mbc  [0m[1;32m[1;34mbe  [0m[1;32m[1;34mc6  [0m[1;32m[1;34md7  [0m[1;32m[1;34mdc  [0m[1;32m[1;34me0  [0m[1;32m[1;34mef  [0m[1;32m[1;34mf4  [0m[1;32m[1;34mfc  [0m[1;32m[1;34mpack  [0m
+
+./.git/objects/dd:
+b60152a7bf63f66ab1e803ca2f65623cc5ab31[0m  
+
+./.git/objects/05:
+eef9cb20af704afc25bbfe25c705a016655acd[0m  
+
+./.git/objects/95:
+73ad3b2244b26a650152a844cde94aa7d124ae[0m  
+
+./.git/objects/54:
+96ab841d9f961e3a5fe6d5005c13102e177fed[0m  
+
+./.git/objects/f9:
+3e3a1a1525fb5b91020da86e44810c87a2d7bc[0m  
+
+./.git/objects/info:
+
+
+./.git/objects/c4:
+9c588f0f9d5ce2d892538ae07916301e62e7c7[0m  
+
+./.git/objects/27:
+d05841258076ec1132e9703523e638ceba9ac5[0m  
+
+./.git/objects/15:
+37427dc4551eb631f5a785925a562d6aa0f6fe[0m  
+
+./.git/objects/9c:
+dac5cef9c45013dde2cc4e2e4f87b4382d11cf[0m  
+
+./.git/objects/8a:
+21de5d189ca89d48d1927cb37743455c27744b[0m  
+
+./.git/objects/bd:
+ef30b73e352880b1dd9526a356432441b40952[0m  
+
+./.git/objects/d7:
+8a87c84c6fd4e0a6532187367c1918cdbf2994[0m  
+
+./.git/objects/56:
+c7d0d9ea9790e337b45a92e0d9c24ab96c05b0[0m  
+
+./.git/objects/98:
+eeaefe5dfa77d960f4ed678bf263ed4412b0b1[0m  
+
+./.git/objects/45:
+6c9aeef85b4a3dff3a76e659fe8d4e52f5d3d2[0m  
+
+./.git/objects/2b:
+d56bf10f3f54fdbaa7e99db755bb5ec78b7592[0m  
+
+./.git/objects/4b:
+70c466cac67797cbeafdcf74ee40c7728f77d0[0m  
+
+./.git/objects/03:
+5aa70b7d11f892bf9699f05d876539b0a7d3b6[0m  
+
+./.git/objects/2c:
+a1022cb8d3b6acf076a0591624ce3a70cc73f9[0m  
+
+./.git/objects/a0:
+42ec8b2db8c72022514ae5249d3ca1cd5723ca[0m  
+
+./.git/objects/12:
+dc00c88a34e7a82d9ee668ed81d8a4aa44e8a0  [0mfbe8db428338b2855f3a3ec3bbc4bc7c71d826  [0m
+
+./.git/objects/0d:
+2e63dcfff6582f95b478220ff972ad8f0803ad[0m  
+
+./.git/objects/b2:
+7e53c1b3ac50de8b5fdf76661e39236475843c[0m  
+
+./.git/objects/17:
+1b0fcf64142b88b911a4909910b8db9a7c0014[0m  
+
+./.git/objects/bc:
+b3c4a1ce94361d9c2cff4a27f8620774a16244[0m  
+
+./.git/objects/5a:
+4bb3d5532d4c3fa1d60c465931b08047d4364b[0m  
+
+./.git/objects/ab:
+db90ae35a3ce49a358f8bcb4b1e5d4a09fd50b[0m  
+
+./.git/objects/84:
+55844aa83d515e1d2bedda2efd4feb0aca20bd[0m  
+
+./.git/objects/26:
+deb08d3d18413572f7dd1c8348dd84af9ae113[0m  
+
+./.git/objects/ba:
+53f51c069156fda81309f1cdea8e860c85641b[0m  
+
+./.git/objects/50:
+9293c23fa51b471fb7c72df11e65830fcae06e  [0mb63e8b2db675ded60976cb7f3c7168a9384ed1  [0m
+
+./.git/objects/62:
+876078d34f6bf853af0170c0c314f50d892a7c[0m  
+
+./.git/objects/dc:
+42d265136d836be9e1f12c6a26f35188a3ba43[0m  
+
+./.git/objects/pack:
+
+
+./.git/objects/81:
+9bfd09ba6d3ab29ce893fcca5cac7ce9f9abe7[0m  
+
+./.git/objects/80:
+09a0256c56474b7a8ecc9a507f7602051587ef[0m  
+
+./.git/objects/43:
+a7d9e763f1f93b350f7fc56cfb8216357a9013[0m  
+
+./.git/objects/b9:
+e6281694ed166c81d90bee816ee1d780abc195[0m  
+
+./.git/objects/66:
+35b77d47050ddd7ecf8f0be893f77b19a4bafe[0m  
+
+./.git/objects/1a:
+e317bbc517f6a2346cc95f4f476735b07169f7[0m  
+
+./.git/objects/e6:
+9de29bb2d1d6434b8b29ae775ad8c2e48c5391[0m  
+
+./.git/objects/4c:
+0e9e32a9befed5e78e5c64e345ce36ac7bd0b3  [0m5f47c2042f57d3f9ddd8f031a2b31f151d989e  [0m
+
+./.git/objects/1f:
+7b9b5e0f987da60d3720c4e0c9ca67e086a98b[0m  
+
+./.git/objects/be:
+07715602cec2e6a989d90fabbb8f09daf12772[0m  
+
+./.git/objects/8f:
+a827c5ce57fb0d1434a3438cf4919a6bd2036a[0m  
+
+./.git/objects/97:
+b1e52d7286dc6daef3521ef028243bdba04969[0m  
+
+./.git/objects/5f:
+8ec6da76a8ce3d772c68bda1f0341b1f417166  [0m8f4e5cbe31963cf9eaa75a9040e2f24120cd43  [0m
+
+./.git/objects/35:
+e5a55656fa562ae9a167d57e2727ba9b3acfd8[0m  
+
+./.git/objects/fc:
+f8abfacc1960f959b2ba4e21b5f05a0a435f8c[0m  
+
+./.git/objects/7f:
+91f01d1f838b1c30b7f13372ce4f829b0b4959[0m  
+
+./.git/objects/39:
+fd87b50bb29c74f5de4d2bac36d3d3a9934b50[0m  
+
+./.git/objects/0c:
+23772a559160e11634e83dabc868a16248d964[0m  
+
+./.git/objects/c6:
+4f63ecadcbe591dba242f8daaf37731584b80e[0m  
+
+./.git/objects/94:
+b694de1faa465c4286853d5cde910eb7fdd2bf  [0mff146a3bc2a02525ae16da403e2d5af25bc2db  [0m
+
+./.git/objects/f0:
+5af273ba36fe5176e5eaab349661a56b3d27a0  [0ma70e1bdefa83a950eb248b6f5cdc6dfa1e87a9  [0m
+
+./.git/objects/a7:
+1bf1211a2974afb539ae8c6b26fdedf53e77b1[0m  
+
+./.git/objects/16:
+91d044d3f4471ee642e9cf0b5aa4f8d50c9c02[0m  
+
+./.git/objects/71:
+f7d25789545a62e153043773138099f118bf0b[0m  
+
+./.git/objects/e0:
+0756a8a4faa0c8dde6d8afd7559833af4ad808  [0m3dbad1d53aa487be161613bd1d1a7ad9c0c62a  [0med8f35cb457f3c64b323b25b55883b2c8bf250  [0m
+
+./.git/objects/08:
+a830bff0e1caa6d56cf125c99e8f50b99ac64c[0m  
+
+./.git/objects/47:
+2e6e17efd0716eb8ce3a3fbce8d108d418a148[0m  
+
+./.git/objects/96:
+55235129259d34b4f5407508b1961c057ec6e2[0m  
+
+./.git/objects/01:
+760be15943af6221513b7e3fe6ca8e55a6250b[0m  
+
+./.git/objects/d0:
+c3a0865d80fa10528e9c82b22ecef8f79a283b[0m  
+
+./.git/objects/06:
+1841f4bfd1e1916c974cc2d49ad03d17c96ab6[0m  
+
+./.git/objects/f4:
+fcb81d5913dd8a10ca46d9232df5723f214772[0m  
+
+./.git/objects/73:
+0438ed4d1be44388652f615073615976a28a16[0m  
+
+./.git/objects/da:
+76ffa8d846b7b859ddcf18acd743df289936f5  [0md7f650e3add190eedd038bcb4069a5b45fe88f  [0m
+
+./.git/objects/60:
+f28d482d80a03cc0e6fb502762908d24316b8c[0m  
+
+./.git/objects/ae:
+9a6366a1adf2c47bf0f4056097be7f3caefb19[0m  
+
+./.git/objects/ef:
+09c8b9c0766e744453840815eb93449440c2bb[0m  
+
+./.git/objects/38:
+1f47c5f25085203535d3c27e569300d9fa34f5[0m  
+
+./.git/objects/31:
+0fb50f20cc482ad9721af538c3620a977490bb[0m  
+
+./.git/hooks:
+[1;32mapplypatch-msg.sample  [0m[1;32mpost-update.sample     [0m[1;32mpre-commit.sample  [0m[1;32mpre-rebase.sample          [0m
+[1;32mcommit-msg.sample      [0m[1;32mpre-applypatch.sample  [0m[1;32mpre-push.sample    [0m[1;32mprepare-commit-msg.sample  [0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ ls[K[Kbin/ls tests #tests ls on a directly[K[Kory
+exec.script[0m  ls.script[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -al #com[K[K[K[K[K[K 0[K-l #o[Kcombination of flags
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m.[0m
+drwxrwxr-x 4 daniel daniel   4096 Oct 30 01:21 [1;34m[2;47;33m..[0m
+drwxrwxr-x 8 daniel daniel   4096 Nov 11 22:40 [1;34m[2;47;33m.git[0m
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -a -l #combination of flags[1@\[1@\[1P[1P[1P[1P[C[1@-[1@l[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C inn di[K[K[K[K different order
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m.[0m
+drwxrwxr-x 4 daniel daniel   4096 Oct 30 01:21 [1;34m[2;47;33m..[0m
+drwxrwxr-x 8 daniel daniel   4096 Nov 11 22:40 [1;34m[2;47;33m.git[0m
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -l -a  #combination of flags in different order[C[1@-[1@l[1@ [C[1@-[1@l[1@ [C[1@-[1@l[1@ [C[1@-[1@ [1@a[1P[1P[1@a[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C multiple times
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m.[0m
+drwxrwxr-x 4 daniel daniel   4096 Oct 30 01:21 [1;34m[2;47;33m..[0m
+drwxrwxr-x 8 daniel daniel   4096 Nov 11 22:40 [1;34m[2;47;33m.git[0m
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls tests[K[K[K[K[Ksrc -R #recursion on a diree[K[K[Kfere[K[K[Kferent directory
+src:
+Timer.h[0m  a[0m  c[0m  [1;32mcp[0m  cp.cpp[0m  [1;32mls[0m  ls.cpp[0m  [1;34mother[0m  rshell.cpp[0m  [1;34mtest[0m  [1;34mtest2[0m  
+
+src/test2:
+a[0m  [1;32ma.out[0m  b[0m  c.cpp[0m  
+
+src/test:
+a[0m  [1;32ma.out[0m  b[0m  [1;32mc[0m  c.cpp[0m  test.cpp[0m  [1;34mtest2[0m  
+
+src/test/test2:
+something.cpp[0m  
+
+src/other:
+something.cpp[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -al $[K#dirr[K[Kfferent flags o[Ktogether
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m.[0m
+drwxrwxr-x 4 daniel daniel   4096 Oct 30 01:21 [1;34m[2;47;33m..[0m
+drwxrwxr-x 8 daniel daniel   4096 Nov 11 22:40 [1;34m[2;47;33m.git[0m
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -la #regardless of positioin t[K[K[K[K[K[K[Ki[Ktion together
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m.[0m
+drwxrwxr-x 4 daniel daniel   4096 Oct 30 01:21 [1;34m[2;47;33m..[0m
+drwxrwxr-x 8 daniel daniel   4096 Nov 11 22:40 [1;34m[2;47;33m.git[0m
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+-rw-rw-r-- 1 daniel daniel    386 Nov 11 20:32 Makefile[0m
+-rw-rw-r-- 1 daniel daniel    262 Nov 11 20:16 Makefile~[0m
+-rw-rw-r-- 1 daniel daniel   2182 Oct 30 01:19 README.md[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:43 [1;34mbin[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34msrc[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 22:44 [1;34mtests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -[Ksrc -Rla #now combingin[K[K[King all t[K3 together
+src:
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m.[0m
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel   2699 Nov 11 22:07 Timer.h[0m
+-rw-rw-r-- 1 daniel daniel     12 Nov 11 22:07 a[0m
+------x--- 1 daniel daniel   8192 Nov 11 22:07 c[0m
+-rwxrwxr-x 1 daniel daniel  58816 Nov 11 22:10 cp[0m
+-rw-rw-r-- 1 daniel daniel   4431 Nov 11 22:14 cp.cpp[0m
+-rwxrwxr-x 1 daniel daniel 250614 Nov 11 22:39 ls[0m
+-rw-rw-r-- 1 daniel daniel  11983 Nov 11 22:39 ls.cpp[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 07 16:01 [1;34mother[0m
+-rw-rw-r-- 1 daniel daniel   4153 Nov 09 18:23 rshell.cpp[0m
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34mtest[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 18:58 [1;34mtest2[0m
+
+src/test2:
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 18:58 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 17:04 a[0m
+-rwxrwxr-x 1 daniel daniel  25702 Nov 11 18:57 a.out[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 17:04 b[0m
+-rw-rw-r-- 1 daniel daniel    196 Nov 11 18:58 c.cpp[0m
+
+src/test:
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:54 a[0m
+-rwxrwxr-x 1 daniel daniel  24020 Nov 09 19:55 a.out[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:54 b[0m
+-rwxrwxr-x 1 daniel daniel   9122 Nov 11 18:10 c[0m
+-rw-rw-r-- 1 daniel daniel    150 Nov 11 18:10 c.cpp[0m
+-rw-rw-r-- 1 daniel daniel    779 Nov 11 12:39 test.cpp[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 14:57 [1;34mtest2[0m
+
+src/test/test2:
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 14:57 [1;34m[2;47;33m.[0m
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 14:57 something.cpp[0m
+
+src/other:
+drwxrwxr-x 2 daniel daniel   4096 Nov 07 16:01 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:01 something.cpp[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin -lr[KRa src #placing flags f[Kbefore file or directory
+No command 'bin' found, did you mean:
+ Command 'bing' from package 'bing' (universe)
+ Command 'ben' from package 'ben' (universe)
+ Command 'bino' from package 'bino' (universe)
+ Command 'bins' from package 'bins' (universe)
+ Command 'tin' from package 'tin' (universe)
+ Command 'win' from package 'wily' (universe)
+ Command 'bio' from package 'barry-util' (universe)
+ Command 'din' from package 'din' (universe)
+ Command 'bip' from package 'bip' (universe)
+bin: command not found
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin -lRa src #placing flags before file or directory[C[C[C[1@/[1@l[1@s[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C #o[Kfor t[K[Kgot to g[Kput ls after bin[K[K[K'bin'
+src:
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m.[0m
+drwxrwxr-x 6 daniel daniel   4096 Nov 11 22:17 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel   2699 Nov 11 22:07 Timer.h[0m
+-rw-rw-r-- 1 daniel daniel     12 Nov 11 22:07 a[0m
+------x--- 1 daniel daniel   8192 Nov 11 22:07 c[0m
+-rwxrwxr-x 1 daniel daniel  58816 Nov 11 22:10 cp[0m
+-rw-rw-r-- 1 daniel daniel   4431 Nov 11 22:14 cp.cpp[0m
+-rwxrwxr-x 1 daniel daniel 250614 Nov 11 22:39 ls[0m
+-rw-rw-r-- 1 daniel daniel  11983 Nov 11 22:39 ls.cpp[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 07 16:01 [1;34mother[0m
+-rw-rw-r-- 1 daniel daniel   4153 Nov 09 18:23 rshell.cpp[0m
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34mtest[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 18:58 [1;34mtest2[0m
+
+src/test2:
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 18:58 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 17:04 a[0m
+-rwxrwxr-x 1 daniel daniel  25702 Nov 11 18:57 a.out[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 17:04 b[0m
+-rw-rw-r-- 1 daniel daniel    196 Nov 11 18:58 c.cpp[0m
+
+src/test:
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:54 a[0m
+-rwxrwxr-x 1 daniel daniel  24020 Nov 09 19:55 a.out[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:54 b[0m
+-rwxrwxr-x 1 daniel daniel   9122 Nov 11 18:10 c[0m
+-rw-rw-r-- 1 daniel daniel    150 Nov 11 18:10 c.cpp[0m
+-rw-rw-r-- 1 daniel daniel    779 Nov 11 12:39 test.cpp[0m
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 14:57 [1;34mtest2[0m
+
+src/test/test2:
+drwxrwxr-x 2 daniel daniel   4096 Nov 11 14:57 [1;34m[2;47;33m.[0m
+drwxrwxr-x 3 daniel daniel   4096 Nov 11 18:10 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 11 14:57 something.cpp[0m
+
+src/other:
+drwxrwxr-x 2 daniel daniel   4096 Nov 07 16:01 [1;34m[2;47;33m.[0m
+drwxrwxr-x 5 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel      0 Nov 07 16:01 something.cpp[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ ls[K[Kbin/ls ~/Dc[Kc[Kocuments #showing the format f [K[Kof directories with large files[K[K[K[K[K[K[K[K[K[K[Ka lot of if[K[Kfiles
+;            [0m[1;32mb                                    [0m[1;32ml.out           [0mstring.cpp        [0m
+[1;32m[1;34mNursingTest  [0mcitiCompletionReport4464913 (1).pdf  [0mlastString.cpp  [0mstringstream.cpp  [0m
+[1;32m[1;34mProgramming  [0m[1;32mcompile.sh                           [0moctober6.txt    [0m[1;32mt                 [0m
+[1;32ma.out        [0m[1;32m[1;34mfirefox                              [0moctober6.txt~   [0m[1;32m[1;34mt3e               [0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls ~/Documents #showing the format of directories with a lot of files[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kagain with flags[1@-[1@a[1@ [1@-[1@l[1@ [1P[1P[1P
+[1;32m[1;34m.            [0m[1;32m[1;34mProgramming                          [0m[1;32mcompile.sh      [0moctober6.txt      [0m[1;32mt         [0m
+[1;32m[1;34m..           [0m[1;32ma.out                                [0m[1;32m[1;34mfirefox         [0moctober6.txt~     [0m[1;32m[1;34mt3e       [0m
+;            [0m[1;32mb                                    [0m[1;32ml.out           [0mstring.cpp        [0m[1;32mtest      [0m
+[1;32m[1;34mNursingTest  [0mcitiCompletionReport4464913 (1).pdf  [0mlastString.cpp  [0mstringstream.cpp  [0mtest.cpp  [0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -a ~/Documents #again with flags[C[1@-[1@l[1@ 
+drwxr-xr-x 6 daniel daniel   4096 Oct 30 01:05 [1;34m[2;47;33m.[0m
+drwxr-xr-x 41 daniel daniel   4096 Nov 11 22:39 [1;34m[2;47;33m..[0m
+-rw-rw-r-- 1 daniel daniel    573 Oct 18 00:19 ;[0m
+drwxrwxr-x 12 daniel daniel   4096 Oct 24 18:59 [1;34mNursingTest[0m
+drwxrwxr-x 8 daniel daniel   4096 Oct 14 20:49 [1;34mProgramming[0m
+-rwxrwxr-x 1 daniel daniel  31736 Oct 19 00:36 a.out[0m
+-rwxrwxr-x 1 daniel daniel  32186 Oct 19 15:55 b[0m
+-rw-r----- 1 daniel daniel 109367 Oct 16 02:24 citiCompletionReport4464913 (1).pdf[0m
+-rwxrw-r-- 1 daniel daniel     63 Oct 17 23:45 compile.sh[0m
+drwxr-xr-x 8 daniel daniel   4096 Sep 10 19:08 [1;34mfirefox[0m
+-rwxrwxr-x 1 daniel daniel  14363 Oct 18 13:41 l.out[0m
+-rw-rw-r-- 1 daniel daniel    287 Oct 18 13:40 lastString.cpp[0m
+-rw-rw-r-- 1 daniel daniel    552 Oct 20 16:46 october6.txt[0m
+-rw-rw-r-- 1 daniel daniel    498 Oct 06 16:20 october6.txt~[0m
+-rw-rw-r-- 1 daniel daniel   2730 Oct 19 16:02 string.cpp[0m
+-rw-rw-r-- 1 daniel daniel    617 Oct 18 13:35 stringstream.cpp[0m
+-rwxrwxr-x 1 daniel daniel   9093 Oct 18 03:43 t[0m
+drwxrwxr-x 10 daniel daniel   4096 Sep 02 16:33 [1;34mt3e[0m
+-rwxrwxr-x 1 daniel daniel  26222 Oct 18 04:32 test[0m
+-rw-rw-r-- 1 daniel daniel    811 Oct 18 14:30 test.cpp[0m
+-rwxrwxr-x 1 daniel daniel   9093 Oct 18 02:09 tests[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -a -l ~/Documents #again with flags[C[C[C[1P[1@R
+/home/daniel/Documents:
+[1;32m[1;34m.            [0m[1;32m[1;34mProgramming                          [0m[1;32mcompile.sh      [0moctober6.txt      [0m[1;32mt         [0m
+[1;32m[1;34m..           [0m[1;32ma.out                                [0m[1;32m[1;34mfirefox         [0moctober6.txt~     [0m[1;32m[1;34mt3e       [0m
+;            [0m[1;32mb                                    [0m[1;32ml.out           [0mstring.cpp        [0m[1;32mtest      [0m
+[1;32m[1;34mNursingTest  [0mcitiCompletionReport4464913 (1).pdf  [0mlastString.cpp  [0mstringstream.cpp  [0mtest.cpp  [0m
+
+/home/daniel/Documents/Programming:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mHCCD[0m  [1;34mHaskell[0m  [1;34mcs100[0m  [1;34mfirefox[0m  [1;34mjava[0m  [1;34mtests[0m  
+
+/home/daniel/Documents/Programming/java:
+[1;32m[1;34m.   [0mSolution.class  [0mhelloworld.java  [0m[1;32m[1;34mquestion2  [0mtest.class  [0m
+[1;32m[1;34m..  [0mSolution.java   [0m[1;32m[1;34mjasypt-1.9.2     [0m[1;32m[1;34mquestion3  [0mtest.java   [0m
+
+/home/daniel/Documents/Programming/java/question2:
+[1;32m[1;34m.   [0mSolution$1.class              [0mSolution.class  [0mSolution.java~  [0m
+[1;32m[1;34m..  [0mSolution$angleDistPair.class  [0mSolution.java   [0mtest.class      [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  LICENSE.txt[0m  NOTICE.txt[0m  README.txt[0m  [1;34mapidocs[0m  [1;34mbin[0m  [1;34mlib[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs:
+[1;32m[1;34m.   [0m[1;32m[1;34mjasypt                [0m[1;32m[1;34mjasypt-hibernate3  [0m[1;32m[1;34mjasypt-spring2  [0m[1;32m[1;34mjasypt-spring31         [0m[1;32m[1;34mjasypt-springsecurity3  [0m
+[1;32m[1;34m..  [0m[1;32m[1;34mjasypt-acegisecurity  [0m[1;32m[1;34mjasypt-hibernate4  [0m[1;32m[1;34mjasypt-spring3  [0m[1;32m[1;34mjasypt-springsecurity2  [0m[1;32m[1;34mjasypt-wicket13         [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring31:
+[1;32m[1;34m.   [0mallclasses-frame.html    [0mconstant-values.html  [0mhelp-doc.html   [0mindex.html  [0moverview-frame.html    [0moverview-tree.html  [0m[1;32m[1;34mresources       [0m
+[1;32m[1;34m..  [0mallclasses-noframe.html  [0mdeprecated-list.html  [0mindex-all.html  [0m[1;32m[1;34morg         [0moverview-summary.html  [0mpackage-list        [0mstylesheet.css  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring31/org:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mjasypt[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring31/org/jasypt:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mspring31[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring31/org/jasypt/spring31:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mproperties[0m  [1;34mxml[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring31/org/jasypt/spring31/xml:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mencryption[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring31/org/jasypt/spring31/xml/encryption:
+[1;32m[1;34m.   [0mDigesterFactoryBean.html               [0mEncryptionNamespaceHandler.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mEncryptablePropertiesFactoryBean.html  [0mEncryptorFactoryBean.html        [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring31/org/jasypt/spring31/xml/encryption/class-use:
+[1;32m[1;34m.   [0mDigesterFactoryBean.html               [0mEncryptionNamespaceHandler.html  [0m
+[1;32m[1;34m..  [0mEncryptablePropertiesFactoryBean.html  [0mEncryptorFactoryBean.html        [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring31/org/jasypt/spring31/properties:
+[1;32m[1;34m.   [0mEncryptablePreferencesPlaceholderConfigurer.html  [0mEncryptablePropertyOverrideConfigurer.html     [0mEncryptablePropertySourcesPlaceholderConfigurer.html         [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mEncryptablePropertiesPropertySource.html          [0mEncryptablePropertyPlaceholderConfigurer.html  [0mEncryptableServletContextPropertyPlaceholderConfigurer.html  [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring31/org/jasypt/spring31/properties/class-use:
+[1;32m[1;34m.   [0mEncryptablePreferencesPlaceholderConfigurer.html  [0mEncryptablePropertyOverrideConfigurer.html     [0mEncryptablePropertySourcesPlaceholderConfigurer.html         [0m
+[1;32m[1;34m..  [0mEncryptablePropertiesPropertySource.html          [0mEncryptablePropertyPlaceholderConfigurer.html  [0mEncryptableServletContextPropertyPlaceholderConfigurer.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring31/resources:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  inherit.gif[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket13:
+[1;32m[1;34m.   [0mallclasses-frame.html    [0mconstant-values.html  [0mhelp-doc.html   [0mindex.html  [0moverview-frame.html    [0moverview-tree.html  [0m[1;32m[1;34mresources       [0m
+[1;32m[1;34m..  [0mallclasses-noframe.html  [0mdeprecated-list.html  [0mindex-all.html  [0m[1;32m[1;34morg         [0moverview-summary.html  [0mpackage-list        [0mstylesheet.css  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket13/org:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mjasypt[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket13/org/jasypt:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mwicket[0m  [1;34mwicket13[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket13/org/jasypt/wicket13:
+[1;32m[1;34m.   [0mJasyptCrypt.html         [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mJasyptCryptFactory.html  [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket13/org/jasypt/wicket13/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  JasyptCrypt.html[0m  JasyptCryptFactory.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket13/org/jasypt/wicket:
+[1;32m[1;34m.   [0mJasyptCrypt.html         [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mJasyptCryptFactory.html  [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket13/org/jasypt/wicket/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  JasyptCrypt.html[0m  JasyptCryptFactory.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket13/resources:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  inherit.gif[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt:
+[1;32m[1;34m.   [0mallclasses-frame.html    [0mconstant-values.html  [0mhelp-doc.html   [0mindex.html  [0moverview-frame.html    [0moverview-tree.html  [0m[1;32m[1;34mresources             [0m
+[1;32m[1;34m..  [0mallclasses-noframe.html  [0mdeprecated-list.html  [0mindex-all.html  [0m[1;32m[1;34morg         [0moverview-summary.html  [0mpackage-list        [0mserialized-form.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mjasypt[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt:
+[1;32m[1;34m.   [0m[1;32m[1;34mcommons  [0m[1;32m[1;34mencryption  [0m[1;32m[1;34mintf           [0m[1;32m[1;34mproperties  [0m[1;32m[1;34msalt  [0m
+[1;32m[1;34m..  [0m[1;32m[1;34mdigest   [0m[1;32m[1;34mexceptions  [0m[1;32m[1;34mnormalization  [0m[1;32m[1;34mregistry    [0m[1;32m[1;34mutil  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/normalization:
+[1;32m[1;34m.   [0mNormalizer.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0m[1;32m[1;34mclass-use        [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/normalization/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  Normalizer.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/intf:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mcli[0m  [1;34mservice[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/intf/cli:
+[1;32m[1;34m.   [0mAlgorithmRegistryCLI.html          [0mJasyptPBEStringEncryptionCLI.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mJasyptPBEStringDecryptionCLI.html  [0mJasyptStringDigestCLI.html         [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/intf/cli/class-use:
+[1;32m[1;34m.   [0mAlgorithmRegistryCLI.html          [0mJasyptPBEStringEncryptionCLI.html  [0m
+[1;32m[1;34m..  [0mJasyptPBEStringDecryptionCLI.html  [0mJasyptStringDigestCLI.html         [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/intf/service:
+[1;32m[1;34m.   [0mJasyptStatelessService.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0m[1;32m[1;34mclass-use                    [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/intf/service/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  JasyptStatelessService.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/commons:
+[1;32m[1;34m.   [0mCommonUtils.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0m[1;32m[1;34mclass-use         [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/commons/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  CommonUtils.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/salt:
+[1;32m[1;34m.   [0mByteArrayFixedSaltGenerator.html  [0mFixedSaltGenerator.html        [0mRandomSaltGenerator.html  [0mStringFixedSaltGenerator.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mFixedByteArraySaltGenerator.html  [0mFixedStringSaltGenerator.html  [0mSaltGenerator.html        [0mZeroSaltGenerator.html         [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/salt/class-use:
+[1;32m[1;34m.   [0mByteArrayFixedSaltGenerator.html  [0mFixedSaltGenerator.html        [0mRandomSaltGenerator.html  [0mStringFixedSaltGenerator.html  [0m
+[1;32m[1;34m..  [0mFixedByteArraySaltGenerator.html  [0mFixedStringSaltGenerator.html  [0mSaltGenerator.html        [0mZeroSaltGenerator.html         [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/encryption:
+[1;32m[1;34m.   [0mBigDecimalEncryptor.html  [0mByteEncryptor.html    [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0mpackage-use.html  [0m
+[1;32m[1;34m..  [0mBigIntegerEncryptor.html  [0mStringEncryptor.html  [0mpackage-frame.html  [0mpackage-tree.html     [0m[1;32m[1;34mpbe               [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/encryption/pbe:
+[1;32m[1;34m.   [0mCleanablePasswordBased.html                   [0mPBEBigDecimalEncryptor.html                   [0mPBEBigIntegerEncryptor.html             [0mPBEByteEncryptor.html                     [0mPBEStringEncryptor.html  [0mPooledPBEBigDecimalEncryptor.html  [0mPooledPBEByteEncryptor.html    [0mStandardPBEBigDecimalEncryptor.html  [0mStandardPBEByteEncryptor.html    [0m[1;32m[1;34mclass-use  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mPBEBigDecimalCleanablePasswordEncryptor.html  [0mPBEBigIntegerCleanablePasswordEncryptor.html  [0mPBEByteCleanablePasswordEncryptor.html  [0mPBEStringCleanablePasswordEncryptor.html  [0mPasswordBased.html       [0mPooledPBEBigIntegerEncryptor.html  [0mPooledPBEStringEncryptor.html  [0mStandardPBEBigIntegerEncryptor.html  [0mStandardPBEStringEncryptor.html  [0m[1;32m[1;34mconfig     [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/encryption/pbe/class-use:
+[1;32m[1;34m.   [0mCleanablePasswordBased.html                   [0mPBEBigDecimalEncryptor.html                   [0mPBEBigIntegerEncryptor.html             [0mPBEByteEncryptor.html                     [0mPBEStringEncryptor.html  [0mPooledPBEBigDecimalEncryptor.html  [0mPooledPBEByteEncryptor.html    [0mStandardPBEBigDecimalEncryptor.html  [0mStandardPBEByteEncryptor.html    [0m
+[1;32m[1;34m..  [0mPBEBigDecimalCleanablePasswordEncryptor.html  [0mPBEBigIntegerCleanablePasswordEncryptor.html  [0mPBEByteCleanablePasswordEncryptor.html  [0mPBEStringCleanablePasswordEncryptor.html  [0mPasswordBased.html       [0mPooledPBEBigIntegerEncryptor.html  [0mPooledPBEStringEncryptor.html  [0mStandardPBEBigIntegerEncryptor.html  [0mStandardPBEStringEncryptor.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/encryption/pbe/config:
+[1;32m[1;34m.   [0mEnvironmentPBEConfig.html        [0mPBECleanablePasswordConfig.html  [0mSimplePBEConfig.html        [0mStringPBEConfig.html  [0mWebStringPBEConfig.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mEnvironmentStringPBEConfig.html  [0mPBEConfig.html                   [0mSimpleStringPBEConfig.html  [0mWebPBEConfig.html     [0m[1;32m[1;34mclass-use                [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/encryption/pbe/config/class-use:
+[1;32m[1;34m.   [0mEnvironmentPBEConfig.html        [0mPBECleanablePasswordConfig.html  [0mSimplePBEConfig.html        [0mStringPBEConfig.html  [0m
+[1;32m[1;34m..  [0mEnvironmentStringPBEConfig.html  [0mPBEConfig.html                   [0mSimpleStringPBEConfig.html  [0mWebPBEConfig.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/encryption/class-use:
+[1;32m[1;34m.   [0mBigDecimalEncryptor.html  [0mByteEncryptor.html    [0m
+[1;32m[1;34m..  [0mBigIntegerEncryptor.html  [0mStringEncryptor.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mbinary[0m  [1;34mdigest[0m  [1;34mnumeric[0m  [1;34mpassword[0m  [1;34mtext[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/text:
+[1;32m[1;34m.   [0mBasicTextEncryptor.html   [0mTextEncryptor.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mStrongTextEncryptor.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/text/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  BasicTextEncryptor.html[0m  StrongTextEncryptor.html[0m  TextEncryptor.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/binary:
+[1;32m[1;34m.   [0mBasicBinaryEncryptor.html  [0mStrongBinaryEncryptor.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mBinaryEncryptor.html       [0m[1;32m[1;34mclass-use                   [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/binary/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  BasicBinaryEncryptor.html[0m  BinaryEncryptor.html[0m  StrongBinaryEncryptor.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/digest:
+[1;32m[1;34m.   [0mDigester.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0m[1;32m[1;34mclass-use      [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/digest/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  Digester.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/password:
+[1;32m[1;34m.   [0mBasicPasswordEncryptor.html         [0mPasswordEncryptor.html        [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0mpackage-use.html  [0m
+[1;32m[1;34m..  [0mConfigurablePasswordEncryptor.html  [0mStrongPasswordEncryptor.html  [0mpackage-frame.html  [0mpackage-tree.html     [0m[1;32m[1;34mrfc2307           [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/password/class-use:
+[1;32m[1;34m.   [0mBasicPasswordEncryptor.html         [0mPasswordEncryptor.html        [0m
+[1;32m[1;34m..  [0mConfigurablePasswordEncryptor.html  [0mStrongPasswordEncryptor.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/password/rfc2307:
+[1;32m[1;34m.   [0mRFC2307MD5PasswordEncryptor.html  [0mRFC2307SMD5PasswordEncryptor.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mRFC2307SHAPasswordEncryptor.html  [0mRFC2307SSHAPasswordEncryptor.html  [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/password/rfc2307/class-use:
+[1;32m[1;34m.   [0mRFC2307MD5PasswordEncryptor.html  [0mRFC2307SMD5PasswordEncryptor.html  [0m
+[1;32m[1;34m..  [0mRFC2307SHAPasswordEncryptor.html  [0mRFC2307SSHAPasswordEncryptor.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/numeric:
+[1;32m[1;34m.   [0mBasicDecimalNumberEncryptor.html  [0mDecimalNumberEncryptor.html  [0mStrongDecimalNumberEncryptor.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mBasicIntegerNumberEncryptor.html  [0mIntegerNumberEncryptor.html  [0mStrongIntegerNumberEncryptor.html  [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/util/numeric/class-use:
+[1;32m[1;34m.   [0mBasicDecimalNumberEncryptor.html  [0mDecimalNumberEncryptor.html  [0mStrongDecimalNumberEncryptor.html  [0m
+[1;32m[1;34m..  [0mBasicIntegerNumberEncryptor.html  [0mIntegerNumberEncryptor.html  [0mStrongIntegerNumberEncryptor.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/exceptions:
+[1;32m[1;34m.   [0mAlreadyInitializedException.html        [0mEncryptionOperationNotPossibleException.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mEncryptionInitializationException.html  [0mPasswordAlreadyCleanedException.html          [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/exceptions/class-use:
+[1;32m[1;34m.   [0mAlreadyInitializedException.html        [0mEncryptionOperationNotPossibleException.html  [0m
+[1;32m[1;34m..  [0mEncryptionInitializationException.html  [0mPasswordAlreadyCleanedException.html          [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/digest:
+[1;32m[1;34m.   [0mByteDigester.html        [0mPooledStringDigester.html  [0mStandardStringDigester.html  [0m[1;32m[1;34mclass-use  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mPooledByteDigester.html  [0mStandardByteDigester.html  [0mStringDigester.html          [0m[1;32m[1;34mconfig     [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/digest/class-use:
+[1;32m[1;34m.   [0mByteDigester.html        [0mPooledStringDigester.html  [0mStandardStringDigester.html  [0m
+[1;32m[1;34m..  [0mPooledByteDigester.html  [0mStandardByteDigester.html  [0mStringDigester.html          [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/digest/config:
+[1;32m[1;34m.   [0mDigesterConfig.html             [0mEnvironmentStringDigesterConfig.html  [0mSimpleStringDigesterConfig.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mEnvironmentDigesterConfig.html  [0mSimpleDigesterConfig.html             [0mStringDigesterConfig.html        [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/digest/config/class-use:
+[1;32m[1;34m.   [0mDigesterConfig.html             [0mEnvironmentStringDigesterConfig.html  [0mSimpleStringDigesterConfig.html  [0m
+[1;32m[1;34m..  [0mEnvironmentDigesterConfig.html  [0mSimpleDigesterConfig.html             [0mStringDigesterConfig.html        [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/registry:
+[1;32m[1;34m.   [0mAlgorithmRegistry.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0m[1;32m[1;34mclass-use               [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/registry/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  AlgorithmRegistry.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/web:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mpbeconfig[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/web/pbeconfig:
+[1;32m[1;34m.   [0mWebPBEConfigFilter.html    [0mWebPBEConfigServlet.html                  [0mWebPBEInitializer.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mWebPBEConfigRegistry.html  [0mWebPBEInitializationContextListener.html  [0m[1;32m[1;34mclass-use               [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/web/pbeconfig/class-use:
+[1;32m[1;34m.   [0mWebPBEConfigFilter.html    [0mWebPBEConfigServlet.html                  [0m
+[1;32m[1;34m..  [0mWebPBEConfigRegistry.html  [0mWebPBEInitializationContextListener.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/properties:
+[1;32m[1;34m.   [0mEncryptableProperties.html         [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mPropertyValueEncryptionUtils.html  [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/org/jasypt/properties/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  EncryptableProperties.html[0m  PropertyValueEncryptionUtils.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt/resources:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  inherit.gif[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3:
+[1;32m[1;34m.   [0mallclasses-frame.html    [0mconstant-values.html  [0mhelp-doc.html   [0mindex.html  [0moverview-frame.html    [0moverview-tree.html  [0m[1;32m[1;34mresources       [0m
+[1;32m[1;34m..  [0mallclasses-noframe.html  [0mdeprecated-list.html  [0mindex-all.html  [0m[1;32m[1;34morg         [0moverview-summary.html  [0mpackage-list        [0mstylesheet.css  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mjasypt[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mhibernate[0m  [1;34mhibernate3[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mconnectionprovider[0m  [1;34mencryptor[0m  [1;34mtype[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate/type:
+[1;32m[1;34m.   [0mAbstractEncryptedAsStringType.html    [0mEncryptedBigDecimalType.html          [0mEncryptedBigIntegerType.html  [0mEncryptedBooleanAsStringType.html  [0mEncryptedCalendarAsStringType.html  [0mEncryptedDoubleAsStringType.html  [0mEncryptedIntegerAsStringType.html  [0mEncryptedShortAsStringType.html  [0mParameterNaming.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mEncryptedBigDecimalAsStringType.html  [0mEncryptedBigIntegerAsStringType.html  [0mEncryptedBinaryType.html      [0mEncryptedByteAsStringType.html     [0mEncryptedDateAsStringType.html      [0mEncryptedFloatAsStringType.html   [0mEncryptedLongAsStringType.html     [0mEncryptedStringType.html         [0m[1;32m[1;34mclass-use             [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate/type/class-use:
+[1;32m[1;34m.   [0mAbstractEncryptedAsStringType.html    [0mEncryptedBigDecimalType.html          [0mEncryptedBigIntegerType.html  [0mEncryptedBooleanAsStringType.html  [0mEncryptedCalendarAsStringType.html  [0mEncryptedDoubleAsStringType.html  [0mEncryptedIntegerAsStringType.html  [0mEncryptedShortAsStringType.html  [0m
+[1;32m[1;34m..  [0mEncryptedBigDecimalAsStringType.html  [0mEncryptedBigIntegerAsStringType.html  [0mEncryptedBinaryType.html      [0mEncryptedByteAsStringType.html     [0mEncryptedDateAsStringType.html      [0mEncryptedFloatAsStringType.html   [0mEncryptedLongAsStringType.html     [0mEncryptedStringType.html         [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate/connectionprovider:
+[1;32m[1;34m.                                             [0mEncryptedPasswordDriverManagerConnectionProvider.html  [0mpackage-frame.html    [0m
+[1;32m[1;34m..                                            [0mParameterNaming.html                                   [0mpackage-summary.html  [0m
+EncryptedPasswordC3P0ConnectionProvider.html  [0m[1;32m[1;34mclass-use                                              [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate/connectionprovider/class-use:
+[1;32m[1;34m.   [0mEncryptedPasswordC3P0ConnectionProvider.html           [0m
+[1;32m[1;34m..  [0mEncryptedPasswordDriverManagerConnectionProvider.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate/encryptor:
+[1;32m[1;34m.   [0mHibernatePBEBigDecimalEncryptor.html  [0mHibernatePBEByteEncryptor.html      [0mHibernatePBEStringEncryptor.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mHibernatePBEBigIntegerEncryptor.html  [0mHibernatePBEEncryptorRegistry.html  [0m[1;32m[1;34mclass-use                         [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate/encryptor/class-use:
+[1;32m[1;34m.   [0mHibernatePBEBigDecimalEncryptor.html  [0mHibernatePBEByteEncryptor.html      [0m
+[1;32m[1;34m..  [0mHibernatePBEBigIntegerEncryptor.html  [0mHibernatePBEEncryptorRegistry.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate3:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mconnectionprovider[0m  [1;34mencryptor[0m  [1;34mtype[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate3/type:
+[1;32m[1;34m.   [0mAbstractEncryptedAsStringType.html    [0mEncryptedBigDecimalType.html          [0mEncryptedBigIntegerType.html  [0mEncryptedBooleanAsStringType.html  [0mEncryptedCalendarAsStringType.html  [0mEncryptedDoubleAsStringType.html  [0mEncryptedIntegerAsStringType.html  [0mEncryptedShortAsStringType.html  [0mParameterNaming.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mEncryptedBigDecimalAsStringType.html  [0mEncryptedBigIntegerAsStringType.html  [0mEncryptedBinaryType.html      [0mEncryptedByteAsStringType.html     [0mEncryptedDateAsStringType.html      [0mEncryptedFloatAsStringType.html   [0mEncryptedLongAsStringType.html     [0mEncryptedStringType.html         [0m[1;32m[1;34mclass-use             [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate3/type/class-use:
+[1;32m[1;34m.   [0mAbstractEncryptedAsStringType.html    [0mEncryptedBigDecimalType.html          [0mEncryptedBigIntegerType.html  [0mEncryptedBooleanAsStringType.html  [0mEncryptedCalendarAsStringType.html  [0mEncryptedDoubleAsStringType.html  [0mEncryptedIntegerAsStringType.html  [0mEncryptedShortAsStringType.html  [0m
+[1;32m[1;34m..  [0mEncryptedBigDecimalAsStringType.html  [0mEncryptedBigIntegerAsStringType.html  [0mEncryptedBinaryType.html      [0mEncryptedByteAsStringType.html     [0mEncryptedDateAsStringType.html      [0mEncryptedFloatAsStringType.html   [0mEncryptedLongAsStringType.html     [0mEncryptedStringType.html         [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate3/connectionprovider:
+[1;32m[1;34m.                                             [0mEncryptedPasswordDriverManagerConnectionProvider.html  [0mpackage-frame.html    [0m
+[1;32m[1;34m..                                            [0mParameterNaming.html                                   [0mpackage-summary.html  [0m
+EncryptedPasswordC3P0ConnectionProvider.html  [0m[1;32m[1;34mclass-use                                              [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate3/connectionprovider/class-use:
+[1;32m[1;34m.   [0mEncryptedPasswordC3P0ConnectionProvider.html           [0m
+[1;32m[1;34m..  [0mEncryptedPasswordDriverManagerConnectionProvider.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate3/encryptor:
+[1;32m[1;34m.   [0mHibernatePBEBigDecimalEncryptor.html  [0mHibernatePBEByteEncryptor.html      [0mHibernatePBEStringEncryptor.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mHibernatePBEBigIntegerEncryptor.html  [0mHibernatePBEEncryptorRegistry.html  [0m[1;32m[1;34mclass-use                         [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/org/jasypt/hibernate3/encryptor/class-use:
+[1;32m[1;34m.   [0mHibernatePBEBigDecimalEncryptor.html  [0mHibernatePBEByteEncryptor.html      [0m
+[1;32m[1;34m..  [0mHibernatePBEBigIntegerEncryptor.html  [0mHibernatePBEEncryptorRegistry.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate3/resources:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  inherit.gif[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-acegisecurity:
+[1;32m[1;34m.   [0mallclasses-frame.html    [0mconstant-values.html  [0mhelp-doc.html   [0mindex.html  [0moverview-frame.html    [0moverview-tree.html  [0m[1;32m[1;34mresources       [0m
+[1;32m[1;34m..  [0mallclasses-noframe.html  [0mdeprecated-list.html  [0mindex-all.html  [0m[1;32m[1;34morg         [0moverview-summary.html  [0mpackage-list        [0mstylesheet.css  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-acegisecurity/org:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mjasypt[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-acegisecurity/org/jasypt:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34macegisecurity[0m  [1;34mspring[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-acegisecurity/org/jasypt/spring:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34msecurity[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-acegisecurity/org/jasypt/spring/security:
+[1;32m[1;34m.   [0mPBEPasswordEncoder.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mPasswordEncoder.html     [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-acegisecurity/org/jasypt/spring/security/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  PBEPasswordEncoder.html[0m  PasswordEncoder.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-acegisecurity/org/jasypt/acegisecurity:
+[1;32m[1;34m.   [0mPBEPasswordEncoder.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mPasswordEncoder.html     [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-acegisecurity/org/jasypt/acegisecurity/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  PBEPasswordEncoder.html[0m  PasswordEncoder.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-acegisecurity/resources:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  inherit.gif[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring2:
+[1;32m[1;34m.   [0mallclasses-frame.html    [0mconstant-values.html  [0mhelp-doc.html   [0mindex.html  [0moverview-frame.html    [0moverview-tree.html  [0m[1;32m[1;34mresources       [0m
+[1;32m[1;34m..  [0mallclasses-noframe.html  [0mdeprecated-list.html  [0mindex-all.html  [0m[1;32m[1;34morg         [0moverview-summary.html  [0mpackage-list        [0mstylesheet.css  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring2/org:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mjasypt[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring2/org/jasypt:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mspring[0m  [1;34mspring2[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring2/org/jasypt/spring2:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mproperties[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring2/org/jasypt/spring2/properties:
+[1;32m[1;34m.                                                 [0mEncryptablePropertyOverrideConfigurer.html                   [0m[1;32m[1;34mclass-use             [0m
+[1;32m[1;34m..                                                [0mEncryptablePropertyPlaceholderConfigurer.html                [0mpackage-frame.html    [0m
+EncryptablePreferencesPlaceholderConfigurer.html  [0mEncryptableServletContextPropertyPlaceholderConfigurer.html  [0mpackage-summary.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring2/org/jasypt/spring2/properties/class-use:
+[1;32m[1;34m.   [0mEncryptablePreferencesPlaceholderConfigurer.html  [0mEncryptablePropertyPlaceholderConfigurer.html                [0m
+[1;32m[1;34m..  [0mEncryptablePropertyOverrideConfigurer.html        [0mEncryptableServletContextPropertyPlaceholderConfigurer.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring2/org/jasypt/spring:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mproperties[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring2/org/jasypt/spring/properties:
+[1;32m[1;34m.                                                 [0mEncryptablePropertyOverrideConfigurer.html                   [0m[1;32m[1;34mclass-use             [0m
+[1;32m[1;34m..                                                [0mEncryptablePropertyPlaceholderConfigurer.html                [0mpackage-frame.html    [0m
+EncryptablePreferencesPlaceholderConfigurer.html  [0mEncryptableServletContextPropertyPlaceholderConfigurer.html  [0mpackage-summary.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring2/org/jasypt/spring/properties/class-use:
+[1;32m[1;34m.   [0mEncryptablePreferencesPlaceholderConfigurer.html  [0mEncryptablePropertyPlaceholderConfigurer.html                [0m
+[1;32m[1;34m..  [0mEncryptablePropertyOverrideConfigurer.html        [0mEncryptableServletContextPropertyPlaceholderConfigurer.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring2/resources:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  inherit.gif[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3:
+[1;32m[1;34m.   [0mallclasses-frame.html    [0mconstant-values.html  [0mhelp-doc.html   [0mindex.html  [0moverview-frame.html    [0moverview-tree.html  [0m[1;32m[1;34mresources       [0m
+[1;32m[1;34m..  [0mallclasses-noframe.html  [0mdeprecated-list.html  [0mindex-all.html  [0m[1;32m[1;34morg         [0moverview-summary.html  [0mpackage-list        [0mstylesheet.css  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mjasypt[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mspring[0m  [1;34mspringsecurity3[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/spring:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34msecurity3[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/spring/security3:
+[1;32m[1;34m.   [0mPBEPasswordEncoder.html  [0mTokenBasedRememberMeServices.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mPasswordEncoder.html     [0m[1;32m[1;34mclass-use                          [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/spring/security3/class-use:
+[1;32m[1;34m.   [0mPBEPasswordEncoder.html  [0m
+[1;32m[1;34m..  [0mPasswordEncoder.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/springsecurity3:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mauthentication[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/springsecurity3/authentication:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mencoding[0m  [1;34mrememberme[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/springsecurity3/authentication/rememberme:
+[1;32m[1;34m.   [0mTokenBasedRememberMeServices.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0m[1;32m[1;34mclass-use                          [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/springsecurity3/authentication/rememberme/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  TokenBasedRememberMeServices.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/springsecurity3/authentication/encoding:
+[1;32m[1;34m.   [0mPBEPasswordEncoder.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mPasswordEncoder.html     [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/org/jasypt/springsecurity3/authentication/encoding/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  PBEPasswordEncoder.html[0m  PasswordEncoder.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity3/resources:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  inherit.gif[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3:
+[1;32m[1;34m.   [0mallclasses-frame.html    [0mconstant-values.html  [0mhelp-doc.html   [0mindex.html  [0moverview-frame.html    [0moverview-tree.html  [0m[1;32m[1;34mresources       [0m
+[1;32m[1;34m..  [0mallclasses-noframe.html  [0mdeprecated-list.html  [0mindex-all.html  [0m[1;32m[1;34morg         [0moverview-summary.html  [0mpackage-list        [0mstylesheet.css  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/org:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mjasypt[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mspring[0m  [1;34mspring3[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring3:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mproperties[0m  [1;34mxml[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring3/xml:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mencryption[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring3/xml/encryption:
+[1;32m[1;34m.   [0mDigesterFactoryBean.html               [0mEncryptionNamespaceHandler.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mEncryptablePropertiesFactoryBean.html  [0mEncryptorFactoryBean.html        [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring3/xml/encryption/class-use:
+[1;32m[1;34m.   [0mDigesterFactoryBean.html               [0mEncryptionNamespaceHandler.html  [0m
+[1;32m[1;34m..  [0mEncryptablePropertiesFactoryBean.html  [0mEncryptorFactoryBean.html        [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring3/properties:
+[1;32m[1;34m.                                                 [0mEncryptablePropertyOverrideConfigurer.html                   [0m[1;32m[1;34mclass-use             [0m
+[1;32m[1;34m..                                                [0mEncryptablePropertyPlaceholderConfigurer.html                [0mpackage-frame.html    [0m
+EncryptablePreferencesPlaceholderConfigurer.html  [0mEncryptableServletContextPropertyPlaceholderConfigurer.html  [0mpackage-summary.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring3/properties/class-use:
+[1;32m[1;34m.   [0mEncryptablePreferencesPlaceholderConfigurer.html  [0mEncryptablePropertyPlaceholderConfigurer.html                [0m
+[1;32m[1;34m..  [0mEncryptablePropertyOverrideConfigurer.html        [0mEncryptableServletContextPropertyPlaceholderConfigurer.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mproperties[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring/properties:
+[1;32m[1;34m.                                                 [0mEncryptablePropertyOverrideConfigurer.html                   [0m[1;32m[1;34mclass-use             [0m
+[1;32m[1;34m..                                                [0mEncryptablePropertyPlaceholderConfigurer.html                [0mpackage-frame.html    [0m
+EncryptablePreferencesPlaceholderConfigurer.html  [0mEncryptableServletContextPropertyPlaceholderConfigurer.html  [0mpackage-summary.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/org/jasypt/spring/properties/class-use:
+[1;32m[1;34m.   [0mEncryptablePreferencesPlaceholderConfigurer.html  [0mEncryptablePropertyPlaceholderConfigurer.html                [0m
+[1;32m[1;34m..  [0mEncryptablePropertyOverrideConfigurer.html        [0mEncryptableServletContextPropertyPlaceholderConfigurer.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-spring3/resources:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  inherit.gif[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate4:
+[1;32m[1;34m.   [0mallclasses-frame.html    [0mconstant-values.html  [0mhelp-doc.html   [0mindex.html  [0moverview-frame.html    [0moverview-tree.html  [0m[1;32m[1;34mresources             [0m
+[1;32m[1;34m..  [0mallclasses-noframe.html  [0mdeprecated-list.html  [0mindex-all.html  [0m[1;32m[1;34morg         [0moverview-summary.html  [0mpackage-list        [0mserialized-form.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate4/org:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mjasypt[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mhibernate4[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt/hibernate4:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mconnectionprovider[0m  [1;34mencryptor[0m  [1;34mtype[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt/hibernate4/type:
+[1;32m[1;34m.   [0mAbstractEncryptedAsStringType.html    [0mEncryptedBigDecimalType.html          [0mEncryptedBigIntegerType.html  [0mEncryptedBooleanAsStringType.html  [0mEncryptedCalendarAsStringType.html  [0mEncryptedDoubleAsStringType.html  [0mEncryptedIntegerAsStringType.html  [0mEncryptedShortAsStringType.html  [0mParameterNaming.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mEncryptedBigDecimalAsStringType.html  [0mEncryptedBigIntegerAsStringType.html  [0mEncryptedBinaryType.html      [0mEncryptedByteAsStringType.html     [0mEncryptedDateAsStringType.html      [0mEncryptedFloatAsStringType.html   [0mEncryptedLongAsStringType.html     [0mEncryptedStringType.html         [0m[1;32m[1;34mclass-use             [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt/hibernate4/type/class-use:
+[1;32m[1;34m.   [0mAbstractEncryptedAsStringType.html    [0mEncryptedBigDecimalType.html          [0mEncryptedBigIntegerType.html  [0mEncryptedBooleanAsStringType.html  [0mEncryptedCalendarAsStringType.html  [0mEncryptedDoubleAsStringType.html  [0mEncryptedIntegerAsStringType.html  [0mEncryptedShortAsStringType.html  [0m
+[1;32m[1;34m..  [0mEncryptedBigDecimalAsStringType.html  [0mEncryptedBigIntegerAsStringType.html  [0mEncryptedBinaryType.html      [0mEncryptedByteAsStringType.html     [0mEncryptedDateAsStringType.html      [0mEncryptedFloatAsStringType.html   [0mEncryptedLongAsStringType.html     [0mEncryptedStringType.html         [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt/hibernate4/connectionprovider:
+[1;32m[1;34m.                                             [0mEncryptedPasswordDriverManagerConnectionProvider.html  [0mpackage-frame.html    [0m
+[1;32m[1;34m..                                            [0mParameterNaming.html                                   [0mpackage-summary.html  [0m
+EncryptedPasswordC3P0ConnectionProvider.html  [0m[1;32m[1;34mclass-use                                              [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt/hibernate4/connectionprovider/class-use:
+[1;32m[1;34m.   [0mEncryptedPasswordC3P0ConnectionProvider.html           [0m
+[1;32m[1;34m..  [0mEncryptedPasswordDriverManagerConnectionProvider.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt/hibernate4/encryptor:
+[1;32m[1;34m.   [0mHibernatePBEBigDecimalEncryptor.html  [0mHibernatePBEByteEncryptor.html      [0mHibernatePBEStringEncryptor.html  [0mpackage-frame.html    [0mpackage-tree.html  [0m
+[1;32m[1;34m..  [0mHibernatePBEBigIntegerEncryptor.html  [0mHibernatePBEEncryptorRegistry.html  [0m[1;32m[1;34mclass-use                         [0mpackage-summary.html  [0mpackage-use.html   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate4/org/jasypt/hibernate4/encryptor/class-use:
+[1;32m[1;34m.   [0mHibernatePBEBigDecimalEncryptor.html  [0mHibernatePBEByteEncryptor.html      [0m
+[1;32m[1;34m..  [0mHibernatePBEBigIntegerEncryptor.html  [0mHibernatePBEEncryptorRegistry.html  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-hibernate4/resources:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  inherit.gif[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket15:
+[1;32m[1;34m.   [0mallclasses-frame.html    [0mconstant-values.html  [0mhelp-doc.html   [0mindex.html  [0moverview-tree.html  [0m[1;32m[1;34mresources       [0m
+[1;32m[1;34m..  [0mallclasses-noframe.html  [0mdeprecated-list.html  [0mindex-all.html  [0m[1;32m[1;34morg         [0mpackage-list        [0mstylesheet.css  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket15/org:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mjasypt[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket15/org/jasypt:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mwicket15[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket15/org/jasypt/wicket15:
+[1;32m[1;34m.   [0mJasyptCrypt.html         [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mJasyptCryptFactory.html  [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket15/org/jasypt/wicket15/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  JasyptCrypt.html[0m  JasyptCryptFactory.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-wicket15/resources:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  inherit.gif[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity2:
+[1;32m[1;34m.   [0mallclasses-frame.html    [0mconstant-values.html  [0mhelp-doc.html   [0mindex.html  [0moverview-frame.html    [0moverview-tree.html  [0m[1;32m[1;34mresources       [0m
+[1;32m[1;34m..  [0mallclasses-noframe.html  [0mdeprecated-list.html  [0mindex-all.html  [0m[1;32m[1;34morg         [0moverview-summary.html  [0mpackage-list        [0mstylesheet.css  [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity2/org:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mjasypt[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity2/org/jasypt:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mspring[0m  [1;34mspringsecurity2[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity2/org/jasypt/spring:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34msecurity2[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity2/org/jasypt/spring/security2:
+[1;32m[1;34m.   [0mPBEPasswordEncoder.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mPasswordEncoder.html     [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity2/org/jasypt/spring/security2/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  PBEPasswordEncoder.html[0m  PasswordEncoder.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity2/org/jasypt/springsecurity2:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mproviders[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity2/org/jasypt/springsecurity2/providers:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mencoding[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity2/org/jasypt/springsecurity2/providers/encoding:
+[1;32m[1;34m.   [0mPBEPasswordEncoder.html  [0m[1;32m[1;34mclass-use           [0mpackage-summary.html  [0m
+[1;32m[1;34m..  [0mPasswordEncoder.html     [0mpackage-frame.html  [0mpackage-tree.html     [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity2/org/jasypt/springsecurity2/providers/encoding/class-use:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  PBEPasswordEncoder.html[0m  PasswordEncoder.html[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/apidocs/jasypt-springsecurity2/resources:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  inherit.gif[0m  
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/bin:
+[1;32m[1;34m.   [0mdecrypt.bat  [0mdigest.bat  [0mencrypt.bat  [0mlistAlgorithms.bat  [0m
+[1;32m[1;34m..  [0mdecrypt.sh   [0mdigest.sh   [0mencrypt.sh   [0mlistAlgorithms.sh   [0m
+
+/home/daniel/Documents/Programming/java/jasypt-1.9.2/lib:
+[1;32m[1;34m.   [0micu4j-3.4.4.jar           [0mjasypt-1.9.2-lite.jar     [0mjasypt-1.9.2.jar                        [0mjasypt-acegisecurity-1.9.2-sources.jar  [0mjasypt-hibernate3-1.9.2-javadoc.jar  [0mjasypt-hibernate3-1.9.2.jar          [0mjasypt-hibernate4-1.9.2-sources.jar  [0mjasypt-spring2-1.9.2-javadoc.jar  [0mjasypt-spring2-1.9.2.jar          [0mjasypt-spring3-1.9.2-sources.jar  [0mjasypt-spring31-1.9.2-javadoc.jar  [0mjasypt-spring31-1.9.2.jar                 [0mjasypt-springsecurity2-1.9.2-sources.jar  [0mjasypt-springsecurity3-1.9.2-javadoc.jar  [0mjasypt-springsecurity3-1.9.2.jar   [0mjasypt-wicket13-1.9.2-sources.jar  [0mjasypt-wicket15-1.9.2-javadoc.jar  [0m
+[1;32m[1;34m..  [0mjasypt-1.9.2-javadoc.jar  [0mjasypt-1.9.2-sources.jar  [0mjasypt-acegisecurity-1.9.2-javadoc.jar  [0mjasypt-acegisecurity-1.9.2.jar          [0mjasypt-hibernate3-1.9.2-sources.jar  [0mjasypt-hibernate4-1.9.2-javadoc.jar  [0mjasypt-hibernate4-1.9.2.jar          [0mjasypt-spring2-1.9.2-sources.jar  [0mjasypt-spring3-1.9.2-javadoc.jar  [0mjasypt-spring3-1.9.2.jar          [0mjasypt-spring31-1.9.2-sources.jar  [0mjasypt-springsecurity2-1.9.2-javadoc.jar  [0mjasypt-springsecurity2-1.9.2.jar          [0mjasypt-springsecurity3-1.9.2-sources.jar  [0mjasypt-wicket13-1.9.2-javadoc.jar  [0mjasypt-wicket13-1.9.2.jar          [0mjasypt-wicket15-1.9.2-sources.jar  [0m
+
+/home/daniel/Documents/Programming/java/question3:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  Solution.class[0m  Solution.java[0m  Solution.java~[0m  test.class[0m  test.java[0m  
+
+/home/daniel/Documents/Programming/Haskell:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  INSTALL[0m  [1;34mcairo-1.13.1[0m  final write up.odt[0m  [1;34mglowing-wookie[0m  [1;34mlibrsvg-2.40.3[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie:
+[1;32m[1;34m.   [0m[1;32m[1;34m.git        [0mREADME.md  [0mdata.csv             [0m[1;32m[1;34mimg     [0mschedule.md  [0m[1;32m[1;34msrc             [0m
+[1;32m[1;34m..  [0m.gitignore  [0m[1;32m[1;34mcss        [0mglowingwookie.cabal  [0m[1;32m[1;34mmockup  [0msession.txt  [0mstudentinfo.md  [0m
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/img:
+[1;32m[1;34m.                                                               [0m7up.jpg             [0mBJs.jpg                   [0mBloch-SermonOnTheMount.jpg  [0mCmilk.jpg                          [0mDumbledore_and_Elder_Wand.jpg  [0mHang_Glide.jpg       [0mLukeSkywalker.png   [0mMark_Wahlberg.jpg         [0mMovie.jpg     [0mPark.jpg         [0mRock_climbing.jpg    [0mSky_Diving.jpg                 [0mSteve_Jobs.jpg        [0mTolkien_1916.jpg  [0mWicked.jpg         [0mapplej.jpg          [0mcabernet.png    [0mchurchhill.jpg  [0mcran.jpg      [0mfood.jpg      [0mhitler.jpg                              [0mitea.jpg   [0mlighted-tent-648.jpg  [0mmilk.jpg        [0moprahwinfrey_2005.jpg  [0mpepsic.jpg    [0mredcross.png             [0mshopping.jpg   [0mstrawberry.JPG  [0mtinafey.jpg  [0m
+[1;32m[1;34m..                                                              [0mAW.jpg              [0mBeyonce.jpg               [0mBook.jpg                    [0mComic_Art_-_Batman_by_Jim_Lee.png  [0mEllen-DeGeneres-s07.jpg        [0mHenryVIII.jpg        [0mLuke_Skywalker.png  [0mMark_Zuckerberg.jpg       [0mMovies.jpg    [0mParty.jpg        [0mRollerblade.jpg      [0mSleep.jpg                      [0mSuperman.jpg          [0mTv.jpg            [0mWindows.png        [0mbeer.jpg            [0mcalifornia.jpg  [0mcoffee.jpg      [0mdelta2.gif    [0mgandalf.jpg   [0mhopscotch.jpg                           [0mjack.jpg   [0mlincoln.jpg           [0mmilkshakes.jpg  [0mor.png                 [0mpie.png       [0mroot_beer.jpg            [0msierra.jpg     [0mtea.jpg         [0mtrain.jpg    [0m
+614px-Mehmet_Oz_-_World_Economic_Forum_Annual_Meeting_2012.jpg  [0mAmilk.jpg           [0mBike.jpg                  [0mBungee_jumping.jpg          [0mCslewis3.jpg                       [0mEye_of_sauron.jpg              [0mHillary_Clinton.jpg  [0mMakeup.jpg          [0mMatt_Damon_2014.jpg       [0mMuhammad.png  [0mPool.jpg         [0mRv.jpg               [0mStar_Trek_William_Shatner.jpg  [0mTesla_circa_1890.jpg  [0mVideo_Games.jpg   [0mWorking_out.jpg    [0mberry-smoothie.jpg  [0mcapam4.jpg      [0mcoke-can.jpg    [0mexpresso.jpg  [0mgandhi.jpg    [0mhotc.jpg                                [0mjuice.jpg  [0mmargarita.jpg         [0mmonopoly.jpg    [0morange.jpg             [0mplane.jpg     [0mrwine.jpg                [0msoda.jpg       [0mteacher.gif     [0munited.jpg   [0m
+653px-Malcolm_X_NYWTS_2a.jpg                                    [0mAmusement_park.jpg  [0mBillGates.jpg             [0mCatwoman.jpg                [0mDrPhil.jpg                         [0mGeorge-W-Bush.jpg              [0mIOS.jpg              [0mMall.jpg            [0mMcD.jpg                   [0mOz.jpg        [0mRichardIII.jpg   [0mSJPA_Iron_Man_1.png  [0mStay_in.jpg                    [0mThe_Thing.gif         [0mWAP.jpg           [0mXBO.jpg            [0mbowling.jpg         [0mcaprisun.jpg    [0mcoke.jpg        [0mfdr.jpg       [0mgatorade.jpg  [0mincredible-hulk-wallpapers-278937.jpeg  [0mkaid.jpg   [0mmartini.jpg           [0mmonster.jpg     [0mpepsi-can.png          [0mpowerade.jpg  [0msc4-darth-vader-art.jpg  [0msoldier.gif    [0mtent.jpg        [0mwater.jpg    [0m
+742px-Martin_Luther_King_Jr_NYWTS.jpg                           [0mAndroid.jpg         [0mBill_Gates_July_2014.jpg  [0mCatwoman_0007.jpg           [0mDrive.jpg                          [0mGoing_out.jpg                  [0mJump_rope.jpg        [0mMarkZuckerberg.jpg  [0mMegan-Fox-Pink-Dress.jpg  [0mPS4.jpg       [0mRihanna2012.jpg  [0mSarah_Palin_7.jpg    [0mSteveJobs.jpg                  [0mThomas_Edison2.jpg    [0mWalk.jpg          [0mairline-delta.gif  [0mbud.jpg             [0mchocm.png       [0mcoors.jpg       [0mfireball.jpg  [0mgay.jpg       [0mincrediblehulk.jpeg                     [0mlatte.jpg  [0mmerlot.jpg            [0mobama.jpg       [0mpepsi.jpg              [0mrc.png        [0mscarlett.jpg             [0msouthwest.jpg  [0mtexas.jpg       [0mwhale.jpg    [0m
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/src:
+[1;32m[1;34m.   [0mApp.hs      [0mMain.hs      [0mRoot.hs     [0m[1;32m[1;34mdata         [0mheader.html  [0m
+[1;32m[1;34m..  [0mDisplay.hs  [0mQuizData.hs  [0mabout.html  [0mfooter.html  [0mindex.html   [0m
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/src/data:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mquiz0[0m  quiz0.txt[0m  quiz1.txt[0m  quiz2.txt[0m  quiz3.txt[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/src/data/quiz0:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  question0.txt[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git:
+[1;32m[1;34m.   [0mHEAD      [0mconfig       [0m[1;32m[1;34mhooks  [0m[1;32m[1;34minfo  [0m[1;32m[1;34mobjects      [0m
+[1;32m[1;34m..  [0m[1;32m[1;34mbranches  [0mdescription  [0mindex  [0m[1;32m[1;34mlogs  [0mpacked-refs  [0m
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/branches:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/refs:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mheads[0m  [1;34mremotes[0m  [1;34mtags[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/refs/tags:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/refs/remotes:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34morigin[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/refs/remotes/origin:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  HEAD[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/refs/heads:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  master[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/info:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  exclude[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/logs:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  HEAD[0m  [1;34mrefs[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/logs/refs:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mheads[0m  [1;34mremotes[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/logs/refs/remotes:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34morigin[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/logs/refs/remotes/origin:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  HEAD[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/logs/refs/heads:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  master[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/objects:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34minfo[0m  [1;34mpack[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/objects/info:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/objects/pack:
+[1;32m[1;34m.   [0mpack-73884dfe021f74010d6964f4305e64bd3be1e2eb.idx   [0m
+[1;32m[1;34m..  [0mpack-73884dfe021f74010d6964f4305e64bd3be1e2eb.pack  [0m
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/.git/hooks:
+[1;32m[1;34m.   [0m[1;32mapplypatch-msg.sample  [0m[1;32mpost-update.sample     [0m[1;32mpre-commit.sample  [0m[1;32mpre-rebase.sample          [0m
+[1;32m[1;34m..  [0m[1;32mcommit-msg.sample      [0m[1;32mpre-applypatch.sample  [0m[1;32mpre-push.sample    [0m[1;32mprepare-commit-msg.sample  [0m
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/css:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  stylesheet.css[0m  
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/mockup:
+[1;32m[1;34m.   [0mREADME.lhs  [0mex0.html  [0mex2.html  [0mex4.html  [0mex6.html  [0m
+[1;32m[1;34m..  [0m[1;32m[1;34mcss         [0mex1.html  [0mex3.html  [0mex5.html  [0m[1;32m[1;34mimg       [0m
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/mockup/img:
+[1;32m[1;34m.   [0mGeorge-W-Bush.jpeg  [0mcalifornia.jpg  [0mcoke-can.jpg  [0mdelta2.gif  [0mgay.jpg     [0mlincoln.jpg  [0mpepsi-can.png  [0msoldier.gif    [0mteacher.gif  [0m
+[1;32m[1;34m..  [0mairline-delta.gif   [0mchurchhill.jpg  [0mcoke.jpg      [0mgandhi.jpg  [0mhitler.jpg  [0mobama.jpg    [0mredcross.png   [0msouthwest.jpg  [0mtexas.jpg    [0m
+
+/home/daniel/Documents/Programming/Haskell/glowing-wookie/mockup/css:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  default.css[0m  
+
+/home/daniel/Documents/Programming/Haskell/librsvg-2.40.3:
+[1;32m[1;34m.   [0mAUTHORS  [0mCOPYING.LIB  [0mINSTALL      [0mMakefile.in  [0mREADME                [0mRsvg-2.0.metadata  [0macinclude.m4  [0m[1;32mcompile       [0mconfig.h.in  [0m[1;32mconfig.sub  [0mconfigure.in  [0m[1;32m[1;34mdoc                [0mgtk-doc.make  [0mlibrsvg-enum-types.c  [0mlibrsvg-features.c  [0mlibrsvg-features.h.in      [0m[1;32mlibrsvg-zip.in  [0mlibrsvg.pc.in  [0m[1;32mmissing                [0mrsvg-base.c        [0mrsvg-cairo-clip.h  [0mrsvg-cairo-draw.h    [0mrsvg-cairo-render.h  [0mrsvg-cond.c     [0mrsvg-convert.c  [0mrsvg-css.h   [0mrsvg-defs.h       [0mrsvg-filter.c  [0mrsvg-gobject.c  [0mrsvg-image.h  [0mrsvg-io.h      [0mrsvg-marker.h  [0mrsvg-mask.h          [0mrsvg-paint-server.h  [0mrsvg-path.h     [0mrsvg-shapes.c  [0mrsvg-size-callback.c  [0mrsvg-structure.c  [0mrsvg-styles.c  [0mrsvg-text.c  [0mrsvg-xml.c  [0mrsvg.c  [0mtest-display.c  [0m[1;32m[1;34mtests  [0m
+[1;32m[1;34m..  [0mCOPYING  [0mChangeLog    [0mMakefile.am  [0mNEWS         [0mRsvg-2.0-custom.vala  [0mTODO               [0maclocal.m4    [0m[1;32mconfig.guess  [0mconfig.log   [0m[1;32mconfigure   [0m[1;32mdepcomp       [0m[1;32m[1;34mgdk-pixbuf-loader  [0m[1;32minstall-sh    [0mlibrsvg-enum-types.h  [0mlibrsvg-features.h  [0mlibrsvg-uninstalled.pc.in  [0mlibrsvg.doap    [0mltmain.sh      [0mrsvg-base-file-util.c  [0mrsvg-cairo-clip.c  [0mrsvg-cairo-draw.c  [0mrsvg-cairo-render.c  [0mrsvg-cairo.h         [0mrsvg-convert.1  [0mrsvg-css.c      [0mrsvg-defs.c  [0mrsvg-file-util.c  [0mrsvg-filter.h  [0mrsvg-image.c    [0mrsvg-io.c     [0mrsvg-marker.c  [0mrsvg-mask.c    [0mrsvg-paint-server.c  [0mrsvg-path.c          [0mrsvg-private.h  [0mrsvg-shapes.h  [0mrsvg-size-callback.h  [0mrsvg-structure.h  [0mrsvg-styles.h  [0mrsvg-text.h  [0mrsvg-xml.h  [0mrsvg.h  [0m[1;32mtest-driver     [0m[1;32m[1;34mtools  [0m
+
+/home/daniel/Documents/Programming/Haskell/librsvg-2.40.3/tests:
+[1;32m[1;34m.   [0mMakefile.am  [0mcrash.c   [0m[1;32m[1;34mpdiff        [0mstyles.c      [0m
+[1;32m[1;34m..  [0mMakefile.in  [0m[1;32m[1;34mfixtures  [0mrsvg-test.c  [0mtest-utils.c  [0m
+
+/home/daniel/Documents/Programming/Haskell/librsvg-2.40.3/tests/fixtures:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  [1;34mcrash[0m  [1;34mdimensions[0m  [1;34mstyles[0m  
+
+/home/daniel/Documents/Programming/Haskell/librsvg-2.40.3/tests/fixtures/styles:
+[1;32m[1;34m.   [0mbug338160.svg  [0mbug418823.svg  [0mbug614606.svg  [0mbug614704.svg  [0mimportant.svg  [0m
+[1;32m[1;34m..  [0mbug379629.svg  [0mbug592207.svg  [0mbug614643.svg  [0mbug620693.svg  [0morder.svg      [0m
+
+/home/daniel/Documents/Programming/Haskell/librsvg-2.40.3/tests/fixtures/crash:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  bug620238.svg[0m  
+
+/home/daniel/Documents/Programming/Haskell/librsvg-2.40.3/tests/fixtures/dimensions:
+[1;32m[1;34m.   [0mbug564527.svg  [0mbug612951.svg  [0m
+[1;32m[1;34m..  [0mbug608102.svg  [0mbug614018.svg  [0m
+
+/home/daniel/Documents/Programming/Haskell/librsvg-2.40.3/tests/pdiff:
+[1;32m[1;34m.   [0mMakefile.am  [0margs.c  [0mlpyramid.c  [0mpdiff.c  [0m
+[1;32m[1;34m..  [0mMakefile.in  [0margs.h  [0mlpyramid.h  [0mpdiff.h  [0m
+
+/home/daniel/Documents/Programming/Haskell/librsvg-2.40.3/doc:
+[1;32m[1;34m.   [0mMakefile.am  [0m[1;32m[1;34mhtml           [0mrsvg-overrides.txt  [0mrsvg.types   [0m
+[1;32m[1;34m..  [0mMakefile.in  [0mrsvg-docs.xml  [0mrsvg-sections.txt   [0mversion.xml  [0m
+
+/home/daniel/Documents/Programming/Haskell/librsvg-2.40.3/doc/html:
+[1;32m[1;34m.                [0mannotation-glossary.html  [0mapi-index-2-32.html  [0mapi-index-2-8.html         [0mapi-index-full.html  [0mindex.sgml            [0mlicence.html           [0mright.png                            [0mrsvg-Using-RSVG-with-cairo.html            [0mrsvg.html           [0m
+[1;32m[1;34m..               [0mapi-index-2-14.html       [0mapi-index-2-36.html  [0mapi-index-2-9.html         [0mhome.png             [0mleft-insensitive.png  [0mobject-tree.html       [0mrsvg-Using-RSVG-with-GIO.html        [0mrsvg-Version-check-and-feature-tests.html  [0mstyle.css           [0m
+RsvgHandle.html  [0mapi-index-2-22.html       [0mapi-index-2-4.html   [0mapi-index-deprecated.html  [0mindex.html           [0mleft.png              [0mright-insensitive.png  [0mrsvg-Using-RSVG-with-GdkPixbuf.html  [0mrsvg.devhelp2                              [0mup-insensitive.png  [0m
+
+/home/daniel/Documents/Programming/Haskell/librsvg-2.40.3/tools:
+[1;32m[1;34m.   [0mMakefile.am  [0mrsvg-dimensions.c  [0mrsvg-tools-main.h  [0m
+[1;32m[1;34m..  [0mMakefile.in  [0mrsvg-tools-main.c  [0mtest-memory.c      [0m
+
+/home/daniel/Documents/Programming/Haskell/librsvg-2.40.3/gdk-pixbuf-loader:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  Makefile.am[0m  Makefile.in[0m  io-svg.c[0m  test.c[0m  
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1:
+[1;32m[1;34m.   [0mAUTHORS       [0mBUGS          [0mCOPYING           [0mCOPYING-MPL-1.1  [0mChangeLog.pre-1.0   [0mChangeLog.pre-1.12  [0mChangeLog.pre-1.4  [0mChangeLog.pre-1.8  [0mINSTALL       [0mMakefile.am  [0mMakefile.win32  [0mPORTING_GUIDE  [0mREADME.win32  [0macinclude.m4  [0m[1;32mautogen.sh   [0m[1;32m[1;34mbuild            [0mconfig.h.in  [0m[1;32mconfigure     [0m[1;32m[1;34mdoc   [0m[1;32m[1;34msrc   [0m
+[1;32m[1;34m..  [0mBIBLIOGRAPHY  [0mCODING_STYLE  [0mCOPYING-LGPL-2.1  [0mChangeLog        [0mChangeLog.pre-1.10  [0mChangeLog.pre-1.2   [0mChangeLog.pre-1.6  [0mHACKING            [0mKNOWN_ISSUES  [0mMakefile.in  [0mNEWS            [0mREADME         [0mRELEASING     [0maclocal.m4    [0m[1;32m[1;34mboilerplate  [0mcairo-version.h  [0mconfig.log   [0mconfigure.ac  [0m[1;32m[1;34mperf  [0m[1;32m[1;34mtest  [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/util:
+[1;32m[1;34m.   [0mCOPYING      [0mMakefile.in  [0mbacktrace-symbols.c  [0m[1;32m[1;34mcairo-fdr      [0m[1;32m[1;34mcairo-missing  [0m[1;32m[1;34mcairo-sphinx  [0m[1;32mcairo-view   [0mmalloc-stats.c  [0mshow-edges.c   [0mshow-polygon.c  [0mtrace-to-xml.c  [0mxml-to-trace.c  [0m
+[1;32m[1;34m..  [0mMakefile.am  [0mREADME       [0m[1;32mcairo-api-update     [0m[1;32m[1;34mcairo-gobject  [0m[1;32m[1;34mcairo-script   [0m[1;32m[1;34mcairo-trace   [0mfont-view.c  [0mshow-contour.c  [0mshow-events.c  [0mshow-traps.c    [0m[1;32mwaterfall       [0m[1;32mxr2cairo        [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/util/cairo-sphinx:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  Makefile.am[0m  Makefile.in[0m  fdr.c[0m  sphinx.c[0m  
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/util/cairo-gobject:
+[1;32m[1;34m.   [0mMakefile.am  [0mcairo-gobject-enums.c    [0m
+[1;32m[1;34m..  [0mMakefile.in  [0mcairo-gobject-structs.c  [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/util/cairo-trace:
+[1;32m[1;34m.   [0mCOPYING        [0mMakefile.am  [0mcairo-trace.in   [0mlookup-symbol.h  [0m
+[1;32m[1;34m..  [0mCOPYING-GPL-3  [0mMakefile.in  [0mlookup-symbol.c  [0mtrace.c          [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/util/cairo-missing:
+[1;32m[1;34m.   [0mMakefile.am  [0mMakefile.sources  [0mgetline.c  [0m
+[1;32m[1;34m..  [0mMakefile.in  [0mcairo-missing.h   [0mstrndup.c  [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/util/cairo-fdr:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  Makefile.am[0m  Makefile.in[0m  fdr.c[0m  
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/util/cairo-script:
+[1;32m[1;34m.   [0mCOPYING      [0mMakefile.in       [0mcairo-script-file.c  [0mcairo-script-interpreter.c  [0mcairo-script-objects.c    [0mcairo-script-private.h  [0mcairo-script-stack.c  [0mcsi-exec.c    [0mcsi-trace.c  [0m
+[1;32m[1;34m..  [0mMakefile.am  [0mMakefile.sources  [0mcairo-script-hash.c  [0mcairo-script-interpreter.h  [0mcairo-script-operators.c  [0mcairo-script-scanner.c  [0mcsi-bind.c            [0mcsi-replay.c  [0m[1;32m[1;34mexamples     [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/util/cairo-script/examples:
+[1;32m[1;34m.            [0mMakefile.in  [0minfinichess.cs      [0msierpinski.cs                 [0m
+[1;32m[1;34m..           [0mdragon.cs    [0minterference.cs     [0mwedgeAnnulus_crop_ybRings.cs  [0m
+Makefile.am  [0mhilbert.cs   [0mpythagoras-tree.cs  [0mworld-map.cs                  [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/perf:
+[1;32m[1;34m.   [0mCOPYING      [0mMakefile.in       [0mMakefile.win32  [0mcairo-analyse-trace.c  [0mcairo-perf-compare-backends.c  [0mcairo-perf-diff-files.c   [0mcairo-perf-graph-widget.c  [0mcairo-perf-micro.c  [0mcairo-perf-report.c  [0mcairo-perf.c  [0mcairo-stats.c  [0m
+[1;32m[1;34m..  [0mMakefile.am  [0mMakefile.sources  [0mREADME          [0mcairo-perf-chart.c     [0m[1;32mcairo-perf-diff                [0mcairo-perf-graph-files.c  [0mcairo-perf-graph.h         [0mcairo-perf-print.c  [0mcairo-perf-trace.c   [0mcairo-perf.h  [0mcairo-stats.h  [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/perf/micro:
+[1;32m[1;34m.   [0mMakefile.am  [0mMakefile.sources  [0ma1-line.c      [0mcairo-perf-cover.c   [0mcurve.c     [0mdragon.c     [0mfill.c    [0mhash-table.c  [0mintersections.c  [0mlong-dashed-lines.c  [0mmany-curves.c  [0mmany-strokes.c  [0mmosaic.c  [0mpaint-with-alpha.c  [0mpattern_create_radial.c  [0mpythagoras-tree.c  [0mrounded-rectangles.c  [0mspiral.c  [0msubimage_copy.c  [0mtext.c   [0mtwin.c            [0mwave.c        [0mwide-strokes.c  [0mworld-map.h       [0m
+[1;32m[1;34m..  [0mMakefile.in  [0ma1-curve.c        [0mbox-outline.c  [0mcomposite-checker.c  [0mdisjoint.c  [0mfill-clip.c  [0mglyphs.c  [0mhatching.c    [0mline.c           [0mlong-lines.c         [0mmany-fills.c   [0mmask.c          [0mmosaic.h  [0mpaint.c             [0mpixel.c                  [0mrectangles.c       [0msierpinski.c          [0mstroke.c  [0mtessellate.c     [0mtiger.c  [0munaligned-clip.c  [0mwide-fills.c  [0mworld-map.c     [0mzrusin-another.h  [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/src:
+[1;32m[1;34m.   [0mMakefile.am           [0mMakefile.am.features  [0mMakefile.sources  [0mMakefile.win32.features  [0mcairo-analysis-surface-private.h  [0mcairo-arc-private.h  [0mcairo-array-private.h  [0mcairo-atomic-private.h  [0mcairo-backend-private.h  [0mcairo-base85-stream.c                [0mcairo-bentley-ottmann-rectilinear.c  [0mcairo-beos-surface.cpp  [0mcairo-botor-scan-converter.c  [0mcairo-boxes-intersect.c  [0mcairo-boxes.c          [0mcairo-cache.c       [0mcairo-clip-boxes.c   [0mcairo-clip-polygon.c  [0mcairo-clip-region.c   [0mcairo-clip-tor-scan-converter.c  [0mcairo-cogl-context-private.h  [0mcairo-cogl-gradient-private.h  [0mcairo-cogl-private.h  [0mcairo-cogl-utils-private.h  [0mcairo-cogl.h   [0mcairo-combsort-inline.h   [0mcairo-composite-rectangles-private.h  [0mcairo-compositor-private.h  [0mcairo-contour-inline.h   [0mcairo-contour.c         [0mcairo-damage.c  [0mcairo-default-context-private.h  [0mcairo-deflate-stream.c  [0mcairo-device-private.h  [0mcairo-directfb-surface.c  [0mcairo-drm.h          [0mcairo-error-inline.h   [0mcairo-error.c                [0mcairo-features-uninstalled.pc.in  [0mcairo-fixed-private.h       [0mcairo-fixed.c                [0mcairo-font-face-twin.c  [0mcairo-font-options.c        [0mcairo-freed-pool-private.h  [0mcairo-freelist-private.h       [0mcairo-freelist.c  [0mcairo-ft-private.h  [0mcairo-gl-composite.c  [0mcairo-gl-dispatch-private.h  [0mcairo-gl-ext-def-private.h  [0mcairo-gl-gradient-private.h  [0mcairo-gl-info.c             [0mcairo-gl-operand.c  [0mcairo-gl-shaders.c  [0mcairo-gl-spans-compositor.c  [0mcairo-gl-traps-compositor.c  [0mcairo-glx-context.c     [0mcairo-gstate.c        [0mcairo-hash.c  [0mcairo-image-compositor.c    [0mcairo-image-info.c    [0mcairo-image-surface-inline.h   [0mcairo-image-surface.c  [0mcairo-list-private.h  [0mcairo-malloc-private.h   [0mcairo-matrix.c           [0mcairo-mempool.c                  [0mcairo-misc.c                 [0mcairo-mutex-impl-private.h  [0mcairo-mutex-private.h       [0mcairo-mutex.c          [0mcairo-observer.c     [0mcairo-os2-surface.c  [0mcairo-output-stream-private.h  [0mcairo-paginated-private.h          [0mcairo-paginated-surface.c  [0mcairo-path-fill.c           [0mcairo-path-fixed.c    [0mcairo-path-private.h       [0mcairo-path-stroke-polygon.c  [0mcairo-path-stroke-tristrip.c  [0mcairo-path.c            [0mcairo-pattern-private.h  [0mcairo-pdf-operators-private.h  [0mcairo-pdf-shading-private.h  [0mcairo-pdf-surface-private.h  [0mcairo-pdf.h  [0mcairo-pixman-private.h  [0mcairo-polygon-intersect.c  [0mcairo-polygon.c  [0mcairo-ps-surface-private.h  [0mcairo-ps.h            [0mcairo-qt.h           [0mcairo-quartz-image-surface.c  [0mcairo-quartz-private.h  [0mcairo-quartz.h                 [0mcairo-recording-surface-inline.h   [0mcairo-recording-surface.c  [0mcairo-rectangular-scan-converter.c  [0mcairo-region-private.h  [0mcairo-rtree-private.h  [0mcairo-scaled-font-private.h          [0mcairo-scaled-font-subsets.c  [0mcairo-script-private.h  [0mcairo-script.h                 [0mcairo-skia.h           [0mcairo-slope.c                     [0mcairo-spans-compositor.c  [0mcairo-spans.c   [0mcairo-stroke-dash-private.h  [0mcairo-stroke-style.c             [0mcairo-surface-clipper-private.h  [0mcairo-surface-fallback-private.h  [0mcairo-surface-inline.h           [0mcairo-surface-observer-private.h  [0mcairo-surface-offset-private.h  [0mcairo-surface-private.h          [0mcairo-surface-snapshot-private.h  [0mcairo-surface-subsurface-inline.h   [0mcairo-surface-subsurface.c       [0mcairo-surface-wrapper.c  [0mcairo-svg-surface-private.h  [0mcairo-svg.h                  [0mcairo-tee-surface.c  [0mcairo-time-private.h  [0mcairo-tor-scan-converter.c    [0mcairo-toy-font-face.c     [0mcairo-traps-private.h  [0mcairo-tristrip-private.h  [0mcairo-truetype-subset-private.h  [0mcairo-type1-fallback.c     [0mcairo-type1-private.h  [0mcairo-type3-glyph-surface-private.h  [0mcairo-types-private.h  [0mcairo-uninstalled.pc.in    [0mcairo-user-font.c  [0mcairo-version.h     [0mcairo-vg.h           [0mcairo-wideint-private.h       [0mcairo-wideint.c  [0mcairo-xcb-connection-core.c    [0mcairo-xcb-connection-shm.c  [0mcairo-xcb-private.h  [0mcairo-xcb-shm.c           [0mcairo-xcb-surface-render.c  [0mcairo-xcb.h                   [0mcairo-xlib-display.c              [0mcairo-xlib-private.h            [0mcairo-xlib-screen.c  [0mcairo-xlib-surface-private.h  [0mcairo-xlib-surface.c  [0mcairo-xlib-xcb-surface.c      [0mcairo-xlib-xrender.h  [0mcairo-xml-surface.c  [0mcairo.c  [0mcairo.pc.in  [0m[1;32mcheck-def.sh          [0m[1;32mcheck-doc-syntax.sh         [0m[1;32mcheck-headers.sh  [0m[1;32mcheck-plt.sh                  [0m[1;32m[1;34mdrm   [0mtest-base-compositor-surface.c     [0mtest-compositor-surface.c  [0mtest-null-compositor-surface.c  [0mtest-paginated-surface.c  [0m
+[1;32m[1;34m..  [0mMakefile.am.analysis  [0mMakefile.in           [0mMakefile.win32    [0mREADME                   [0mcairo-analysis-surface.c          [0mcairo-arc.c          [0mcairo-array.c          [0mcairo-atomic.c          [0mcairo-base64-stream.c    [0mcairo-bentley-ottmann-rectangular.c  [0mcairo-bentley-ottmann.c              [0mcairo-beos.h            [0mcairo-box-inline.h            [0mcairo-boxes-private.h    [0mcairo-cache-private.h  [0mcairo-cff-subset.c  [0mcairo-clip-inline.h  [0mcairo-clip-private.h  [0mcairo-clip-surface.c  [0mcairo-clip.c                     [0mcairo-cogl-context.c          [0mcairo-cogl-gradient.c          [0mcairo-cogl-surface.c  [0mcairo-cogl-utils.c          [0mcairo-color.c  [0mcairo-compiler-private.h  [0mcairo-composite-rectangles.c          [0mcairo-compositor.c          [0mcairo-contour-private.h  [0mcairo-damage-private.h  [0mcairo-debug.c   [0mcairo-default-context.c          [0mcairo-deprecated.h      [0mcairo-device.c          [0mcairo-directfb.h          [0mcairo-egl-context.c  [0mcairo-error-private.h  [0mcairo-fallback-compositor.c  [0mcairo-features.pc.in              [0mcairo-fixed-type-private.h  [0mcairo-font-face-twin-data.c  [0mcairo-font-face.c       [0mcairo-fontconfig-private.h  [0mcairo-freed-pool.c          [0mcairo-freelist-type-private.h  [0mcairo-ft-font.c   [0mcairo-ft.h          [0mcairo-gl-device.c     [0mcairo-gl-dispatch.c          [0mcairo-gl-glyphs.c           [0mcairo-gl-gradient.c          [0mcairo-gl-msaa-compositor.c  [0mcairo-gl-private.h  [0mcairo-gl-source.c   [0mcairo-gl-surface.c           [0mcairo-gl.h                   [0mcairo-gstate-private.h  [0mcairo-hash-private.h  [0mcairo-hull.c  [0mcairo-image-info-private.h  [0mcairo-image-source.c  [0mcairo-image-surface-private.h  [0mcairo-list-inline.h    [0mcairo-lzw.c           [0mcairo-mask-compositor.c  [0mcairo-mempool-private.h  [0mcairo-mesh-pattern-rasterizer.c  [0mcairo-mono-scan-converter.c  [0mcairo-mutex-list-private.h  [0mcairo-mutex-type-private.h  [0mcairo-no-compositor.c  [0mcairo-os2-private.h  [0mcairo-os2.h          [0mcairo-output-stream.c          [0mcairo-paginated-surface-private.h  [0mcairo-path-bounds.c        [0mcairo-path-fixed-private.h  [0mcairo-path-in-fill.c  [0mcairo-path-stroke-boxes.c  [0mcairo-path-stroke-traps.c    [0mcairo-path-stroke.c           [0mcairo-pattern-inline.h  [0mcairo-pattern.c          [0mcairo-pdf-operators.c          [0mcairo-pdf-shading.c          [0mcairo-pdf-surface.c          [0mcairo-pen.c  [0mcairo-png.c             [0mcairo-polygon-reduce.c     [0mcairo-private.h  [0mcairo-ps-surface.c          [0mcairo-qt-surface.cpp  [0mcairo-quartz-font.c  [0mcairo-quartz-image.h          [0mcairo-quartz-surface.c  [0mcairo-raster-source-pattern.c  [0mcairo-recording-surface-private.h  [0mcairo-rectangle.c          [0mcairo-reference-count-private.h     [0mcairo-region.c          [0mcairo-rtree.c          [0mcairo-scaled-font-subsets-private.h  [0mcairo-scaled-font.c          [0mcairo-script-surface.c  [0mcairo-shape-mask-compositor.c  [0mcairo-slope-private.h  [0mcairo-spans-compositor-private.h  [0mcairo-spans-private.h     [0mcairo-spline.c  [0mcairo-stroke-dash.c          [0mcairo-surface-backend-private.h  [0mcairo-surface-clipper.c          [0mcairo-surface-fallback.c          [0mcairo-surface-observer-inline.h  [0mcairo-surface-observer.c          [0mcairo-surface-offset.c          [0mcairo-surface-snapshot-inline.h  [0mcairo-surface-snapshot.c          [0mcairo-surface-subsurface-private.h  [0mcairo-surface-wrapper-private.h  [0mcairo-surface.c          [0mcairo-svg-surface.c          [0mcairo-tee-surface-private.h  [0mcairo-tee.h          [0mcairo-time.c          [0mcairo-tor22-scan-converter.c  [0mcairo-traps-compositor.c  [0mcairo-traps.c          [0mcairo-tristrip.c          [0mcairo-truetype-subset.c          [0mcairo-type1-glyph-names.c  [0mcairo-type1-subset.c   [0mcairo-type3-glyph-surface.c          [0mcairo-unicode.c        [0mcairo-user-font-private.h  [0mcairo-version.c    [0mcairo-vg-surface.c  [0mcairo-wgl-context.c  [0mcairo-wideint-type-private.h  [0mcairo-win32.h    [0mcairo-xcb-connection-render.c  [0mcairo-xcb-connection.c      [0mcairo-xcb-screen.c   [0mcairo-xcb-surface-core.c  [0mcairo-xcb-surface.c         [0mcairo-xlib-core-compositor.c  [0mcairo-xlib-fallback-compositor.c  [0mcairo-xlib-render-compositor.c  [0mcairo-xlib-source.c  [0mcairo-xlib-surface-shm.c      [0mcairo-xlib-visual.c   [0mcairo-xlib-xrender-private.h  [0mcairo-xlib.h          [0mcairo-xml.h          [0mcairo.h  [0mcairoint.h   [0mcheck-doc-syntax.awk  [0mcheck-has-hidden-symbols.c  [0mcheck-link.c      [0m[1;32mcheck-preprocessor-syntax.sh  [0m[1;32m[1;34mskia  [0mtest-compositor-surface-private.h  [0mtest-compositor-surface.h  [0mtest-null-compositor-surface.h  [0mtest-paginated-surface.h  [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/src/win32:
+[1;32m[1;34m.   [0mcairo-win32-debug.c   [0mcairo-win32-display-surface.c  [0mcairo-win32-gdi-compositor.c    [0mcairo-win32-private.h  [0m
+[1;32m[1;34m..  [0mcairo-win32-device.c  [0mcairo-win32-font.c             [0mcairo-win32-printing-surface.c  [0mcairo-win32-surface.c  [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/src/skia:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  cairo-skia-context.cpp[0m  cairo-skia-private.h[0m  cairo-skia-surface.cpp[0m  
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/src/drm:
+[1;32m[1;34m.   [0mcairo-drm-bo.c               [0mcairo-drm-i915-glyphs.c   [0mcairo-drm-i915-shader.c  [0mcairo-drm-i915-surface.c  [0mcairo-drm-i965-private.h  [0mcairo-drm-i965-spans.c    [0mcairo-drm-intel-brw-defines.h  [0mcairo-drm-intel-brw-eu-util.c  [0mcairo-drm-intel-brw-eu.h       [0mcairo-drm-intel-command-private.h  [0mcairo-drm-intel-ioctl-private.h  [0mcairo-drm-intel-surface.c  [0mcairo-drm-ioctl-private.h  [0mcairo-drm-radeon-private.h  [0mcairo-drm-radeon.c   [0m
+[1;32m[1;34m..  [0mcairo-drm-gallium-surface.c  [0mcairo-drm-i915-private.h  [0mcairo-drm-i915-spans.c   [0mcairo-drm-i965-glyphs.c   [0mcairo-drm-i965-shader.c   [0mcairo-drm-i965-surface.c  [0mcairo-drm-intel-brw-eu-emit.c  [0mcairo-drm-intel-brw-eu.c       [0mcairo-drm-intel-brw-structs.h  [0mcairo-drm-intel-debug.c            [0mcairo-drm-intel-private.h        [0mcairo-drm-intel.c          [0mcairo-drm-private.h        [0mcairo-drm-radeon-surface.c  [0mcairo-drm-surface.c  [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/doc:
+[2;47;33m[1;34m.[0m  [2;47;33m[1;34m..[0m  Makefile.am[0m  Makefile.in[0m  [1;34mpublic[0m  
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/doc/public:
+[1;32m[1;34m.   [0mMakefile.am  [0mREADME          [0mcairo-overrides.txt  [0mcairo.types            [0m[1;32mcheck-doc-syntax.sh  [0mlanguage-bindings.xml  [0mversion.xml  [0m
+[1;32m[1;34m..  [0mMakefile.in  [0mcairo-docs.xml  [0mcairo-sections.txt   [0m[1;32mcheck-doc-coverage.sh  [0m[1;32m[1;34mhtml                 [0m[1;32m[1;34mtmpl                   [0m[1;32m[1;34mxml          [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/doc/public/tmpl:
+[1;32m[1;34m.   [0mcairo-device.sgml     [0mcairo-font-options.sgml  [0mcairo-image.sgml   [0mcairo-paths.sgml    [0mcairo-pdf.sgml  [0mcairo-ps.sgml            [0mcairo-quartz.sgml         [0mcairo-recording.sgml  [0mcairo-scaled-font.sgml  [0mcairo-status.sgml   [0mcairo-svg.sgml   [0mcairo-transforms.sgml  [0mcairo-unused.sgml      [0mcairo-version.sgml      [0mcairo-win32.sgml  [0mcairo-xlib-xrender.sgml  [0m
+[1;32m[1;34m..  [0mcairo-font-face.sgml  [0mcairo-ft.sgml            [0mcairo-matrix.sgml  [0mcairo-pattern.sgml  [0mcairo-png.sgml  [0mcairo-quartz-fonts.sgml  [0mcairo-raster-source.sgml  [0mcairo-region.sgml     [0mcairo-script.sgml       [0mcairo-surface.sgml  [0mcairo-text.sgml  [0mcairo-types.sgml       [0mcairo-user-fonts.sgml  [0mcairo-win32-fonts.sgml  [0mcairo-xcb.sgml    [0mcairo-xlib.sgml          [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/doc/public/html:
+[1;32m[1;34m.   [0mbindings-errors.html  [0mbindings-memory.html       [0mbindings-path.html      [0mbindings-return-values.html  [0mbindings-surfaces.html     [0mcairo-FreeType-Fonts.html  [0mcairo-PDF-Surfaces.html  [0mcairo-Paths.html                [0mcairo-Quartz-(CGFont)-Fonts.html  [0mcairo-Raster-Sources.html      [0mcairo-Regions.html       [0mcairo-Script-Surfaces.html  [0mcairo-Types.html       [0mcairo-Version-Information.html  [0mcairo-Win32-Surfaces.html  [0mcairo-XLib-Surfaces.html         [0mcairo-cairo-device-t.html     [0mcairo-cairo-font-options-t.html  [0mcairo-cairo-pattern-t.html      [0mcairo-cairo-surface-t.html  [0mcairo-drawing.html  [0mcairo-support.html   [0mcairo-text.html  [0mhome.png         [0mindex-1.12.html  [0mindex-1.4.html  [0mindex-1.8.html  [0mindex.html  [0mlanguage-bindings.html  [0mright.png  [0m
+[1;32m[1;34m..  [0mbindings-fonts.html   [0mbindings-overloading.html  [0mbindings-patterns.html  [0mbindings-streams.html        [0mcairo-Error-handling.html  [0mcairo-Image-Surfaces.html  [0mcairo-PNG-Support.html   [0mcairo-PostScript-Surfaces.html  [0mcairo-Quartz-Surfaces.html        [0mcairo-Recording-Surfaces.html  [0mcairo-SVG-Surfaces.html  [0mcairo-Transformations.html  [0mcairo-User-Fonts.html  [0mcairo-Win32-Fonts.html          [0mcairo-XCB-Surfaces.html    [0mcairo-XLib-XRender-Backend.html  [0mcairo-cairo-font-face-t.html  [0mcairo-cairo-matrix-t.html        [0mcairo-cairo-scaled-font-t.html  [0mcairo-cairo-t.html          [0mcairo-fonts.html    [0mcairo-surfaces.html  [0mcairo.devhelp2   [0mindex-1.10.html  [0mindex-1.2.html   [0mindex-1.6.html  [0mindex-all.html  [0mindex.sgml  [0mleft.png                [0mstyle.css  [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/doc/public/xml:
+[1;32m[1;34m.   [0mapi-index-1.0.xml   [0mapi-index-1.12.xml  [0mapi-index-1.2.xml  [0mapi-index-1.6.xml  [0mapi-index-TBD.xml         [0mapi-index-full.xml  [0mcairo-font-face.xml     [0mcairo-ft.xml     [0mcairo-matrix.xml  [0mcairo-pattern.xml  [0mcairo-png.xml  [0mcairo-quartz-fonts.xml  [0mcairo-raster-source.xml  [0mcairo-region.xml       [0mcairo-script.xml  [0mcairo-surface.xml  [0mcairo-text.xml        [0mcairo-types.xml       [0mcairo-version.xml      [0mcairo-win32.xml  [0mcairo-xlib-xrender.xml  [0m
+[1;32m[1;34m..  [0mapi-index-1.10.xml  [0mapi-index-1.14.xml  [0mapi-index-1.4.xml  [0mapi-index-1.8.xml  [0mapi-index-deprecated.xml  [0mcairo-device.xml    [0mcairo-font-options.xml  [0mcairo-image.xml  [0mcairo-paths.xml   [0mcairo-pdf.xml      [0mcairo-ps.xml   [0mcairo-quartz.xml        [0mcairo-recording.xml      [0mcairo-scaled-font.xml  [0mcairo-status.xml  [0mcairo-svg.xml      [0mcairo-transforms.xml  [0mcairo-user-fonts.xml  [0mcairo-win32-fonts.xml  [0mcairo-xcb.xml    [0mcairo-xlib.xml          [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/test:
+[1;32m[1;34m.         [0mCOPYING      [0mMakefile.sources  [0ma1-bug.c   [0ma1-image-sample.c  [0ma1-rasterisation.c  [0ma8-clear.c  [0malpha-similar.c      [0marc-direction.c      [0mbig-empty-box.c       [0mbig-little-box.c       [0mbilevel-image.c  [0mbuffer-diff.h  [0mbug-bo-collins.c      [0mbug-extents.c    [0mbug-spline.c               [0mcairo-test-runner.c  [0mcairo-test.h        [0mcaps-joins.c        [0mcaps.c          [0mclear-source.c  [0mclip-complex-bug61592.c  [0mclip-device-offset.c      [0mclip-disjoint.c        [0mclip-empty-group.c  [0mclip-fill-no-op.c               [0mclip-fill.c          [0mclip-intersect.c        [0mclip-operator.c    [0mclip-rectilinear.c   [0mclip-stroke.c           [0mclip-twice.c      [0mclipped-group.c             [0mclose-path.c                               [0mcomposite-integer-translate-source.c  [0mcoverage.c                [0mcreate-from-png.c      [0mdash-caps-joins.c     [0mdash-no-dash.c          [0mdash-scale.c        [0mdegenerate-arc.c       [0mdegenerate-dash.c             [0mdegenerate-pen.c              [0mdegenerate-solid-dash.c     [0mdevice-offset-scale.c  [0merror-setters.c       [0mextend-pad.c              [0mextend-repeat-similar.c  [0mfallback-resolution.c  [0mfill-alpha.c                 [0mfill-and-stroke.c             [0mfill-empty.c        [0mfill-rule.c                [0mfilter-nearest-transformed.c  [0mfont-matrix-translation.c     [0mft-show-glyphs-positioning.c  [0mft-text-vertical-layout-type1.c  [0mget-and-set.c       [0mget-path-extents.c    [0mgl-oversized-surface.c  [0mgradient-alpha.c            [0mgradient-zero-stops.c  [0mgroup-state.c      [0mhalo.c             [0mhuge-linear.c       [0mimage-surface-source.c  [0min-fill-empty-trapezoid.c  [0minfinite-join.c   [0minverted-clip.c  [0mjoins-star.c  [0mjpeg.jpg      [0mlarge-source-roi.c            [0mleaky-dash.c              [0mleaky-polygon.c             [0mline-width-scale.c      [0mline-width.c              [0mlinear-gradient-one-stop.c  [0mlinear-gradient.c       [0mlong-dashed-lines.c              [0mmap-to-image.c  [0mmask-glyphs.c             [0mmask-transformed-similar.c  [0mmesh-pattern-conical.c         [0mmesh-pattern-overlap.c      [0mmime-data.c         [0mmove-to-show-surface.c   [0mnew-sub-path.c          [0moperator-alpha.c   [0moperator.c           [0mover-around-source.c   [0moverlapping-boxes.c      [0mpaint-clip-fill.c     [0mpaint-with-alpha-group-clip.c  [0mpartial-clip-text.c  [0mpath-append.c        [0mpath-stroke-twice.c  [0mpdf-features.c        [0mpdf-surface-source.c  [0mpixman-downscale.c  [0mpng.c     [0mps-features.c        [0mpthread-same-source.c  [0mpush-group-color.c        [0mquartz-surface-source.c   [0mradial-outer-focus.c              [0mrandom-intersections-curves-nz.c  [0mraster-source.c  [0mrecord.c       [0mrecord90.c                  [0mrecording-surface-pattern.c  [0mrectilinear-dash.c  [0mrectilinear-miter-limit.c  [0mreflected-stroke.c    [0mromedalen.jpg                 [0mrotate-stroke-box.c       [0mrounded-rectangle-stroke.c  [0mscale-down-source-surface-paint.c  [0mscale-source-surface-paint.c  [0mselect-font-face.c          [0mself-copy.c          [0mshape-general-convex.c  [0mshow-glyphs-many.c         [0msmask-fill.c        [0msmask-paint.c   [0msmask.c                       [0msource-clip.c                 [0mstride-12-image.c  [0mstroke-image.c     [0msubsurface-image-repeat.c   [0msubsurface-outside-target.c  [0msubsurface-repeat.c          [0msubsurface.c                      [0msurface-pattern-operator.c           [0msurface-pattern-scale-up.c  [0msvg-clip.c            [0msvg2png.c                  [0mtext-antialias.c    [0mtext-pattern.c    [0mtext-zero-len.c  [0mtighten-bounds.c  [0mtranslate-show-surface.c  [0mtwin-antialias-mixed.c     [0mtwin.c                  [0munbounded-operator.c  [0muser-font-mask.c     [0muser-font.c      [0mworld-map.h           [0mxcb-snapshot-assert.c  [0mxcomposite-projection.c  [0mxlib-surface.c  [0m
+[1;32m[1;34m..        [0mMakefile.am  [0mMakefile.win32    [0ma1-clip.c  [0ma1-mask-sample.c   [0ma1-sample.c         [0ma8-mask.c   [0many2ppm.c            [0marc-infinite-loop.c  [0mbig-empty-triangle.c  [0mbig-little-triangle.c  [0mbitmap-font.c    [0mbug-40410.c    [0mbug-bo-rectangular.c  [0mbug-seams.c      [0mcairo-test-constructors.c  [0mcairo-test-trace.c   [0mcaps-joins-alpha.c  [0mcaps-sub-paths.c    [0m[1;32mcheck-refs.sh   [0mclear.c         [0mclip-complex-shape.c     [0mclip-disjoint-hatching.c  [0mclip-double-free.c     [0mclip-empty-save.c   [0mclip-fill-rule-pixel-aligned.c  [0mclip-group-shapes.c  [0mclip-mixed-antialias.c  [0mclip-polygons.c    [0mclip-shape.c         [0mclip-text.c             [0mclip-unbounded.c  [0mclipped-surface.c           [0mcomposite-integer-translate-over-repeat.c  [0mcopy-disjoint.c                       [0mcreate-for-stream.c       [0mculled-glyphs.c        [0mdash-curve.c          [0mdash-offset-negative.c  [0mdash-state.c        [0mdegenerate-arcs.c      [0mdegenerate-linear-gradient.c  [0mdegenerate-radial-gradient.c  [0mdevice-offset-fractional.c  [0mdevice-offset.c        [0mextend-pad-border.c   [0mextend-reflect-similar.c  [0mextend-repeat.c          [0mfallback.c             [0mfill-and-stroke-alpha-add.c  [0mfill-degenerate-sort-order.c  [0mfill-image.c        [0mfilter-bilinear-extents.c  [0mfiner-grained-fallbacks.c     [0mfont-options.c                [0mft-show-glyphs-table.c        [0mft-text-vertical-layout-type3.c  [0mget-clip.c          [0mget-xrender-format.c  [0mgl-surface-source.c     [0mgradient-constant-alpha.c   [0mgroup-clip.c           [0mgroup-unaligned.c  [0mhatchings.c        [0mhuge-radial.c       [0mimagediff.c             [0min-fill-trapezoid.c        [0minvalid-matrix.c  [0mjoins-loop.c     [0mjoins.c       [0mlarge-clip.c  [0mlarge-source.c                [0mleaky-dashed-rectangle.c  [0mline-width-large-overlap.c  [0mline-width-tolerance.c  [0mlinear-gradient-extend.c  [0mlinear-gradient-reflect.c   [0mlinear-step-function.c  [0mlong-lines.c                     [0mmask-alpha.c    [0mmask-surface-ctm.c        [0mmask.c                      [0mmesh-pattern-control-points.c  [0mmesh-pattern-transformed.c  [0mmime-surface-api.c  [0mmulti-page.c             [0mnil-surface.c           [0moperator-clear.c   [0moutline-tolerance.c  [0mover-below-source.c    [0moverlapping-dash-caps.c  [0mpaint-repeat.c        [0mpaint-with-alpha.c             [0mpartial-coverage.c   [0mpath-currentpoint.c  [0mpattern-get-type.c   [0mpdf-isolated-group.c  [0mpdf2png.c             [0mpixman-rotate.c     [0mpng.png   [0mps-surface-source.c  [0mpthread-show-text.c    [0mpush-group-path-offset.c  [0mradial-gradient-extend.c  [0mrandom-clips.c                    [0mrandom-intersections-eo.c         [0mrecord-extend.c  [0mrecord1414x.c  [0mrecordflip.c                [0mrectangle-rounding-error.c   [0mrectilinear-fill.c  [0mrectilinear-stroke.c       [0mrel-path.c            [0mromedalen.png                 [0mrotated-clip.c            [0m[1;32mrun-cairo-test-suite.sh     [0mscale-offset-image.c               [0mscaled-font-zero-matrix.c     [0mselect-font-no-show-text.c  [0mself-intersecting.c  [0mshape-sierpinski.c      [0mshow-text-current-point.c  [0msmask-image-mask.c  [0msmask-stroke.c  [0msolid-pattern-cache-stress.c  [0msource-surface-scale-paint.c  [0mstroke-clipped.c   [0mstroke-open-box.c  [0msubsurface-modify-child.c   [0msubsurface-pad.c             [0msubsurface-scale.c           [0msurface-finish-twice.c            [0msurface-pattern-scale-down-extend.c  [0msurface-pattern.c           [0msvg-surface-source.c  [0mtesttable.js               [0mtext-cache-crash.c  [0mtext-rotate.c     [0mtiger.c          [0mtoy-font-face.c   [0mtrap-clip.c               [0mtwin-antialias-none.c      [0munaligned-box.c         [0munclosed-strokes.c    [0muser-font-proxy.c    [0mwhite-in-noop.c  [0mxcb-huge-image-shm.c  [0mxcb-stress-cache.c     [0mxlib-expose-event.c      [0mzero-alpha.c    [0m
+6x13.pcf  [0mMakefile.in  [0mREADME            [0ma1-fill.c  [0ma1-mask.c          [0ma1-traps-sample.c   [0maliasing.c  [0mapi-special-cases.c  [0marc-looping-dash.c   [0mbig-line.c            [0mbig-trap.c             [0mbuffer-diff.c    [0mbug-51910.c    [0mbug-bo-ricotz.c       [0mbug-source-cu.c  [0mcairo-test-private.h       [0mcairo-test.c         [0mcaps-joins-curve.c  [0mcaps-tails-curve.c  [0mcheckerboard.c  [0mclip-all.c      [0mclip-contexts.c          [0mclip-disjoint-quad.c      [0mclip-draw-unbounded.c  [0mclip-empty.c        [0mclip-fill-rule.c                [0mclip-image.c         [0mclip-nesting.c          [0mclip-push-group.c  [0mclip-stroke-no-op.c  [0mclip-twice-rectangle.c  [0mclip-zero.c       [0mclose-path-current-point.c  [0mcomposite-integer-translate-over.c         [0mcopy-path.c                           [0mcreate-from-png-stream.c  [0mcurve-to-as-line-to.c  [0mdash-infinite-loop.c  [0mdash-offset.c           [0mdash-zero-length.c  [0mdegenerate-curve-to.c  [0mdegenerate-path.c             [0mdegenerate-rel-curve-to.c     [0mdevice-offset-positive.c    [0mdrunkard-tails.c       [0mextend-pad-similar.c  [0mextend-reflect.c          [0mextended-blend.c         [0mfill-alpha-pattern.c   [0mfill-and-stroke-alpha.c      [0mfill-disjoint.c               [0mfill-missed-stop.c  [0mfilter-nearest-offset.c    [0mfont-face-get-type.c          [0mft-font-create-for-ft-face.c  [0mft-text-antialias-none.c      [0m[1;32mgenerate_refs.sh                 [0mget-group-target.c  [0mgl-device-release.c   [0mglyph-cache-pressure.c  [0mgradient-zero-stops-mask.c  [0mgroup-paint.c          [0mhalf-coverage.c    [0mhorizontal-clip.c  [0mimage-bug-710072.c  [0mimplicit-close.c        [0mindex.html                 [0minverse-text.c    [0mjoins-retrace.c  [0mjp2.jp2       [0mlarge-font.c  [0mlarge-twin-antialias-mixed.c  [0mleaky-dashed-stroke.c     [0mline-width-overlap.c        [0mline-width-zero.c       [0mlinear-gradient-large.c   [0mlinear-gradient-subset.c    [0mlinear-uniform.c        [0mmake-cairo-test-constructors.sh  [0mmask-ctm.c      [0mmask-transformed-image.c  [0mmesh-pattern-accuracy.c     [0mmesh-pattern-fold.c            [0mmesh-pattern.c              [0mmiter-precision.c   [0mnegative-stride-image.c  [0moperator-alpha-alpha.c  [0moperator-source.c  [0mover-above-source.c  [0mover-between-source.c  [0moverlapping-glyphs.c     [0mpaint-source-alpha.c  [0mpaint.c                        [0mpass-through.c       [0mpath-precision.c     [0mpattern-getters.c    [0mpdf-mime-data.c       [0m[1;32m[1;34mpdiff                 [0mpng-flatten.c       [0mps-eps.c  [0mps2png.c             [0mpthread-similar.c      [0mpush-group.c              [0mradial-gradient.c         [0mrandom-intersections-curves-eo.c  [0mrandom-intersections-nonzero.c    [0mrecord-mesh.c    [0mrecord2x.c     [0mrecording-surface-extend.c  [0mrectilinear-dash-scale.c     [0mrectilinear-grid.c  [0m[1;32m[1;34mreference                  [0mrgb24-ignore-alpha.c  [0mrotate-image-surface-paint.c  [0mrounded-rectangle-fill.c  [0msample.c                    [0mscale-offset-similar.c             [0mscarab.jpg                    [0mself-copy-overlap.c         [0mset-source.c         [0mshow-glyphs-advance.c   [0mskew-extreme.c             [0msmask-mask.c        [0msmask-text.c    [0msource-clip-scale.c           [0mspline-decomposition.c        [0mstroke-ctm-caps.c  [0mstroke-pattern.c   [0msubsurface-modify-parent.c  [0msubsurface-reflect.c         [0msubsurface-similar-repeat.c  [0msurface-pattern-big-scale-down.c  [0msurface-pattern-scale-down.c         [0msurface-source.c            [0msvg-surface.c         [0mtext-antialias-subpixel.c  [0mtext-glyph-range.c  [0mtext-transform.c  [0mtiger.inc        [0mtransforms.c      [0mtwin-antialias-gray.c     [0mtwin-antialias-subpixel.c  [0munantialiased-shapes.c  [0muser-data.c           [0muser-font-rescale.c  [0mworld-map.c      [0mxcb-huge-subimage.c   [0mxcb-surface-source.c   [0mxlib-surface-source.c    [0mzero-mask.c     [0m
+
+/home/daniel/Documents/Programming/Haskell/cairo-1.13.1/test/reference:
+stat(): No such file or directory
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls -a -R ~/Documents #again with flagsl[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CR[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kbin/ls src tests #ls into mulbi[K[Ktiple directories
+src:
+Timer.h[0m  a[0m  c[0m  [1;32mcp[0m  cp.cpp[0m  [1;32mls[0m  ls.cpp[0m  [1;34mother[0m  rshell.cpp[0m  [1;34mtest[0m  [1;34mtest2[0m  
+
+tests:
+exec.script[0m  ls.script[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls src tests #ls into multiple directories[C[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectories[1Pdirectoriesfdirectoriesidirectoriesldirectoriesedirectories directoriesadirectoriesndirectories[Cdirectories directories[C[C[C[1P[1P[1P[1@L[1@I[1@C[1@E[1@N[1@S[1@E
+LICENSE[0m
+
+tests:
+exec.script[0m  ls.script[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls LICENSE tests #ls into file and directories[1@-[1@l[1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C with flags
+-rw-rw-r-- 1 daniel daniel   1485 Oct 30 01:19 LICENSE[0m
+
+tests:
+-rw-rw-r-- 1 daniel daniel   9118 Oct 30 01:19 exec.script[0m
+-rw-rw-r-- 1 daniel daniel 131072 Nov 11 22:50 ls.script[0m
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls ![K~Co[K[Kd[KDocuments/Programming/cs100 #ls into a chainge[K[Ked directory
+~Documents/Programming/cs100: No such file or directory
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ bin/ls ~Documents/Programming/cs100 #ls into a chained directory[1P[1P[1P[1P[1P[1@u[1@c[1@r[1P[1P[1P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[1Py[C[K[K[K[K[K[KSorry, pret[Kvious director [Ky do[K[Ki[Kdoesn't exisit[K[Kt anymore, tryn[King with a dir[Kfferent one[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmissed a '/' character[1@/
+[1;34mHCCD[0m  [1;34mHaskell[0m  [1;34mcs100[0m  [1;34mfirefox[0m  [1;34mjava[0m  [1;34mtests[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ l[Kbin/ls #end with tests
+LICENSE[0m  Makefile[0m  Makefile~[0m  README.md[0m  [1;34mbin[0m  [1;34msrc[0m  [1;34mtests[0m  
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ quit
+No command 'quit' found, did you mean:
+ Command 'quilt' from package 'quilt' (main)
+ Command 'quiz' from package 'bsdgames' (universe)
+ Command 'quot' from package 'quota' (main)
+ Command 'luit' from package 'x11-utils' (main)
+ Command 'qgit' from package 'qgit' (universe)
+quit: command not found
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw1/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw1/rshell$ exit
+exit
+
+Script done on Tue 11 Nov 2014 10:55:41 PM PST
