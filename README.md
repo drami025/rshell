@@ -49,6 +49,9 @@ README.md
 ./src:
 
 rshell.cpp
+ls.cpp
+cp.cpp
+
 ```
 ```
 ./test:
@@ -73,7 +76,12 @@ $ make
 
 $ bin/rshell
 ```
+To run ``cp`` or ``ls`` run these commands after ``make``:
 
+```
+$bin/cp
+$bin/ls
+```
 
 Bugs & Fixes
 ---
@@ -85,3 +93,5 @@ Bugs & Fixes
 * Typing in ``ls | echo test`` does not cause piping as of now.
 * Typing in something like ``ls &&& ls`` will actually run the commands while still giving an error for an unexpected token, as opposed to just returning an error in a normal BASH shell.
 * Quote features do not function as they are suppose to. For example, if you type in ``echo "hello        world"`` you would receive ``hello       world`` on a normal BASH shell. On this shell, you will see ``hello world``.
+* Formatting feature is still not up to par with the BASH shell's ls
+* Some folders do not appear alphabetically when using recursive flag ``-R``
