@@ -1,4 +1,6 @@
 #include <sys/types.h>
+#include <math.h>
+#include <list>
 #include <grp.h>
 #include <pwd.h>
 #include <time.h>
@@ -26,8 +28,8 @@ struct classComp{
 };
 
 void readDirectories(const vector<string>& directories, const string& allFlags, int numOfDir);
-void outputLS(char* dirName, const string& flags);
-void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL);
+void outputLS(char* dirName, const string& flags, char* orig);
+void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL, string dirName, int maxFileSize, int compareSize);
 
 int main(int argc, char** argv)
 {
@@ -69,7 +71,7 @@ void readDirectories(const vector<string>& directories, const string& flags, int
     if(numOfDir == 0){
         char* dirName;
         dirName = (char*) ".";
-        outputLS(dirName, flags);
+        outputLS(dirName, flags, dirName);
     }
 
     //Loop through all directories inputted. Only once if no arguments.
@@ -85,7 +87,7 @@ void readDirectories(const vector<string>& directories, const string& flags, int
         dirName = (char*) directories.at(i).c_str();
 
 
-        outputLS(dirName, flags);
+        outputLS(dirName, flags, dirName);
 
 
         if(numOfDir > 1) cout << endl;        
@@ -93,7 +95,7 @@ void readDirectories(const vector<string>& directories, const string& flags, int
 }
 
 //function to begin displaying all files in directory
-void outputLS(char* dirName, const string& flags){
+void outputLS(char* dirName, const string& flags, char* orig){
     //Opens directory name in "dirName"
     DIR *dirp = opendir(dirName);
     if(dirp == NULL){
@@ -117,49 +119,72 @@ void outputLS(char* dirName, const string& flags){
     int maxFileSize = 0;
     long numOfChars = 0;
     int compareSize = 0;
+    list<string> dirs;
+    string copy = dirName;
 
     //Branches to handle different flags.
-    if(!hasR){
-        while ((direntp = readdir(dirp))){
-            if(direntp == NULL){
-                perror("readdir");
-                exit(-1);
-            }
-            if(!hasA && (direntp->d_name[0] != '.')){
-                sortedFiles.insert(direntp->d_name); // use stat here to find attributes of file
-            }
-            else if(hasA){
-                sortedFiles.insert(direntp->d_name);
-            }
+    while ((direntp = readdir(dirp))){
+        if(direntp == NULL){
+            perror("readdir");
+            exit(-1);
+        }
+        if(!hasA && (direntp->d_name[0] != '.')){
+            sortedFiles.insert(direntp->d_name); // use stat here to find attributes of file
+        }
+        else if(hasA){
+            sortedFiles.insert(direntp->d_name);
+        }
 
-            compareSize = strlen(direntp->d_name);
+        if(hasR && (direntp->d_type & DT_DIR) && strcmp(direntp->d_name, ".") && strcmp(direntp->d_name, "..")){
+            dirs.push_back(direntp->d_name);
+        }
 
-            if(maxFileSize < compareSize)
-                maxFileSize = compareSize;
+        compareSize = strlen(direntp->d_name);
 
-            numOfChars += (compareSize + 1);    
-        }    
+        if(maxFileSize < compareSize)
+            maxFileSize = compareSize;
 
-        displayFiles(sortedFiles, hasL);
+        numOfChars += (compareSize + 1);    
+    }    
+
+    if(hasR){
+        cout << dirName << ":" << endl;
     }
 
+    displayFiles(sortedFiles, hasL, copy, maxFileSize, compareSize);
 
-    cout << endl;
+    while(hasR && !dirs.empty()){
+        cout << endl;
+        if(!hasL) cout << endl;
+        copy = dirName;
+        copy += "/" + dirs.front();
+        outputLS((char*) copy.c_str(), flags, orig);
+        dirs.pop_front();
+    }
+
+    if(strcmp(dirName, orig) == 0 && !hasL) cout << endl;
 
     if(closedir(dirp) == -1){
         perror("closedir()");
     }
 }
 
-void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL){
+void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL, string dirName, int maxFileSize, int compareSize){
 
     if(!hasL){
         struct stat buf;
+        string copy = "";
+
+        int rows = ceil((double) compareSize / maxFileSize);
+        int columns = ceil((double) sortedFiles.size() / rows);
 
         for(multiset<char*, classComp>::iterator it = sortedFiles.begin(); it != sortedFiles.end(); it++){
 
+            copy = dirName +  "/";
+            copy += *it;
+
             //Output for no or -a flag options with color
-            if(stat(*it, &buf) == -1){
+            if(stat((char*) copy.c_str(), &buf) == -1){
                 perror("stat()");
                 exit(-1);
             }
@@ -172,14 +197,20 @@ void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL){
                 cout << "\033[1;34m";
             }
 
-            cout << *it << "\033[0m" << '\t' <<  flush;
+            cout << *it << "\033[0m" << "  " <<  flush;
         }
     }
     else{
         struct stat buf;
 
+        string copy = "";
+
         for(multiset<char*, classComp>::iterator it = sortedFiles.begin(); it != sortedFiles.end(); it++){
-            if(stat(*it, &buf) == -1){
+    
+            copy = dirName + "/";
+            copy += *it;
+
+            if(stat((char*) copy.c_str(), &buf) == -1){
                 perror("stat():");
                 exit(-1);
             }
