@@ -97,9 +97,24 @@ void outputLS(char* dirName, const string& flags, char* orig, bool moreDir){
     struct stat buf;
 
     if(!(stat(dirName, &buf) == -1)){
-
+ 
         if(S_ISREG(buf.st_mode)){
 
+            bool hasOtherL = false;
+
+            for(unsigned i = 0; i < flags.size(); i++){
+                if(flags.at(i) == 'l'){
+                    hasOtherL = true;
+                }
+            }
+
+            if(hasOtherL){
+                multiset<char*, classComp> some;
+                some.insert(dirName);
+                displayFiles(some, hasOtherL, dirName, 0, 0);
+                return;
+            }
+            
             if((buf.st_mode & S_IRWXU & S_IXUSR))
                 cout << "\033[1;32m";
             cout << dirName << "\033[0m" << endl;
@@ -278,8 +293,13 @@ void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL, stri
 
         for(multiset<char*, classComp>::iterator it = sortedFiles.begin(); it != sortedFiles.end(); it++){
     
-            copy = dirName + "/";
-            copy += *it;
+            if(maxFileSize == 0 && compareSize == 0){
+                copy = *it;
+            }
+            else{
+                copy = dirName + "/";
+                copy += *it;
+            }
 
             if(stat((char*) copy.c_str(), &buf) == -1){
                 perror("stat():");
@@ -389,7 +409,7 @@ void printColumns(vector<vector<char*> > table, vector<int> widths, string dirNa
                 }
 
                 if(table.at(j).at(i)[0] == '.'){
-                   // cout << "\033[0;47;37m";
+                    // cout << "\033[0;47;37m";
                 }
 
                 if(buf.st_mode & S_IRWXU & S_IXUSR)
@@ -406,7 +426,7 @@ void printColumns(vector<vector<char*> > table, vector<int> widths, string dirNa
         }
 
         widthSize = 0;
-        
+
         if(i < table.at(i).size() - 1)
             cout << endl;
     }
