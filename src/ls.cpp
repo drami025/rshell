@@ -28,17 +28,18 @@ struct classComp{
 };
 
 void readDirectories(const vector<string>& directories, const string& allFlags, int numOfDir);
-void outputLS(char* dirName, const string& flags, char* orig);
+void outputLS(char* dirName, const string& flags, char* orig, bool moreDir);
 void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL, string dirName, int maxFileSize, int compareSize);
+void printColumns(vector<vector<char*> > table, vector<int> widths, string dirName);
 
 int main(int argc, char** argv)
 {
     //Size I'll make vector after tranversing command line arguments
     int numOfDir = 0; stringstream dir;
-    int numOfFlags = 0; stringstream flags;
+    stringstream flags;
 
     //Traversing command line here and populate stream for directories and flags
-    for(unsigned i = 1; i < argc; i++){
+    for(int i = 1; i < argc; i++){
         if(argv[i][0] != '-'){
             numOfDir++;
             dir << argv[i] << " ";
@@ -50,7 +51,7 @@ int main(int argc, char** argv)
 
     //Populate vector for directories
     vector<string> directories(numOfDir);
-    for(unsigned i = 0; i < numOfDir; i++){
+    for(int i = 0; i < numOfDir; i++){
         dir >> directories.at(i);
     }
 
@@ -71,7 +72,7 @@ void readDirectories(const vector<string>& directories, const string& flags, int
     if(numOfDir == 0){
         char* dirName;
         dirName = (char*) ".";
-        outputLS(dirName, flags, dirName);
+        outputLS(dirName, flags, dirName, moreDir);
     }
 
     //Loop through all directories inputted. Only once if no arguments.
@@ -80,14 +81,10 @@ void readDirectories(const vector<string>& directories, const string& flags, int
 
         //If less than one, then current directory. Else, passed in directory.
 
-        //Prints name of directory if multiple directories.
-        if(moreDir){
-            cout << directories.at(i) << ": " << endl;
-        }
         dirName = (char*) directories.at(i).c_str();
 
 
-        outputLS(dirName, flags, dirName);
+        outputLS(dirName, flags, dirName, moreDir);
 
 
         if(numOfDir > 1) cout << endl;        
@@ -95,7 +92,55 @@ void readDirectories(const vector<string>& directories, const string& flags, int
 }
 
 //function to begin displaying all files in directory
-void outputLS(char* dirName, const string& flags, char* orig){
+void outputLS(char* dirName, const string& flags, char* orig, bool moreDir){
+
+    struct stat buf;
+
+    if(!(stat(dirName, &buf) == -1)){
+
+        if(S_ISREG(buf.st_mode)){
+
+            if((buf.st_mode & S_IRWXU & S_IXUSR))
+                cout << "\033[1;32m";
+            cout << dirName << "\033[0m" << endl;
+            return;
+        }
+
+        /*
+        if(!S_ISDIR(buf.st_mode)){
+            DIR *dirp = opendir(".");
+            if(dirp == NULL){
+                perror("opendir()");
+                exit(-1);
+            }
+
+            dirent *direntp;
+
+            while((direntp = readdir(dirp))){
+                if(direntp == NULL){
+                    perror("readdir()");
+                    exit(-1);
+                }
+
+                if(strcmp(direntp->d_name, dirName) == 0){
+                    cout << dirName << endl;
+                    return;
+                }
+            }
+
+            cout << dirName << ": This file or directory does not exist." << endl;
+            exit(-1);
+        }*/
+    }
+    else{
+        perror(dirName);
+        exit(-1);
+    }
+    
+    if(moreDir){
+        cout << dirName << ":" << endl;
+    }
+
     //Opens directory name in "dirName"
     DIR *dirp = opendir(dirName);
     if(dirp == NULL){
@@ -105,7 +150,7 @@ void outputLS(char* dirName, const string& flags, char* orig){
 
     bool hasA = false, hasL = false, hasR = false;
 
-    for(int i = 0; i < flags.size(); i++){
+    for(unsigned i = 0; i < flags.size(); i++){
         if(flags.at(i) == 'a') hasA = true;
 
         if(flags.at(i) == 'l') hasL = true;
@@ -151,14 +196,14 @@ void outputLS(char* dirName, const string& flags, char* orig){
         cout << dirName << ":" << endl;
     }
 
-    displayFiles(sortedFiles, hasL, copy, maxFileSize, compareSize);
+    displayFiles(sortedFiles, hasL, copy, maxFileSize, numOfChars);
 
     while(hasR && !dirs.empty()){
         cout << endl;
         if(!hasL) cout << endl;
         copy = dirName;
         copy += "/" + dirs.front();
-        outputLS((char*) copy.c_str(), flags, orig);
+        outputLS((char*) copy.c_str(), flags, orig, moreDir);
         dirs.pop_front();
     }
 
@@ -177,6 +222,12 @@ void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL, stri
 
         int rows = ceil((double) compareSize / maxFileSize);
         int columns = ceil((double) sortedFiles.size() / rows);
+        int maxColumnWord = 0;
+        int i = 0, j = 0;
+        bool needsColumns = compareSize > 81;
+        vector<vector<char*> > table(rows);
+        vector<char*> tColumns(columns);
+        vector<int> columnWidths;
 
         for(multiset<char*, classComp>::iterator it = sortedFiles.begin(); it != sortedFiles.end(); it++){
 
@@ -189,15 +240,35 @@ void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL, stri
                 exit(-1);
             }
 
-            if((*it)[0] == '.'){
+            if(!needsColumns && (*it)[0] == '.'){
                 cout << "\033[2;47;33m";
             }
 
-            if(S_ISDIR(buf.st_mode)){
+            if(!needsColumns && S_ISDIR(buf.st_mode)){
                 cout << "\033[1;34m";
             }
+            else if(!needsColumns && (buf.st_mode & S_IRWXU & S_IXUSR))
+                cout << "\033[1;32m";
 
-            cout << *it << "\033[0m" << "  " <<  flush;
+            if(!needsColumns)
+                cout << *it << "\033[0m" << "  " <<  flush;
+            else{
+                tColumns.at(i) = *it;
+                if(maxColumnWord < (int) strlen(*it)) maxColumnWord = strlen(*it);
+
+                i++;
+                if(i >= columns){
+                    i = 0;
+                    table.at(j) = tColumns;
+                    j++;
+                    columnWidths.push_back(maxColumnWord);
+                    maxColumnWord = 0;
+                }
+            }
+        }
+
+        if(needsColumns){
+            printColumns(table, columnWidths, dirName);
         }
     }
     else{
@@ -292,5 +363,51 @@ void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL, stri
             cout << *it << "\033[0m" << endl;
 
         }
+    }
+}
+
+void printColumns(vector<vector<char*> > table, vector<int> widths, string dirName){
+
+    string copy = "";
+
+    int widthSize = 0; 
+
+    for(unsigned i = 0; i < table.at(i).size(); i++){
+        for(unsigned j = 0; j < table.size(); j++){
+
+            struct stat buf;
+
+            if(i < table.at(j).size()){
+
+                copy = dirName +  "/";
+                copy += table.at(j).at(i);
+
+                //Output for no or -a flag options with color
+                if(stat((char*) copy.c_str(), &buf) == -1){
+                    perror("stat()");
+                    exit(-1);
+                }
+
+                if(table.at(j).at(i)[0] == '.'){
+                   // cout << "\033[0;47;37m";
+                }
+
+                if(buf.st_mode & S_IRWXU & S_IXUSR)
+                    cout << "\033[1;32m";
+
+                if(S_ISDIR(buf.st_mode)){
+                    cout << "\033[1;34m";
+                }
+
+                widthSize = widths.at(j) + 2;
+
+                cout << left << setw(widthSize) << table.at(j).at(i) << "\033[0m" << flush;
+            }
+        }
+
+        widthSize = 0;
+        
+        if(i < table.at(i).size() - 1)
+            cout << endl;
     }
 }
