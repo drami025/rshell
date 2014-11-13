@@ -120,32 +120,6 @@ void outputLS(char* dirName, const string& flags, char* orig, bool moreDir){
             cout << dirName << "\033[0m" << endl;
             return;
         }
-
-        /*
-        if(!S_ISDIR(buf.st_mode)){
-            DIR *dirp = opendir(".");
-            if(dirp == NULL){
-                perror("opendir()");
-                exit(-1);
-            }
-
-            dirent *direntp;
-
-            while((direntp = readdir(dirp))){
-                if(direntp == NULL){
-                    perror("readdir()");
-                    exit(-1);
-                }
-
-                if(strcmp(direntp->d_name, dirName) == 0){
-                    cout << dirName << endl;
-                    return;
-                }
-            }
-
-            cout << dirName << ": This file or directory does not exist." << endl;
-            exit(-1);
-        }*/
     }
     else{
         perror(dirName);
@@ -181,6 +155,7 @@ void outputLS(char* dirName, const string& flags, char* orig, bool moreDir){
     int compareSize = 0;
     list<string> dirs;
     string copy = dirName;
+    string test = "";
 
     //Branches to handle different flags.
     while ((direntp = readdir(dirp))){
@@ -204,10 +179,10 @@ void outputLS(char* dirName, const string& flags, char* orig, bool moreDir){
         if(maxFileSize < compareSize)
             maxFileSize = compareSize;
 
-        if(numOfChars <= 81)
+        if(numOfChars <= 80)
             numOfChars += (compareSize + 1);
         else
-            numOfChars = 82;
+            numOfChars = 81;
     }    
 
     if(hasR){
@@ -238,11 +213,22 @@ void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL, stri
         struct stat buf;
         string copy = "";
 
-        int rows = ceil((double) compareSize / maxFileSize);
-        int columns = ceil((double) sortedFiles.size() / rows);
+        int rows = ceil (((double) compareSize) / maxFileSize) ;
+        int columns = ceil(((double) sortedFiles.size()) / rows);
+
+        int sizeSet = sortedFiles.size();
+
+        for(int i = 0; i < sizeSet; i++){
+            if(rows * columns < sizeSet){
+                columns += 1;
+            }
+            else
+                break;
+        }
+
         int maxColumnWord = 0;
         int i = 0, j = 0;
-        bool needsColumns = compareSize > 81;
+        bool needsColumns = compareSize > 80;
         vector<vector<char*> > table(rows);
         vector<char*> tColumns(columns);
         vector<int> columnWidths;
@@ -286,16 +272,42 @@ void displayFiles(const multiset<char*, classComp>& sortedFiles, bool hasL, stri
         }
 
         if(needsColumns){
+            if(columns * rows != sizeSet){
+                tColumns.resize(i);
+                table.at(j) = tColumns;
+                columnWidths.push_back(maxColumnWord);
+            }
             printColumns(table, columnWidths, dirName);
         }
     }
     else{
         struct stat buf;
+        int max = 0;
 
         string copy = "";
 
+        if(maxFileSize != 0 && compareSize != 0){
+            for(multiset<char*, classComp>::iterator it = sortedFiles.begin(); it != sortedFiles.end(); it++){
+                copy = dirName + "/";
+                copy += *it;
+
+                if(stat((char*) copy.c_str(), &buf) == -1){
+                    perror("stat():");
+                    exit(-1);
+                }
+
+                max += buf.st_blocks;
+            }
+        }
+
+        max /= 2;
+
+        cout << "total " << max << endl;
+
+        copy = "";
+
         for(multiset<char*, classComp>::iterator it = sortedFiles.begin(); it != sortedFiles.end(); it++){
-    
+
             if(maxFileSize == 0 && compareSize == 0){
                 copy = *it;
             }
@@ -395,7 +407,7 @@ void printColumns(vector<vector<char*> > table, vector<int> widths, string dirNa
 
     int widthSize = 0; 
 
-    for(unsigned i = 0; i < table.at(i).size(); i++){
+    for(unsigned i = 0; i < table.at(0).size(); i++){
         for(unsigned j = 0; j < table.size(); j++){
 
             struct stat buf;
@@ -430,7 +442,7 @@ void printColumns(vector<vector<char*> > table, vector<int> widths, string dirNa
 
         widthSize = 0;
 
-        if(i < table.at(i).size() - 1)
+        if(i < table.at(0).size() - 1)
             cout << endl;
     }
 }
