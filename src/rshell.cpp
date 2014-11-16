@@ -1,4 +1,5 @@
 #include<iostream>
+#include<fcntl.h>
 #include<pwd.h>
 #include<sstream>
 #include<stdio.h>
@@ -19,6 +20,7 @@ void readCommands(string str);
 int conjunct(int n, stringstream& ss, const Tok::iterator &it);
 void skipCommand(Tok::iterator &it, Tok &tokens);
 void splitString(char** args, stringstream& ss, int n);
+void ioRedir(const Tok::iterator &it, bool inRedir, bool append);
 
 int main(){
     
@@ -60,10 +62,12 @@ int main(){
 
 void readCommands(string str){
 
-    char_separator<char> sep("\" ", ";#|&");
+    char_separator<char> sep("\" ", ";#|&<>");
 
     Tok tokens(str, sep);
     stringstream ss;
+    string input = "";
+    string output = "";
     int n = 0;
 
     for(Tok::iterator it = tokens.begin(); it != tokens.end(); it++){
@@ -100,6 +104,30 @@ void readCommands(string str){
             n = 0;
             if(it == tokens.end()) break;
             it++;
+        }
+        else if(*it == "<" || *it == ">"){
+//TODO INPUT REDIRECTION
+            bool inRedir = false;
+            bool append = false;
+            
+            if(*it == "<") inRedir = true;
+            
+            it++;
+
+            here:
+
+            if(it == tokens.end()){
+                cout << "Bash: syntax error near unexpected token \'newline\'" << endl;
+                exit(-1);
+            }
+
+            if(*it == ">"){
+                append = true;
+                it++;
+                goto here;
+            }
+
+            ioRedir(it, inRedir, append);
         }
 
         if(*it == "#"){
@@ -159,7 +187,87 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it){
         }
     }
     delete[] args;
+
+    if(close(0) == -1){
+        perror("close input fd");
+        exit(-1);
+    }
+
+    if(dup(0) == -1){
+        perror("dup input");
+        exit(-1);
+    }
+
+    if(close(1) == -1){
+        perror("close output fd");
+        exit(-1);
+    }
+    
+    if(dup(1) == -1){
+        perror("dup output");
+        exit(-1);
+    }
     return 0;
+}
+
+
+//TODO INPUT REDIRECTION
+void ioRedir(const Tok::iterator &it, bool inRedir, bool append){
+
+    if(*it == "&" || *it == "|" || *it == ";"){
+        cout << "Bash: syntax error near unexpected token \'" << *it << "\'" << endl;
+        exit(-1);
+    }
+
+    if(inRedir){
+        string input = *it;
+
+        int fdi;
+
+        if((fdi = open((char*) input.c_str(), O_RDONLY)) == -1){
+            perror("open input");
+            exit(-1);
+        }
+        
+        if(close(0) == -1){
+            perror("close input");
+            exit(-1);
+        }
+
+        if(dup(fdi) == -1){
+            perror("dup input");
+            exit(-1);
+        }
+        return;
+    }
+    else{
+        string output = *it;
+        
+        int fdo;
+
+        if(append){
+            if((fdo = open((char*) output.c_str(), O_RDWR | O_CREAT | O_APPEND)) == -1){
+                perror("open output");
+                exit(-1);
+            }
+        }
+        else{
+            if((fdo = open((char*) output.c_str(), O_RDWR | O_CREAT | O_TRUNC)) == -1){
+                perror("open output append");
+                exit(-1);
+            }
+        }
+            
+        if(close(1) == -1){
+            perror("close output");
+            exit(-1);
+        }
+
+        if(dup(fdo) == -1){
+            perror("dup output");
+            exit(-1);
+        }
+    }
 }
 
 void skipCommand(Tok::iterator &it, Tok &tokens){
@@ -169,11 +277,11 @@ void skipCommand(Tok::iterator &it, Tok &tokens){
 }
 
 void splitString(char** args, stringstream& ss, int n){
-    
+
     string *str = new string[n];
 
     for(int i = 0; i < n; i++){
-       
+
         ss >> str[i];
 
         args[i] = (char*) str[i].c_str();
