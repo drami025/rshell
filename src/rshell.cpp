@@ -22,6 +22,8 @@ void skipCommand(Tok::iterator &it, Tok &tokens);
 void splitString(char** args, stringstream& ss, int n);
 void ioRedir(const Tok::iterator &it, bool inRedir, bool append);
 void resetIO(int in0, int out1);
+void pipeRedir(int fd[], bool pipeOut);
+void resetPipe(int fd, bool isOut);
 
 int main(){
     
@@ -69,7 +71,10 @@ void readCommands(string str){
     stringstream ss;
     int in0;
     int out1;
+    int fd[2];
+    bool pipeOut = false;
     bool didRedir = false;
+    bool didPipe = false;
     int n = 0;
 
     if((in0 = dup(0)) == -1){
@@ -79,6 +84,11 @@ void readCommands(string str){
 
     if((out1 = dup(1)) == -1){
         perror("output-1");
+        exit(-1);
+    }
+
+    if(pipe(fd) == -1){
+        perror("pipe");
         exit(-1);
     }
 
@@ -102,17 +112,39 @@ void readCommands(string str){
         else if(*it == "|"){
             Tok::iterator copy = it;
             copy++;
-// Remove this part once we deal with piping            
-            if(copy != tokens.end() && *copy != "|") {
+
+            if(copy == tokens.end() || *copy == ";" || *copy == "&"){
                 conjunct(0, ss, it);
                 skipCommand(it, tokens);
+                return;
             }
-//======
-            if(copy != tokens.end() && *copy == "|"){
+
+            if(*copy == "|"){
+                copy++;
+                if(copy == tokens.end() || *copy == ";" || *copy == "&"){
+                    conjunct(0, ss, it);
+                    skipCommand(it, tokens);
+                    return;
+                }
+
                 if(conjunct(n, ss, it) != -1){
                     skipCommand(it, tokens);
                 }
-            }    
+            }  
+            else{
+                didPipe = true;
+                pipeOut = true;
+                pipeRedir(fd, pipeOut);
+                if(conjunct(n, ss, it) == -1){
+                    skipCommand(it, tokens);
+                }
+                pipeOut = false;
+                pipeRedir(fd, pipeOut);
+
+                n = 0;
+                continue;
+            }
+//TODO Piping
             n = 0;
             if(it == tokens.end()) break;
             it++;
@@ -166,7 +198,13 @@ void readCommands(string str){
 
     if(n > 0){
         Tok::iterator it = tokens.begin();
+        if(didPipe){
+            resetPipe(out1, true);
+        }
         conjunct(n, ss, it);
+        if(didPipe){
+            resetPipe(in0, false);
+        }
     }
 
     if(didRedir){
@@ -298,6 +336,36 @@ void resetIO(int in0, int out1){
     if(dup2(out1, 1) == -1){
         perror("dup output - 1");
         exit(-1);
+    }
+}
+
+void resetPipe(int fd, bool isOut){
+    if(isOut){
+        if(dup2(fd, 1) == -1){
+            perror("dup2 pipe output reset");
+            exit(-1);
+        }
+    }
+    else{
+        if(dup2(fd, 0) == -1){
+            perror("dup2 pipe input reset");
+            exit(-1);
+        }
+    }
+}
+
+void pipeRedir(int fd[], bool pipeOut){
+    if(pipeOut){
+        if(dup2(fd[1], 1) == -1){
+            perror("dup2: pipe out");
+            exit(-1);
+        }
+    }
+    else{
+        if(dup2(fd[0], 0) == -1){
+            perror("dup2: pipe in");
+            exit(-1);
+        }
     }
 }
 
