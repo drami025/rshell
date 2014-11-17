@@ -21,6 +21,7 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it);
 void skipCommand(Tok::iterator &it, Tok &tokens);
 void splitString(char** args, stringstream& ss, int n);
 void ioRedir(const Tok::iterator &it, bool inRedir, bool append);
+void resetIO(int in0, int out1);
 
 int main(){
     
@@ -66,9 +67,20 @@ void readCommands(string str){
 
     Tok tokens(str, sep);
     stringstream ss;
-    string input = "";
-    string output = "";
+    int in0;
+    int out1;
+    bool didRedir = false;
     int n = 0;
+
+    if((in0 = dup(0)) == -1){
+        perror("input-0");
+        exit(-1);
+    }
+
+    if((out1 = dup(1)) == -1){
+        perror("output-1");
+        exit(-1);
+    }
 
     for(Tok::iterator it = tokens.begin(); it != tokens.end(); it++){
         
@@ -106,7 +118,9 @@ void readCommands(string str){
             it++;
         }
         else if(*it == "<" || *it == ">"){
-//TODO INPUT REDIRECTION
+
+            another:
+
             bool inRedir = false;
             bool append = false;
             
@@ -117,7 +131,7 @@ void readCommands(string str){
             here:
 
             if(it == tokens.end()){
-                cout << "Bash: syntax error near unexpected token \'newline\'" << endl;
+                cerr << "Bash: syntax error near unexpected token \'newline\'" << endl;
                 exit(-1);
             }
 
@@ -128,6 +142,14 @@ void readCommands(string str){
             }
 
             ioRedir(it, inRedir, append);
+            
+            didRedir = true;
+            
+            it++;
+            
+            if(it == tokens.end()) break;
+
+            if(*it == ">" || *it == "<") goto another;
         }
 
         if(*it == "#"){
@@ -145,6 +167,10 @@ void readCommands(string str){
     if(n > 0){
         Tok::iterator it = tokens.begin();
         conjunct(n, ss, it);
+    }
+
+    if(didRedir){
+        resetIO(in0, out1);
     }
 }
 
@@ -188,25 +214,6 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it){
     }
     delete[] args;
 
-    if(close(0) == -1){
-        perror("close input fd");
-        exit(-1);
-    }
-
-    if(dup(0) == -1){
-        perror("dup input");
-        exit(-1);
-    }
-
-    if(close(1) == -1){
-        perror("close output fd");
-        exit(-1);
-    }
-    
-    if(dup(1) == -1){
-        perror("dup output");
-        exit(-1);
-    }
     return 0;
 }
 
@@ -215,7 +222,7 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it){
 void ioRedir(const Tok::iterator &it, bool inRedir, bool append){
 
     if(*it == "&" || *it == "|" || *it == ";"){
-        cout << "Bash: syntax error near unexpected token \'" << *it << "\'" << endl;
+        cerr << "Bash: syntax error near unexpected token \'" << *it << "\'" << endl;
         exit(-1);
     }
 
@@ -244,15 +251,16 @@ void ioRedir(const Tok::iterator &it, bool inRedir, bool append){
         string output = *it;
         
         int fdo;
+        mode_t readWrite = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
 
         if(append){
-            if((fdo = open((char*) output.c_str(), O_RDWR | O_CREAT | O_APPEND)) == -1){
+            if((fdo = open((char*) output.c_str(), O_RDWR | O_CREAT | O_APPEND,  readWrite)) == -1){
                 perror("open output");
                 exit(-1);
             }
         }
         else{
-            if((fdo = open((char*) output.c_str(), O_RDWR | O_CREAT | O_TRUNC)) == -1){
+            if((fdo = open((char*) output.c_str(), O_RDWR | O_CREAT | O_TRUNC,  readWrite)) == -1){
                 perror("open output append");
                 exit(-1);
             }
@@ -267,6 +275,29 @@ void ioRedir(const Tok::iterator &it, bool inRedir, bool append){
             perror("dup output");
             exit(-1);
         }
+    }
+}
+
+void resetIO(int in0, int out1){
+
+    if(close(0) == -1){
+        perror("close fd");
+        exit(-1);
+    }
+
+    if(dup2(in0, 0) == -1){
+        perror("dup input - 0");
+        exit(-1);
+    }
+
+    if(close(1) == -1){
+        perror("close fd");
+        exit(-1);
+    }
+
+    if(dup2(out1, 1) == -1){
+        perror("dup output - 1");
+        exit(-1);
     }
 }
 
