@@ -98,4 +98,4 @@ Bugs & Fixes
 * Formatting feature is still not up to par with the BASH shell's ls
 * Some folders do not appear alphabetically when using recursive flag ``-R``
 * Bug with reading comments on chained IO redirection with piping.
-* String redirection ``<<`` not fully functional as of now. Please avoid using this function.
+* String redirection ``<<<`` not fully functional as of now. Please avoid using this function.
