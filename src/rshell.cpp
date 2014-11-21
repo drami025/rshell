@@ -138,7 +138,7 @@ void readCommands(string str){
                 (!pipeOut) ? pipeOut = true : pipeOut = false;
 
                 pipeRedir(fd, fdLoop, pipeOut, isFirst, false, n, ss, it, didRedir);
-                isFirst = false;
+                sFirst = false;
 
                 n = 0;
                 continue;
