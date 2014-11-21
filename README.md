@@ -57,6 +57,8 @@ cp.cpp
 ./test:
 
 exec.script
+ls.script
+pipe.script
 ```
 
 How to run the file
@@ -95,3 +97,5 @@ Bugs & Fixes
 * Quote features do not function as they are suppose to. For example, if you type in ``echo "hello        world"`` you would receive ``hello       world`` on a normal BASH shell. On this shell, you will see ``hello world``.
 * Formatting feature is still not up to par with the BASH shell's ls
 * Some folders do not appear alphabetically when using recursive flag ``-R``
+* Bug with reading comments on chained IO redirection with piping.
+* String redirection ``<<`` not fully functional as of now. Please avoid using this function.
