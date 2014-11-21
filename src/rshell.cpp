@@ -22,8 +22,7 @@ void skipCommand(Tok::iterator &it, Tok &tokens);
 void splitString(char** args, stringstream& ss, int n);
 void ioRedir(const Tok::iterator &it, bool inRedir, bool append);
 void resetIO(int in0, int out1);
-void pipeRedir(int fd[], bool pipeOut);
-void resetPipe(int fd, bool isOut);
+void pipeRedir(int fd[], int fdLoop[], bool pipeOut, bool isFirst, bool isLast, int n, stringstream& ss, const Tok::iterator &it, bool didRedir);
 
 int main(){
     
@@ -72,7 +71,8 @@ void readCommands(string str){
     int in0;
     int out1;
     int fd[2];
-    bool pipeOut = false;
+    int fdLoop[2];
+    bool pipeOut = false; bool isFirst = true;
     bool didRedir = false;
     bool didPipe = false;
     int n = 0;
@@ -87,7 +87,7 @@ void readCommands(string str){
         exit(-1);
     }
 
-    if(pipe(fd) == -1){
+    if((pipe(fd)) == -1){
         perror("pipe");
         exit(-1);
     }
@@ -132,19 +132,18 @@ void readCommands(string str){
                 }
             }  
             else{
+//TODO piping
                 didPipe = true;
-                pipeOut = true;
-                pipeRedir(fd, pipeOut);
-                if(conjunct(n, ss, it) == -1){
-                    skipCommand(it, tokens);
-                }
-                pipeOut = false;
-                pipeRedir(fd, pipeOut);
+
+                (!pipeOut) ? pipeOut = true : pipeOut = false;
+
+                pipeRedir(fd, fdLoop, pipeOut, isFirst, false, n, ss, it, didRedir);
+                isFirst = false;
 
                 n = 0;
                 continue;
             }
-//TODO Piping
+
             n = 0;
             if(it == tokens.end()) break;
             it++;
@@ -177,11 +176,15 @@ void readCommands(string str){
             
             didRedir = true;
             
-            it++;
+            Tok::iterator copy = it;
+            copy++;
             
-            if(it == tokens.end()) break;
+            if(copy == tokens.end()) break;
 
-            if(*it == ">" || *it == "<") goto another;
+            if(*copy == ">" || *copy == "<"){
+                goto another;
+                it++;
+            }
         }
 
         if(*it == "#"){
@@ -195,15 +198,15 @@ void readCommands(string str){
             n++;
         }
     }
-
+//TODO piping
     if(n > 0){
         Tok::iterator it = tokens.begin();
         if(didPipe){
-            resetPipe(out1, true);
+            (!pipeOut) ? pipeOut = true : pipeOut = false;
+            pipeRedir(fd, fdLoop,  pipeOut, isFirst, true, n, ss, it, didRedir);
         }
-        conjunct(n, ss, it);
-        if(didPipe){
-            resetPipe(in0, false);
+        else{
+            conjunct(n, ss, it);
         }
     }
 
@@ -238,6 +241,7 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it){
         }
     }
     else if(pid > 0){
+
         if(-1 == wait(&status)){
             perror("There was an error with wait().");
             return -1;
@@ -250,13 +254,12 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it){
             }
         }
     }
+
     delete[] args;
 
     return 0;
 }
 
-
-//TODO INPUT REDIRECTION
 void ioRedir(const Tok::iterator &it, bool inRedir, bool append){
 
     if(*it == "&" || *it == "|" || *it == ";"){
@@ -318,18 +321,8 @@ void ioRedir(const Tok::iterator &it, bool inRedir, bool append){
 
 void resetIO(int in0, int out1){
 
-    if(close(0) == -1){
-        perror("close fd");
-        exit(-1);
-    }
-
     if(dup2(in0, 0) == -1){
         perror("dup input - 0");
-        exit(-1);
-    }
-
-    if(close(1) == -1){
-        perror("close fd");
         exit(-1);
     }
 
@@ -339,32 +332,148 @@ void resetIO(int in0, int out1){
     }
 }
 
-void resetPipe(int fd, bool isOut){
-    if(isOut){
-        if(dup2(fd, 1) == -1){
-            perror("dup2 pipe output reset");
-            exit(-1);
-        }
-    }
-    else{
-        if(dup2(fd, 0) == -1){
-            perror("dup2 pipe input reset");
-            exit(-1);
-        }
-    }
-}
+//TODO piping
+void pipeRedir(int fd[], int fdLoop[], bool pipeOut, bool isFirst, bool isLast, int n, stringstream& ss, const Tok::iterator& it, bool didRedir){
 
-void pipeRedir(int fd[], bool pipeOut){
+    int status;
+
+    if(n == 0 && *it != "#"){
+        cerr << "Bash: syntax error near unexpected token \'" << *it << "\'" << endl;
+        return;
+    }
+    else if(n == 0 && *it == "#") return; 
+    char** args = new char*[n + 1];
+
+    splitString(args, ss, n);
+
     if(pipeOut){
-        if(dup2(fd[1], 1) == -1){
-            perror("dup2: pipe out");
+        int pid;
+
+        if(!isFirst){
+            if(pipe(fd) == -1){
+                perror("repipe fd in input");
+                exit(-1);
+            }
+        }
+
+        if((pid = fork()) == -1){
+            perror("fork in pipe");
             exit(-1);
+        }
+
+        if(pid == 0){
+            if(isFirst){
+                if(close(fd[0]) == -1){
+                    perror("close in pipe");
+                    exit(-1);
+                }
+            }
+            
+            if(!isFirst){
+                if(dup2(fdLoop[0], 0) == -1){
+                    perror("dup2 fdLoop in input");
+                    exit(-1);
+                }
+            }
+
+            if(!isLast){
+                if(dup2(fd[1], 1) == -1){
+                    perror("dup2 in pipe");
+                    exit(-1);
+                }
+            }
+            //TODO execute command here
+
+            if(-1 == execvp((const char*) args[0], (char* const*) args)){
+                perror("execvp in pipe");
+                exit(-1);
+            }
+        }
+        else{
+            if(wait(&status) == -1){
+                perror("wait in pipe");
+                exit(-1);
+            }
+
+            if(close(fd[1]) == -1){
+                perror("close in pipe parent");
+                exit(-1);
+            }
+
+            if(!isFirst){
+                if(close(fdLoop[0]) == -1){
+                    perror("close fdLoop in input");
+                    exit(-1);
+                }
+            }
+
+            if(WIFEXITED(status)){
+                if(WEXITSTATUS(status) == 3){
+                    exit(-1);
+                }
+            }
+
         }
     }
     else{
-        if(dup2(fd[0], 0) == -1){
-            perror("dup2: pipe in");
+        int pid;
+        if(!isLast){
+            if(pipe(fdLoop) == -1){
+                    perror("fdLoop in output");
+                    exit(-1);
+            }
+        }
+
+        if((pid = fork()) == -1){
+            perror("fork#2 in pipe");
             exit(-1);
+        }
+
+        if(pid == 0){
+
+            if(dup2(fd[0], 0) == -1){
+                perror("dup2 #2 in pipe");
+                exit(-1);
+            }
+
+            //TODO execute command here
+
+            if(!isLast){
+                if(dup2(fdLoop[1], 1) == -1){
+                    perror("dup2 loop in output");
+                    exit(-1);
+                }
+            }
+
+            if(-1 == execvp((const char*) args[0], (char* const*) args)){
+                perror("execvp in pipe");
+                exit(-1);
+            }
+
+        }
+        else{
+
+            if(wait(&status) == -1){
+                perror("wait #2 in pipe");
+                exit(-1);
+            }
+
+            if(close(fd[0]) == -1){
+                perror("close #2 in pipe parent");
+                exit(-1);
+            }
+
+            if(!isLast){
+                if(close(fdLoop[1]) == -1){
+                    perror("close fdLoop in output");
+                    exit(-1);
+                }
+            }
+            if(WIFEXITED(status)){
+                if(WEXITSTATUS(status) == 3){
+                    exit(-1);
+                }
+            }
         }
     }
 }
