@@ -20,7 +20,7 @@ void readCommands(string str);
 int conjunct(int n, stringstream& ss, const Tok::iterator &it);
 void skipCommand(Tok::iterator &it, Tok &tokens);
 void splitString(char** args, stringstream& ss, int n);
-void ioRedir(const Tok::iterator &it, bool inRedir, bool append);
+bool ioRedir(const Tok::iterator &it, bool inRedir, bool append);
 void resetIO(int in0, int out1);
 void pipeRedir(int fd[], int fdLoop[], bool pipeOut, bool isFirst, bool isLast, int n, stringstream& ss, const Tok::iterator &it, bool didRedir);
 
@@ -94,6 +94,8 @@ void readCommands(string str){
 
     for(Tok::iterator it = tokens.begin(); it != tokens.end(); it++){
         
+        begin:
+
         if(*it == ";"){
             conjunct(n, ss, it);
             n = 0;
@@ -138,7 +140,7 @@ void readCommands(string str){
                 (!pipeOut) ? pipeOut = true : pipeOut = false;
 
                 pipeRedir(fd, fdLoop, pipeOut, isFirst, false, n, ss, it, didRedir);
-                sFirst = false;
+                isFirst = false;
 
                 n = 0;
                 continue;
@@ -149,41 +151,76 @@ void readCommands(string str){
             it++;
         }
         else if(*it == "<" || *it == ">"){
-
-            another:
-
-            bool inRedir = false;
             bool append = false;
-            
-            if(*it == "<") inRedir = true;
-            
-            it++;
 
-            here:
+another:
+            Tok::iterator check = it;
+            check++;
+            bool inRedir = false;
+            bool stringRedir = false;
+            
+            if(check != tokens.end() && *check == ">"){
+                append = true;
+                it++;
+                goto here;
+            }
+
+            if(*it == "<"){
+                inRedir = true;
+                Tok::iterator copy = it;
+                int i;
+                for(i = 0; i < 2; i++){
+                    copy++;
+                    if(copy == tokens.end() || *copy != "<") break;
+                }
+
+                if(i == 2 && copy != tokens.end() && *copy != ";" && *copy != "|" && *copy != "&"){
+                    stringRedir = true;
+                }
+            }
+
+            if(stringRedir){
+                it++; it++; it++;
+                string redirString = "";
+
+                while(it != tokens.end() && *it != ";" && *it != "|" && *it != "&"){
+                    redirString += (*it + " ");    
+                    it++;
+                }
+
+                if(write(0, (char*) redirString.c_str(), redirString.size() + 1) == -1){
+                    perror("write to extra");
+                    return;
+                }
+
+                if(it == tokens.end()){
+                    break;
+                }
+                else{
+                    goto begin;
+                }
+
+            }
+here:
+            it++;
 
             if(it == tokens.end()){
                 cerr << "Bash: syntax error near unexpected token \'newline\'" << endl;
                 exit(-1);
             }
 
-            if(*it == ">"){
-                append = true;
-                it++;
-                goto here;
-            }
+            if(!ioRedir(it, inRedir, append)) return;
 
-            ioRedir(it, inRedir, append);
-            
             didRedir = true;
-            
+
             Tok::iterator copy = it;
             copy++;
-            
+
             if(copy == tokens.end()) break;
 
             if(*copy == ">" || *copy == "<"){
-                goto another;
                 it++;
+                goto another;
             }
         }
 
@@ -198,7 +235,7 @@ void readCommands(string str){
             n++;
         }
     }
-//TODO piping
+    //TODO piping
     if(n > 0){
         Tok::iterator it = tokens.begin();
         if(didPipe){
@@ -216,7 +253,7 @@ void readCommands(string str){
 }
 
 int conjunct(int n, stringstream& ss, const Tok::iterator &it){
-    
+
     int status;
 
     if(n == 0 && *it != "#"){
@@ -260,11 +297,11 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it){
     return 0;
 }
 
-void ioRedir(const Tok::iterator &it, bool inRedir, bool append){
+bool ioRedir(const Tok::iterator &it, bool inRedir, bool append){
 
     if(*it == "&" || *it == "|" || *it == ";"){
         cerr << "Bash: syntax error near unexpected token \'" << *it << "\'" << endl;
-        exit(-1);
+        return false;
     }
 
     if(inRedir){
@@ -274,9 +311,9 @@ void ioRedir(const Tok::iterator &it, bool inRedir, bool append){
 
         if((fdi = open((char*) input.c_str(), O_RDONLY)) == -1){
             perror("open input");
-            exit(-1);
+            return false;
         }
-        
+
         if(close(0) == -1){
             perror("close input");
             exit(-1);
@@ -286,11 +323,11 @@ void ioRedir(const Tok::iterator &it, bool inRedir, bool append){
             perror("dup input");
             exit(-1);
         }
-        return;
+        return true;
     }
     else{
         string output = *it;
-        
+
         int fdo;
         mode_t readWrite = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
 
@@ -306,7 +343,7 @@ void ioRedir(const Tok::iterator &it, bool inRedir, bool append){
                 exit(-1);
             }
         }
-            
+
         if(close(1) == -1){
             perror("close output");
             exit(-1);
@@ -317,6 +354,8 @@ void ioRedir(const Tok::iterator &it, bool inRedir, bool append){
             exit(-1);
         }
     }
+
+    return true;
 }
 
 void resetIO(int in0, int out1){
@@ -368,7 +407,7 @@ void pipeRedir(int fd[], int fdLoop[], bool pipeOut, bool isFirst, bool isLast, 
                     exit(-1);
                 }
             }
-            
+
             if(!isFirst){
                 if(dup2(fdLoop[0], 0) == -1){
                     perror("dup2 fdLoop in input");
@@ -419,8 +458,8 @@ void pipeRedir(int fd[], int fdLoop[], bool pipeOut, bool isFirst, bool isLast, 
         int pid;
         if(!isLast){
             if(pipe(fdLoop) == -1){
-                    perror("fdLoop in output");
-                    exit(-1);
+                perror("fdLoop in output");
+                exit(-1);
             }
         }
 
