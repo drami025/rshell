@@ -17,7 +17,7 @@ using namespace boost;
 typedef tokenizer<char_separator<char> > Tok;
 
 void readCommands(string str);
-int conjunct(int n, stringstream& ss, const Tok::iterator &it);
+int conjunct(int n, stringstream& ss, const Tok::iterator &it, bool didExtra = false);
 void skipCommand(Tok::iterator &it, Tok &tokens);
 void splitString(char** args, stringstream& ss, int n);
 bool ioRedir(const Tok::iterator &it, bool inRedir, bool append);
@@ -74,17 +74,17 @@ void readCommands(string str){
     int fdLoop[2];
     bool pipeOut = false; bool isFirst = true;
     bool didRedir = false;
-    bool didPipe = false;
+    bool didPipe = false; bool didExtra = false;
     int n = 0;
 
     if((in0 = dup(0)) == -1){
         perror("input-0");
-        exit(-1);
+        return;
     }
 
     if((out1 = dup(1)) == -1){
         perror("output-1");
-        exit(-1);
+        return;
     }
 
     if((pipe(fd)) == -1){
@@ -159,6 +159,7 @@ another:
             bool inRedir = false;
             bool stringRedir = false;
             
+            
             if(check != tokens.end() && *check == ">"){
                 append = true;
                 it++;
@@ -180,6 +181,7 @@ another:
             }
 
             if(stringRedir){
+                didExtra = true;
                 it++; it++; it++;
                 string redirString = "";
 
@@ -222,10 +224,22 @@ here:
                 it++;
                 goto another;
             }
+
+            continue;
         }
 
         if(*it == "#"){
+            if(didPipe){
+                (!pipeOut) ? pipeOut = true : pipeOut = false;
+                pipeRedir(fd, fdLoop, pipeOut, isFirst, true, n, ss, it, didRedir);
+                return;
+            }
+
             conjunct(n, ss, it);
+
+            if(didRedir){
+                resetIO(in0, out1);
+            }
             return;
         }
 
@@ -243,7 +257,7 @@ here:
             pipeRedir(fd, fdLoop,  pipeOut, isFirst, true, n, ss, it, didRedir);
         }
         else{
-            conjunct(n, ss, it);
+            conjunct(n, ss, it, didExtra);
         }
     }
 
@@ -252,7 +266,7 @@ here:
     }
 }
 
-int conjunct(int n, stringstream& ss, const Tok::iterator &it){
+int conjunct(int n, stringstream& ss, const Tok::iterator &it, bool didExtra){
 
     int status;
 

@@ -7,7 +7,7 @@ all: make_directories $(BIN)
 	g++ -Wall -Werror -ansi -pedantic $(SRC)/cp.cpp -o $(BIN)/cp
 
 rshell:
-	g++ -Wall -Werror -ansi -pedantic $(SRC)/rshell.cpp -o $(BIN)/rshell
+	g++ -Wall -Werror -ansi -pedantic $(SRC)/rshell.cpp -g -o $(BIN)/rshell
 
 ls:
 	g++ -Wall -Werror -ansi -pedantic $(SRC)/ls.cpp -o $(BIN)/ls

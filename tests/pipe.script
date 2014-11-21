@@ -1,0 +1,68 @@
+Script started on Thu 20 Nov 2014 11:11:42 PM PST
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw2/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw2/rshell$ bin/s[Krhs[K[Kshell #e[Kbegin execution of my rshell. I left spaces before and after to [K[K[Kfor[K[K[Kr [Kshell for convenience of se[K[Kdifferentatin[K[K[K[Kiatei[K[King bef [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct ween shells
+
+daniel@daniel-Aspire-V5-471P$ ls #Will begin with o input redicti   rection. Will r create a new file with echo. Objec   serve that there is no file called oupt  tupt   put.test
+bin  LICENSE  Makefile	Makefile~  README.md  src  tests
+daniel@daniel-Aspire-V5-471P$ echo "This is a test to check output redirection" > output.test
+daniel@daniel-Aspire-V5-471P$ cat < output.test #w We will check if ouput   t   previous command succed eded. Will also test inpu    input redirection here.
+This is a test to check output redirection
+daniel@daniel-Aspire-V5-471P$ echo "Now to check app   o if we can append output" >> output.test
+daniel@daniel-Aspire-V5-471P$ cat <<  hello < output.               output.test #check to see if text was appendei  ing
+This is a test to check output redirection
+Now to check if we can append output
+daniel@daniel-Aspire-V5-471P$ echo hello there > output.test > world #check chainn ing        multiple redirection           input redirections. Only    
+daniel@daniel-Aspire-V5-471P$ cat < world #only world should have                      World        this w file should output "hello there"
+hello there
+daniel@daniel-Aspire-V5-471P$ cat < output.test #should not have "hello there"
+daniel@daniel-Aspire-V5-471P$ #as you can see, file was also truncated as well.
+daniel@daniel-Aspire-V5-471P$ ls
+bin  LICENSE  Makefile	Makefile~  output.test	README.md  src	tests  world
+daniel@daniel-Aspire-V5-471P$ echo "adding something to output file" >    w that is empty with append" >> output.test
+daniel@daniel-Aspire-V5-471P$ cat < output.tst  et st > world #check oppose ite redirections 
+daniel@daniel-Aspire-V5-471P$ cat < world #should have same text as output.test
+adding something to output file that is empty with append
+daniel@daniel-Aspire-V5-471P$ cat < output.ts est >  > world #check to see if it can now append with diref  ff   fferein   ing directions
+daniel@daniel-Aspire-V5-471P$ cat < word ld
+adding something to output file that is empty with append
+adding something to output file that is empty with append
+daniel@daniel-Aspire-V5-471P$ ls | grep m e M #checking a sign n  ngle pipe
+Makefile
+Makefile~
+README.md
+daniel@daniel-Aspire-V5-471P$ ls | grep i | grep e | grep ~ #checking p mulit  tiple pipes
+Makefile~
+daniel@daniel-Aspire-V5-471P$ #next omm   comm    we will check a number of different chaings  s with IO redirection and piping
+daniel@daniel-Aspire-V5-471P$ cat < output            echo Mary had > song; echo a little > h song     > song; echo lamb >> song
+daniel@daniel-Aspire-V5-471P$ cat < song | e grep e | grep b
+daniel@daniel-Aspire-V5-471P$ cat < song | r grep a | grep b
+lamb
+daniel@daniel-Aspire-V5-471P$ cat < song | grep a | grep b > newFile
+daniel@daniel-Aspire-V5-471P$ cat < newFile #  checking if "lamb" was put into newFile
+lamb
+daniel@daniel-Aspire-V5-471P$ ls | grep M >> newFile
+daniel@daniel-Aspire-V5-471P$ cat <<  newFile 
+lamb
+Makefile
+Makefile~
+README.md
+daniel@daniel-Aspire-V5-471P$ #now we will check for errors
+daniel@daniel-Aspire-V5-471P$ ls  | grept  
+Bash: syntax error near unexpected token '|'
+Usage: grep [OPTION]... PATTERN [FILE]...
+Try 'grep --help' for more information.
+daniel@daniel-Aspire-V5-471P$ < grep    newFile
+daniel@daniel-Aspire-V5-471P$ > newFile
+daniel@daniel-Aspire-V5-471P$ ls
+bin  LICENSE  Makefile	Makefile~  newFile  output.test  README.md  song  src  tests  world
+daniel@daniel-Aspire-V5-471P$ cat < song | tr A-Z a-z | tee cool | tr a-z A-Z |   > screa     loudSong
+daniel@daniel-Aspire-V5-471P$ cat < loudSong
+MARY HAD
+A LITTLE
+LAMB
+daniel@daniel-Aspire-V5-471P$ #Thus       exit #Thus concludes my test script
+
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw2/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw2/rshell$ exit
+exit
+
+Script done on Thu 20 Nov 2014 11:26:38 PM PST
