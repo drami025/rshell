@@ -1,4 +1,5 @@
 #include<iostream>
+#include<sys/stat.h>
 #include<fcntl.h>
 #include<pwd.h>
 #include<sstream>
@@ -6,6 +7,7 @@
 #include<boost/tokenizer.hpp>
 #include<errno.h>
 #include<string>
+#include<stdlib.h>
 #include<string.h>
 #include<sys/types.h>
 #include<sys/wait.h>
@@ -16,6 +18,9 @@ using namespace boost;
 
 typedef tokenizer<char_separator<char> > Tok;
 
+char directory[1024];
+string cwd = "";
+
 void readCommands(string str);
 int conjunct(int n, stringstream& ss, const Tok::iterator &it, bool didExtra = false);
 void skipCommand(Tok::iterator &it, Tok &tokens);
@@ -23,12 +28,19 @@ void splitString(char** args, stringstream& ss, int n);
 bool ioRedir(const Tok::iterator &it, bool inRedir, bool append);
 void resetIO(int in0, int out1);
 void pipeRedir(int fd[], int fdLoop[], bool pipeOut, bool isFirst, bool isLast, int n, stringstream& ss, const Tok::iterator &it, bool didRedir);
+string findPath(string file);
 
 int main(){
-    
     cout << endl;
     string str = "";
     struct passwd *pass;
+
+    bool hasDirectory = true;
+
+    if((getcwd(directory, 1024)) == NULL){
+        perror("getcwd");
+        hasDirectory = false;
+    }
     
     pass = getpwuid(getuid());
     if(pass == NULL){
@@ -51,10 +63,15 @@ int main(){
         userinfo = username + "@" + hostname;
     }
 
+    if(hasDirectory){
+        cwd = directory;
+        cwd = ":" + cwd;
+    }
+
     bool notExited = true;
 
     while(notExited){
-        cout << userinfo << "$ ";
+        cout << userinfo << cwd << "$ ";
         getline(cin, str);
         readCommands(str);
     }
@@ -279,29 +296,69 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it, bool didExtra){
 
     splitString(args, ss, n);
 
-    int pid = fork();
+    if(strcmp(args[0], "cd") == 0){
+        if(n <= 1){
 
-    if(pid == -1){
-        perror("There was an error with the fork().");
-        exit(1);
-    }
-    else if(pid == 0){
-        if(-1 == execvp((const char*) args[0], (char* const*) args)){
-            perror(args[0]);
-            exit(3);
-        }
-    }
-    else if(pid > 0){
+            string home;
 
-        if(-1 == wait(&status)){
-            perror("There was an error with wait().");
-            return -1;
-        }
-
-        if(WIFEXITED(status)){
-            if(WEXITSTATUS(status) == 3){
-                delete[] args;
+            if((home = getenv("HOME")) == ""){
+                perror("getenv");
+            }
+            
+            if(chdir((char*) home.c_str()) == -1){
+                perror("chdir");
                 return -1;
+            }
+
+            if((getcwd(directory, 1024)) == NULL){
+                perror("getcwd");
+            }
+            else{
+                cwd = directory;
+                cwd = ":" + cwd;
+            }
+        }
+        else{
+            if(chdir(args[1]) == -1){
+                perror("chdir");
+                return -1;
+            }
+
+            if((getcwd(directory, 1024)) == NULL){
+                perror("getcwd");
+            }
+            else{
+                cwd = directory;
+                cwd = ":" + cwd;
+            }
+        }
+    }
+    else{
+
+        int pid = fork();
+
+        if(pid == -1){
+            perror("There was an error with the fork().");
+            exit(1);
+        }
+        else if(pid == 0){
+            if(-1 == execv((const char*) args[0], (char* const*) args)){
+                perror(args[0]);
+                exit(3);
+            }
+        }
+        else if(pid > 0){
+
+            if(-1 == wait(&status)){
+                perror("There was an error with wait().");
+                return -1;
+            }
+
+            if(WIFEXITED(status)){
+                if(WEXITSTATUS(status) == 3){
+                    delete[] args;
+                    return -1;
+                }
             }
         }
     }
@@ -437,8 +494,8 @@ void pipeRedir(int fd[], int fdLoop[], bool pipeOut, bool isFirst, bool isLast, 
             }
             //TODO execute command here
 
-            if(-1 == execvp((const char*) args[0], (char* const*) args)){
-                perror("execvp in pipe");
+            if(-1 == execv((const char*) args[0], (char* const*) args)){
+                perror("execv in pipe");
                 exit(-1);
             }
         }
@@ -498,8 +555,8 @@ void pipeRedir(int fd[], int fdLoop[], bool pipeOut, bool isFirst, bool isLast, 
                 }
             }
 
-            if(-1 == execvp((const char*) args[0], (char* const*) args)){
-                perror("execvp in pipe");
+            if(-1 == execv((const char*) args[0], (char* const*) args)){
+                perror("execv in pipe");
                 exit(-1);
             }
 
@@ -545,6 +602,10 @@ void splitString(char** args, stringstream& ss, int n){
 
         ss >> str[i];
 
+        if(str[i] != "cd" && i == 0){
+           str[i] = findPath(str[i]); 
+        }
+
         args[i] = (char*) str[i].c_str();
     }
 
@@ -558,4 +619,31 @@ void splitString(char** args, stringstream& ss, int n){
     }
 
     delete[] str;
+}
+
+string findPath(string file){
+    string env = "";
+
+    if((env = getenv("PATH")) == ""){
+        perror("getenv findPath");
+        exit(-1);
+    }
+
+    string dir = "";
+    string path = "";
+    struct stat buf;
+
+    int i;
+
+    while((i = env.find(":")) != -1){
+        dir = env.substr(0, i);
+
+        env = env.substr(i + 1, env.size());
+
+        if(stat((dir + "/" + file).c_str(), &buf) != -1){
+            path = dir + "/" + file;
+        }
+    }
+
+    return path;
 }
