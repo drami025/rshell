@@ -20,6 +20,20 @@ typedef tokenizer<char_separator<char> > Tok;
 
 char directory[1024];
 string cwd = "";
+string userinfo = "";
+bool mainPar = true;
+
+void interrupt(int sig){
+
+    if(mainPar){
+
+        cout << endl;
+        cout << userinfo << cwd << "$ " << flush;
+    }
+    else{
+        cout << endl;
+    }
+}
 
 void readCommands(string str);
 int conjunct(int n, stringstream& ss, const Tok::iterator &it, bool didExtra = false);
@@ -35,13 +49,18 @@ int main(){
     string str = "";
     struct passwd *pass;
 
+    if(signal(SIGINT, interrupt) == SIG_ERR){
+        perror("signal");
+        exit(-1);
+    }
+
     bool hasDirectory = true;
 
     if((getcwd(directory, 1024)) == NULL){
         perror("getcwd");
         hasDirectory = false;
     }
-    
+
     pass = getpwuid(getuid());
     if(pass == NULL){
         perror("getpwuid()");
@@ -49,13 +68,12 @@ int main(){
 
     char* usrname = pass->pw_name;
     char hostname[128];
-    
+
     int success = gethostname(hostname, sizeof hostname);
     if(success == -1){
         perror("gethostname()");
     }
-    
-    string userinfo = "";
+
     string username = "";
 
     if(usrname != NULL && success == 0){
@@ -64,8 +82,15 @@ int main(){
     }
 
     if(hasDirectory){
+        string home = "";
         cwd = directory;
         cwd = ":" + cwd;
+        if((home = getenv("HOME")) != ""){
+            cwd.replace(0, home.size() + 1, ":~");
+        }
+        else{
+            perror("getenv");
+        }
     }
 
     bool notExited = true;
@@ -74,6 +99,7 @@ int main(){
         cout << userinfo << cwd << "$ ";
         getline(cin, str);
         readCommands(str);
+        mainPar = true;
     }
 
     return 0;
@@ -110,8 +136,9 @@ void readCommands(string str){
     }
 
     for(Tok::iterator it = tokens.begin(); it != tokens.end(); it++){
-        
-        begin:
+        mainPar = false;
+
+begin:
 
         if(*it == ";"){
             conjunct(n, ss, it);
@@ -151,7 +178,7 @@ void readCommands(string str){
                 }
             }  
             else{
-//TODO piping
+                //TODO piping
                 didPipe = true;
 
                 (!pipeOut) ? pipeOut = true : pipeOut = false;
@@ -175,8 +202,8 @@ another:
             check++;
             bool inRedir = false;
             bool stringRedir = false;
-            
-            
+
+
             if(check != tokens.end() && *check == ">"){
                 append = true;
                 it++;
@@ -304,7 +331,7 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it, bool didExtra){
             if((home = getenv("HOME")) == ""){
                 perror("getenv");
             }
-            
+
             if(chdir((char*) home.c_str()) == -1){
                 perror("chdir");
                 return -1;
@@ -316,6 +343,7 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it, bool didExtra){
             else{
                 cwd = directory;
                 cwd = ":" + cwd;
+                cwd.replace(0, home.size() + 1, ":~");
             }
         }
         else{
@@ -328,8 +356,16 @@ int conjunct(int n, stringstream& ss, const Tok::iterator &it, bool didExtra){
                 perror("getcwd");
             }
             else{
+                string home = "";
                 cwd = directory;
                 cwd = ":" + cwd;
+                if((home = getenv("HOME")) != ""){
+                    cwd.replace(0, home.size() + 1, ":~");
+                }
+                else{
+                    perror("getenv conjunct");
+                }
+
             }
         }
     }
@@ -602,8 +638,8 @@ void splitString(char** args, stringstream& ss, int n){
 
         ss >> str[i];
 
-        if(str[i] != "cd" && i == 0){
-           str[i] = findPath(str[i]); 
+        if(str[i] != "cd" && i == 0 && str[i] != "exit"){
+            str[i] = findPath(str[i]); 
         }
 
         args[i] = (char*) str[i].c_str();
@@ -642,6 +678,10 @@ string findPath(string file){
 
         if(stat((dir + "/" + file).c_str(), &buf) != -1){
             path = dir + "/" + file;
+        }
+        else{
+            continue;
+            perror("stat, this shouldn't show");
         }
     }
 
