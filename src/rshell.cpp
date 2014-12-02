@@ -35,6 +35,10 @@ void interrupt(int sig){
     }
 }
 
+//void stop(int sig){
+//    cout << endl << "Stopped" << endl;
+//}
+
 void readCommands(string str);
 int conjunct(int n, stringstream& ss, const Tok::iterator &it, bool didExtra = false);
 void skipCommand(Tok::iterator &it, Tok &tokens);
@@ -53,6 +57,11 @@ int main(){
         perror("signal");
         exit(-1);
     }
+
+//    if(signal(SIGTSTP, stop) == SIG_ERR){
+//        perror("signal stop");
+//        exit(-1);
+//    }
 
     bool hasDirectory = true;
 
