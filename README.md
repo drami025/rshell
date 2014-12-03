@@ -51,6 +51,9 @@ README.md
 rshell.cpp
 ls.cpp
 cp.cpp
+mv.cpp
+rm.cpp
+Timer.h
 
 ```
 ```
@@ -59,6 +62,7 @@ cp.cpp
 exec.script
 ls.script
 pipe.script
+signals.script
 ```
 
 How to run the file
@@ -99,3 +103,4 @@ Bugs & Fixes
 * Some folders do not appear alphabetically when using recursive flag ``-R``
 * Bug with reading comments on chained IO redirection with piping.
 * String redirection ``<<<`` not fully functional as of now. Please avoid using this function.
+* Directory path on the command line is formatted like that of Ubuntu operating systems as opposed to others like CentOS. This means path in on the same line where commands are inputted, as opposed to above user and host name.
