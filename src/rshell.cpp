@@ -643,12 +643,22 @@ void splitString(char** args, stringstream& ss, int n){
 
     string *str = new string[n];
 
+    string home = "";
+
+    if((home = getenv("HOME")) == ""){
+        perror("getenv splitString");
+    }
+
     for(int i = 0; i < n; i++){
 
         ss >> str[i];
 
-        if(str[i] != "cd" && i == 0 && str[i] != "exit"){
+        if(str[i] != "cd" && i == 0 && str[i] != "exit" && (str[i].find("/") == string::npos)){
             str[i] = findPath(str[i]); 
+        }
+
+        if(i == 1 && (str[i] == "~" || str[i] == "~/" || str[i] == "$HOME" || str[i] == "$HOME/")){
+            str[i] = home;
         }
 
         args[i] = (char*) str[i].c_str();

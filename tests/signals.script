@@ -1,0 +1,56 @@
+Script started on Tue 02 Dec 2014 10:20:03 PM PST
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw3/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ bin/rshell #beginning testing of my rshell. I let[Kft a space before and after to[K[K[K my rshell program to help separate native  [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[Kthe nat ive BASH shell from my rshell
+
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ cat src/rhs  shell.cpp | grep execvp #this will w show that I do not use execvp anywhere throughout this pgr  rogram  . Instead I used exev cv and parse all the directore ies in the PATH
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ cat c src/s rhsel    shell.cpp | grep execv #Obje  serve how ther e  e was no output above. Now I will show I only use exev cv
+            if(-1 == execv((const char*) args[0], (char* const*) args)){
+            if(-1 == execv((const char*) args[0], (char* const*) args)){
+                perror("execv in pipe");
+            if(-1 == execv((const char*) args[0], (char* const*) args)){
+                perror("execv in pipe");
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ ls #Thus ,  , executables like "ls" come from "/ u / /usr/bin"
+bin  checksyscalls.sh  config.sh  LICENSE  Makefile  README.md	rmcomments.sh  src  tests
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ bin/rshell #I can even run                The fact that I can run ex          run executables from directories in the PATH WILL      wl ill not interfere whel n calling executables elsewhere. Over   bsr erve that I can call another instance of my rshell from here.
+
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ #this is another instanc eof      e of my rshell g prg oga ramn 
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ exit
+
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ # make #even w "make w  " will work from here
+mkdir -p bin/
+g++ -Wall -Werror -ansi -pedantic ./src/rshell.cpp -o ./bin/rshell
+g++ -Wall -Werror -ansi -pedantic ./src/ls.cpp -o ./bin/ls
+g++ -Wall -Werror -ansi -pedantic ./src/cp.cpp -o ./bin/cp
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ #I will now testi  the handling of the interrupt signal, which should not interrup        stop my program.
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ ^C
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ #A new line was outputted and I am still in my rshell
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ cat #cat    "cat" will run continuously w if no parameters o are put in. I can interrupt this prog cess without interrupting my rshell
+^C
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ #This is sitll    till my rshell program
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ cd tests #now to tell  st the functionality of "cd"
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell/tests$ #Obj    ls #o Observe how I am now in a new dr irectory and how files within this directory are outputted with "ls"
+a.out  exec.script  loop  loop.cpp  ls.script  ls.script~  pipe.script	signals.script	testEnv.cpp
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell/tests$ cd ../../.. #I can also chain directories together
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100$ cd hw3 
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3$ cd ../h2 w2/rshell #I can trav        cd to any directory, given the prog per relative path
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw2/rshell$ cd ../   #I can even cd into the home    HOME path when given no parameters
+daniel@daniel-Aspire-V5-471P:~$ cd Documenst  ts
+daniel@daniel-Aspire-V5-471P:~/Documents$ cd ~/ #I can change to the home directory given any   "~" si ymbol
+daniel@daniel-Aspire-V5-471P:~$ cd Documents
+daniel@daniel-Aspire-V5-471P:~/Documents$ cd ~
+daniel@daniel-Aspire-V5-471P:~$ cd Documents
+daniel@daniel-Aspire-V5-471P:~/Documents$ cd # $hom   HOME #I can change to the home directory given the hom   HOME path variable as well
+daniel@daniel-Aspire-V5-471P:~$ cd Documents
+daniel@daniel-Aspire-V5-471P:~/Documents$ cd $HOME/
+daniel@daniel-Aspire-V5-471P:~$ CD  cd lskdjfsdljk #S cd will output an error message given an incorrect directory nat me
+chdir: No such file or directory
+daniel@daniel-Aspire-V5-471P:~$ cd Documents/lksdjf #cd will a output an error message given an incorrect path as well
+chdir: No such file or directory
+daniel@daniel-Aspire-V5-471P:~$ cd Documents/Programming/cs1	00/hw2 3
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3$ #Thus concludes my  s t  test cases
+daniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3$ exit #exiting my rshell. There will be a spca  ace below to separae te my rshell from m normal BASH shell
+
+]0;daniel@daniel-Aspire-V5-471P: ~/Documents/Programming/cs100/hw3/rshelldaniel@daniel-Aspire-V5-471P:~/Documents/Programming/cs100/hw3/rshell$ exit
+exit
+
+Script done on Tue 02 Dec 2014 10:38:39 PM PST
