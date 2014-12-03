@@ -104,3 +104,4 @@ Bugs & Fixes
 * Bug with reading comments on chained IO redirection with piping.
 * String redirection ``<<<`` not fully functional as of now. Please avoid using this function.
 * Directory path on the command line is formatted like that of Ubuntu operating systems as opposed to others like CentOS. This means path in on the same line where commands are inputted, as opposed to above user and host name.
+* Putting in environment variables will not output there value
